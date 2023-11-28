@@ -1,7 +1,16 @@
 import './bootstrap';
 
-import Alpine from 'alpinejs';
 
-window.Alpine = Alpine;
+// import 'https://unpkg.com/alpinejs'
 
-Alpine.start();
+import 'flowbite';
+
+import Alpine from 'alpinejs'
+
+window.Alpine = Alpine
+
+Alpine.start()
+
+
+
+
