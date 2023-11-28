@@ -1,7 +1,7 @@
 <div class="grid lg:grid-rows-2 lg:grid-cols-4 mt-5  lg:grid-flow-col">
 
     <div>
-        <img src="{{asset('images/img (1).jpg') }}" alt=""/>
+        <img draggable="false" src="{{asset('images/img (1).jpg') }}" alt=""/>
     </div>
 
     <div class="m-4 flex items-center text-center">
@@ -18,7 +18,7 @@
     </div>
 
     <div class="lg:hidden">
-        <img src="{{asset('images/img (1).jpg') }}" alt=""/>
+        <img draggable="false" src="{{asset('images/img (1).jpg') }}" alt=""/>
     </div>
 
     <div class="m-4 flex items-center text-center">
@@ -35,12 +35,12 @@
 
 
     <div class="max-lg:hidden">
-        <img src="{{asset('images/img (2).jpg') }}" alt=""/>
+        <img draggable="false" src="{{asset('images/img (2).jpg') }}" alt=""/>
     </div>
 
 
     <div>
-        <img src="{{asset('images/img (2).jpg') }}" alt=""/>
+        <img draggable="false" src="{{asset('images/img (2).jpg') }}" alt=""/>
     </div>
 
 
@@ -57,7 +57,7 @@
     </div>
 
     <div class="lg:hidden">
-        <img src="{{asset('images/img (3).jpg') }}" alt=""/>
+        <img draggable="false" src="{{asset('images/img (3).jpg') }}" alt=""/>
     </div>
 
     <div class="m-4 flex items-center text-center">
@@ -74,7 +74,7 @@
 
 
     <div class="max-lg:hidden">
-        <img src="{{asset('images/img (4).jpg') }}" alt=""/>
+        <img draggable="false" src="{{asset('images/img (4).jpg') }}" alt=""/>
     </div>
 
 
