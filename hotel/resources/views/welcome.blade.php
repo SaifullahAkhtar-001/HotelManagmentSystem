@@ -21,6 +21,7 @@
     @include('sections.interior-section')
     @include('sections.amenities-section')
     @include('sections.rooms-section')
+    @include('sections.testimonial-section')
     @include('sections.footer-section')
 </div>
 
