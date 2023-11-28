@@ -35,10 +35,10 @@
 
             <div class="flex justify-center items-center bg-white rounded">
                 <input name="start" type="date" for="check_in"
-                       class="placeholder-gray-700  text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 pe-6 p-2.5">
+                       class="placeholder-gray-700  text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                 <span class="text-black text-2xl ">-</span>
                 <input name="end" type="date" for="check_out"
-                       class=" placeholder-gray-700 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 pe-6 p-2.5 ">
+                       class=" placeholder-gray-700 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
             </div>
             <div>
                 <button type="button"

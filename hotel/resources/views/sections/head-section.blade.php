@@ -1,12 +1,6 @@
 <div id="home" class="relative bg-opacity-50 bg-cover h-[100vh] bg-stone-300 text-white"
-<<<<<<< Updated upstream
     style="background-image: url('{{ asset('images/hotel.jpg') }}');">
-    <div class="h-full  backdrop-blur-sm backdrop-contrast-50 backdrop-opacity-60">
-        <x-nav />
-        <div class="h-[90vh] max-w-6xl pt-[15vh] mx-auto flex flex-col items-center gap-6 text-center">
-            <p class="text-xl font-light">Welcome To</p>
-            <hr class="w-10" />
-     style="background-image: url('{{ asset('images/hotel.jpg') }}');">
+
     <div class="h-full  backdrop-blur-sm backdrop-contrast-50 backdrop-opacity-80">
         <x-nav/>
         <div class="h-[90vh] max-w-6xl pt-[15vh] mx-auto flex flex-col items-center gap-6 text-center">
