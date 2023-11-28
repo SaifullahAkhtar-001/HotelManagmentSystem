@@ -89,10 +89,10 @@
             </div>
 
             <div class="flex flex-col gap-4 max-sm:justify-center max-sm:items-center">
-                <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+                <h6 class=" flex justify-center font-semibold uppercase md:justify-start">
                     GET NOTIFICATION
                 </h6>
-                <hr class="w-16 max-sm:mx-auto mt-4 border-b-2 border-blue-400"/>
+                <hr class="w-16 max-sm:mx-auto border-b-2 border-blue-400"/>
                 <form>
                     <div class="mb-4 mt-2">
 
@@ -115,7 +115,7 @@
             </div>
             <!-- Contact section -->
             <div class="flex flex-col gap-4 max-sm:justify-center max-sm:items-center">
-                <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+                <h6 class="flex justify-center font-semibold uppercase md:justify-start">
                     EXPLORE
                 </h6>
                 <hr class="w-16 max-sm:mx-auto border-b-2 border-blue-400"/>

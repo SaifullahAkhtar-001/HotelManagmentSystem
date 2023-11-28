@@ -10,7 +10,7 @@
             description="Fashion axe kogi yuccie, ramps shabby chic direct trade before they sold out
                 distillery bicycle rights. Slow-carb +1 quinoa VHS. +1 brunch trust fund, meggings chartreuse
                 sustainable everyday carry tumblr hoodie tacos tilde ramps post-ironic fixie." />
-        <x-room-card image="{{ asset('images/room.jpg') }}" title="Delux Rooms" price="$120"
+        <x-room-card image="{{ asset('images/img (2).jpg') }}" title="Delux Rooms" price="$120"
             description="Fashion axe kogi yuccie, ramps shabby chic direct trade before they sold out
                 distillery bicycle rights. Slow-carb +1 quinoa VHS. +1 brunch trust fund, meggings chartreuse
                 sustainable everyday carry tumblr hoodie tacos tilde ramps post-ironic fixie." />
