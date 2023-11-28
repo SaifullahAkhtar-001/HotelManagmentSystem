@@ -3,7 +3,8 @@
 <article
     class="shadow-2xl p-2 rounded-xl mx-auto pb-5 max-w-xl max-h-md transform duration-500 hover:-translate-y-1 cursor-pointer group">
     <div class="max-h-[28rem] overflow-hidden">
-        <img draggable="false" class="rounded-xl transform duration-300 group-hover:scale-110" src="{{ $image }}" alt="">
+        <img draggable="false" class="rounded-xl transform duration-300 group-hover:scale-110" src="{{ $image }}"
+            alt="">
     </div>
     <div class="mx-4">
         <div class="flex justify-between my-5 ">
