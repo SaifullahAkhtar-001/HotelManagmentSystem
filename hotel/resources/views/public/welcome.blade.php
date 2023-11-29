@@ -17,12 +17,12 @@
 
 <div>
 
-    @include('sections.head-section')
-    @include('sections.interior-section')
-    @include('sections.amenities-section')
-    @include('sections.rooms-section')
-    @include('sections.testimonial-section')
-    @include('sections.footer-section')
+    @include('public.sections.head-section')
+    @include('public.sections.interior-section')
+    @include('public.sections.amenities-section')
+    @include('public.sections.rooms-section')
+    @include('public.sections.testimonial-section')
+    @include('public.sections.footer-section')
 </div>
 
 </body>
