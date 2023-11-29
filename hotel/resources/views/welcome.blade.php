@@ -19,8 +19,10 @@
 
     @include('sections.head-section')
     @include('sections.interior-section')
+    @admin
     @include('sections.amenities-section')
     @include('sections.rooms-section')
+    @endadmin
     @include('sections.testimonial-section')
     @include('sections.footer-section')
 </div>

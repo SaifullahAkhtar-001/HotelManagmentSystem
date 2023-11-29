@@ -9,7 +9,7 @@ export default {
     extend: {},
   },
   plugins: [
-      "./node_modules/flowbite/**/*.js"
+      "./node_modules/flowbite/**/*.js",
   ],
 }
 

@@ -1,11 +1,11 @@
-<div class="sm:h-[70vh] h-fit sm:p-28 p-4">
-    <div class="max-w-3xl mx-auto">
+<div class="sm:h-[70vh] h-fit  p-4">
+    <div class="max-w-7xl mx-auto">
 
 
 
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
-            <div class="relative h-56 overflow-hidden rounded-lg md:h-[28rem]">
+            <div class="relative h-56 overflow-hidden rounded-lg md:h-[35rem]">
                 <!-- Item 1 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <img src="{{asset('images/img (1).jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">

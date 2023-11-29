@@ -1,17 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.owl-prev {
-    color: white !important;
-    font-size: 70px !important;
-    position: absolute;
-    top: 40%;
-    left: 0;
-}
-.owl-next {
-    color: white !important;
-    font-size: 70px !important;
-    position: absolute;
-    top: 40%;
-    right: 0;
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
