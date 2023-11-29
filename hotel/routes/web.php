@@ -18,10 +18,10 @@ Route::get('/', function () {
     return view('public.welcome',[
         'foo'=>'Hello',
     ]);
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
