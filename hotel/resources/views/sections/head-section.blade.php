@@ -10,7 +10,8 @@
             <p class="text-lg font-light">Tofu helvetica leggings tattooed. Skateboard blue bottle green juice, brooklyn
                 cardigan kitsch <br>fap
                 narwhal
-                organic flexitarian.</p>
+                organic flexitarian.
+            </p>
             <hr class="w-24">
             <div class="sm:hidden">
                 <x-responsive-search />
