@@ -15,6 +15,7 @@
             <hr class="w-24">
             <div class="sm:hidden">
                 <x-responsive-search />
+
             </div>
         </div>
         <div class="max-sm:hidden">
