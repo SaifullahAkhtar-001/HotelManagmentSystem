@@ -10,9 +10,17 @@ class DashboardController extends Controller
     {
         return view('dashboard.pages.dashboard');
     }
-    public function showHotelSettings()
+    public function showHotelGeneralSettings()
     {
-        return view('dashboard.pages.hotelSettings');
+        return view('dashboard.pages.hotelgeneralsettings');
+    }
+    public function showHotelInteriorSettings()
+    {
+        return view('dashboard.pages.hotelinteriorsettings');
+    }
+    public function showHotelAmenitiesSettings()
+    {
+        return view('dashboard.pages.hotelamenitiessettings');
     }
 
 

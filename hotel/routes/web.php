@@ -24,9 +24,12 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-Route::get('/hotelsettings', [DashboardController::class, 'showHotelSettings'])
-    ->middleware(['auth', 'verified'])
-    ->name('hotelSettings');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/hotelsettings/general', [DashboardController::class, 'showHotelGeneralSettings'])->name('hotelgeneralsettings');
+    Route::get('/hotelsettings/interior', [DashboardController::class, 'showHotelInteriorSettings'])->name('hotelinteriorsettings');
+    Route::get('/hotelsettings/amenities', [DashboardController::class, 'showHotelAmenitiesSettings'])->name('hotelamenitiessettings');
+});
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard.pages.dashboard');

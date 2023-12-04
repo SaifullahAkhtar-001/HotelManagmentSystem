@@ -214,8 +214,8 @@
                      x-transition:leave-end="transform opacity-0 scale-95"
                      class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
-                        <a class="font-semibold {{ request()->routeIs('hotelSettings') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                           href="{{ route('hotelSettings') }}">Hotel Settings</a>
+                        <a class="font-semibold {{ request()->is('hotelsettings/*') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                           href="{{route('hotelgeneralsettings')}}">Hotel Settings</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            href="#">Link #2</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
