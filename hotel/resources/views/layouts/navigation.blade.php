@@ -119,7 +119,7 @@
         </div>
         <nav :class="{'block': open, 'hidden': !open}"
              class="relative flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
-            <div
+            <a href="{{route('dashboard')}}"
                 class="font-semibold {{ request()->routeIs('dashboard') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm text-gray-900 rounded-lg   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -127,10 +127,9 @@
                         stroke="#5D6679" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
 
-                <a class=""
-                   href="{{route('dashboard')}}">Dashboard</a>
-            </div>
-            <div
+                <span class="">Dashboard</span>
+            </a>
+            <a href="#"
                 class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -138,10 +137,9 @@
                         stroke="#5D6679" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
 
-                <a class=""
-                   href="#">Front Desk</a>
-            </div>
-            <div
+                <span class="">Front Desk</span>
+            </a>
+            <a href="#"
                 class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -149,10 +147,9 @@
                         stroke="#5D6679" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
 
-                <a class=""
-                   href="#">Guest</a>
-            </div>
-            <div
+                <span class="">Guest</span>
+            </a>
+            <a href="#"
                 class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_226_8888)">
@@ -167,10 +164,9 @@
                     </defs>
                 </svg>
 
-                <a class=""
-                   href="#">Rooms</a>
-            </div>
-            <div
+                <span>Rooms</span>
+            </a>
+            <a href="#"
                 class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg     focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -180,10 +176,9 @@
                           stroke-linejoin="round"/>
                 </svg>
 
-                <a class=""
-                   href="#">Rooms</a>
-            </div>
-            <div
+                <span>Rooms</span>
+            </a>
+            <a href="#"
                 class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg     focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -191,9 +186,8 @@
                         stroke="#5D6679" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
 
-                <a class=""
-                   href="#">Rates</a>
-            </div>
+                <span class="">Rates</span>
+            </a>
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
                         class="flex items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:block   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
