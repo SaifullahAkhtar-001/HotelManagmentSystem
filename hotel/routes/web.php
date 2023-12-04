@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-Route::get('/settings', [DashboardController::class, 'showHotelSettings'])
+Route::get('/hotelsettings', [DashboardController::class, 'showHotelSettings'])
     ->middleware(['auth', 'verified'])
     ->name('hotelSettings');
 

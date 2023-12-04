@@ -28,6 +28,16 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+            //check if the user has hotel
+//        if (Auth::check()) {
+//            $user = Auth::user();
+//
+//            // Check if the user's name is 'test'
+//            if ($user->name == 'test') {
+//                // Redirect to createhotel.blade.php
+//                return redirect('/hotelsettings');
+//            }
+//        }
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
