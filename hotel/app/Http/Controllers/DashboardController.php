@@ -8,19 +8,19 @@ class DashboardController extends Controller
 {
     public function showDashboard()
     {
-        return view('dashboard.pages.dashboard');
+        return view('dashboard.dashboard');
     }
     public function showHotelGeneralSettings()
     {
-        return view('dashboard.pages.hotelgeneralsettings');
+        return view('dashboard.settings.hotelgeneralsettings');
     }
     public function showHotelInteriorSettings()
     {
-        return view('dashboard.pages.hotelinteriorsettings');
+        return view('dashboard.settings.hotelinteriorsettings');
     }
     public function showHotelAmenitiesSettings()
     {
-        return view('dashboard.pages.hotelamenitiessettings');
+        return view('dashboard.settings.hotelamenitiessettings');
     }
 
 
