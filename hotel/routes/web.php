@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreatehotelController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/hotelsettings/general', [DashboardController::class, 'showHotelGeneralSettings'])->name('hotelgeneralsettings');
     Route::get('/hotelsettings/interior', [DashboardController::class, 'showHotelInteriorSettings'])->name('hotelinteriorsettings');
     Route::get('/hotelsettings/amenities', [DashboardController::class, 'showHotelAmenitiesSettings'])->name('hotelamenitiessettings');
-    Route::get('/createhotel', [CreatehotelController::class, 'showform'])->name('createhotel');
+    Route::get('/createhotel', [HotelController::class, 'showForm'])->name('createhotel');
 
     Route::get('/rooms', [RoomController::class, 'showRooms'])->name('showroom');
 });

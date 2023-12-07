@@ -29,16 +29,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         //check if the user has hotel
-//        if (Auth::check()) {
-//            $user = Auth::user();
-//
-//            // Check if the user's name is 'test'
-//            if ($user->name == 'test') {
-//                // Redirect to createhotel.blade.php
-//                return redirect('/hotelsettings');
-//            }
-//        }
+        if (Auth::check()) {
+            $user = Auth::user();
 
+            // Check if the user's name is 'test'
+            if ($user->role == 'admin' && $user->hasHotel == 0) {
+                // Redirect to createhotel.blade.php
+                return redirect('/createhotel');
+            }
+        }
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

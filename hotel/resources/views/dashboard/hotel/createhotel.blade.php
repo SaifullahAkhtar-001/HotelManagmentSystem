@@ -14,14 +14,15 @@
     </h1>
 
 
-    <form class="max-w-4xl">
-        <x-hotel-input for="hotel-name" title="Hotel Name" type="text"/>
-        <x-hotel-textarea for="short-description" title="Short Description"/>
-        <x-hotel-textarea for="description" title="Description"/>
-        <x-hotel-input for="email" title="Email" type="email"/>
-        <x-hotel-input for="phone" title="Phone" type="number"/>
-        <x-hotel-input for="address" title="Address" type="text"/>
-        <x-hotel-input for="zipcode" title="Zip Code" type="number"/>
+    <form method="POST" action="" class="max-w-4xl">
+        @csrf
+        <x-hotel-input name="hotel-name" title="Hotel Name" type="text"/>
+        <x-hotel-textarea name="short-description" title="Short Description"/>
+        <x-hotel-textarea name="description" title="Description"/>
+        <x-hotel-input name="email" title="Email" type="email"/>
+        <x-hotel-input name="phone" title="Phone" type="number"/>
+        <x-hotel-input name="address" title="Address" type="text"/>
+        <x-hotel-input name="zipcode" title="Zip Code" type="number"/>
         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Hotel</button>
     </form>
 

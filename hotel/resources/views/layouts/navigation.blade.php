@@ -176,7 +176,7 @@
                           stroke-linejoin="round"/>
                 </svg>
 
-                <span>Rooms</span>
+                <span>Hotel</span>
             </a>
             <a href="#"
                 class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg     focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
