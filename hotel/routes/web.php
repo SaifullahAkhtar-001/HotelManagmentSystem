@@ -3,8 +3,11 @@
 use App\Http\Controllers\CreatehotelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\notHotelController;
+use App\Http\Controllers\HotelSettingsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
+use App\Models\Hotel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('public.welcome', [
-        'foo' => 'Hello',
+        'hotel' => Hotel::first(),
     ]);
 })->name('home');
 
@@ -29,17 +32,15 @@ Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
     ->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/hotelsettings/general', [DashboardController::class, 'showHotelGeneralSettings'])->name('hotelgeneralsettings');
-    Route::get('/hotelsettings/interior', [DashboardController::class, 'showHotelInteriorSettings'])->name('hotelinteriorsettings');
-    Route::get('/hotelsettings/amenities', [DashboardController::class, 'showHotelAmenitiesSettings'])->name('hotelamenitiessettings');
-    Route::get('/createhotel', [HotelController::class, 'showForm'])->name('createhotel');
+    Route::get('/hotel-hotel-settings/general', [HotelSettingsController::class, 'general'])->name('hotel-settings.general');
+    Route::get('/hotel-hotel-settings/interior', [HotelSettingsController::class, 'interior'])->name('hotel-settings.interior');
+    Route::get('/hotel-hotel-settings/amenities', [HotelSettingsController::class, 'amenities'])->name('hotel-settings.amenities');
+
+
+    Route::resource('hotel', HotelController::class);
 
     Route::get('/rooms', [RoomController::class, 'showRooms'])->name('showroom');
 });
-
-//Route::get('/dashboard', function () {
-//    return view('dashboard.pages.dashboard');
-//})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {

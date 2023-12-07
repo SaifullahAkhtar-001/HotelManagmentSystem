@@ -1,5 +1,5 @@
 <nav class="flex border-b-2 w-full p-2 gap-8 items-center">
-    <x-subnavlinks path="{{route('hotelgeneralsettings')}}" title="Hotel General Settings" active="hotelgeneralsettings"/>
-    <x-subnavlinks path="{{route('hotelinteriorsettings')}}" title="Hotel Interior Settings" active="hotelinteriorsettings"/>
-    <x-subnavlinks path="{{route('hotelamenitiessettings')}}" title="Hotel Amenities Settings" active="hotelamenitiessettings"/>
+    <x-subnavlinks path="{{route('hotel-settings.general')}}" title="Hotel General Settings" active="hotel-settings.general"/>
+    <x-subnavlinks path="{{route('hotel-settings.interior')}}" title="Hotel Interior Settings" active="hotel-settings.interior"/>
+    <x-subnavlinks path="{{route('hotel-settings.amenities')}}" title="Hotel Amenities Settings" active="hotel-settings.amenities"/>
 </nav>

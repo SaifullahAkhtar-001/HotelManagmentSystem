@@ -6,7 +6,7 @@
         <div class="h-[90vh] max-w-6xl pt-[25vh] mx-auto flex flex-col items-center gap-6 text-center">
             <p class="text-xl font-light">Welcome To</p>
             <hr class="w-12">
-            <h1 class="text-6xl mb-4">Hotel Dominic Parks</h1>
+            <h1 class="text-6xl mb-4">{{$hotel->hotel_name}}</h1>
             <p class="text-lg font-light">Tofu helvetica leggings tattooed. Skateboard blue bottle green juice, brooklyn
                 cardigan kitsch <br>fap
                 narwhal

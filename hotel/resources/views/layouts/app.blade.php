@@ -20,6 +20,7 @@
 
             <!-- Page Content -->
             <main class="md:flex-1 p-6">
+                <x-flash/>
                 {{ $slot }}
             </main>
         </div>

@@ -8,6 +8,6 @@ class RoomController extends Controller
 {
     public function showRooms()
     {
-        return view('dashboard.rooms.showrooms');
+        return view('dashboard.rooms.index');
     }
 }

@@ -1,103 +1,3 @@
-{{--<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">--}}
-{{--    <!-- Primary Navigation Menu -->--}}
-{{--    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">--}}
-{{--        <div class="flex justify-between h-16">--}}
-{{--            <div class="flex">--}}
-{{--                <!-- Logo -->--}}
-{{--                <div class="shrink-0 flex items-center">--}}
-{{--                    <a href="{{ route('dashboard') }}">--}}
-{{--                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-
-{{--                <!-- Navigation Links -->--}}
-{{--                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">--}}
-{{--                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">--}}
-{{--                        {{ __('Dashboard') }}--}}
-{{--                    </x-nav-link>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <!-- Settings Dropdown -->--}}
-{{--            <div class="hidden sm:flex sm:items-center sm:ms-6">--}}
-{{--                <x-dropdown align="right" width="48">--}}
-{{--                    <x-slot name="trigger">--}}
-{{--                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">--}}
-{{--                            <div>{{ Auth::user()->name }}</div>--}}
-
-{{--                            <div class="ms-1">--}}
-{{--                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">--}}
-{{--                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />--}}
-{{--                                </svg>--}}
-{{--                            </div>--}}
-{{--                        </button>--}}
-{{--                    </x-slot>--}}
-
-{{--                    <x-slot name="content">--}}
-{{--                        <x-dropdown-link :href="route('profile.edit')">--}}
-{{--                            {{ __('Profile') }}--}}
-{{--                        </x-dropdown-link>--}}
-
-{{--                        <!-- Authentication -->--}}
-{{--                        <form method="POST" action="{{ route('logout') }}">--}}
-{{--                            @csrf--}}
-
-{{--                            <x-dropdown-link :href="route('logout')"--}}
-{{--                                    onclick="event.preventDefault();--}}
-{{--                                                this.closest('form').submit();">--}}
-{{--                                {{ __('Log Out') }}--}}
-{{--                            </x-dropdown-link>--}}
-{{--                        </form>--}}
-{{--                    </x-slot>--}}
-{{--                </x-dropdown>--}}
-{{--            </div>--}}
-
-{{--            <!-- Hamburger -->--}}
-{{--            <div class="-me-2 flex items-center sm:hidden">--}}
-{{--                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">--}}
-{{--                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">--}}
-{{--                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />--}}
-{{--                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />--}}
-{{--                    </svg>--}}
-{{--                </button>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-{{--    <!-- Responsive Navigation Menu -->--}}
-{{--    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">--}}
-{{--        <div class="pt-2 pb-3 space-y-1">--}}
-{{--            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">--}}
-{{--                {{ __('Dashboard') }}--}}
-{{--            </x-responsive-nav-link>--}}
-{{--        </div>--}}
-
-{{--        <!-- Responsive Settings Options -->--}}
-{{--        <div class="pt-4 pb-1 border-t border-gray-200">--}}
-{{--            <div class="px-4">--}}
-{{--                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>--}}
-{{--                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>--}}
-{{--            </div>--}}
-
-{{--            <div class="mt-3 space-y-1">--}}
-{{--                <x-responsive-nav-link :href="route('profile.edit')">--}}
-{{--                    {{ __('Profile') }}--}}
-{{--                </x-responsive-nav-link>--}}
-
-{{--                <!-- Authentication -->--}}
-{{--<form method="POST" action="{{ route('logout') }}">--}}
-{{--    @csrf--}}
-
-{{--    <x-responsive-nav-link :href="route('logout')"--}}
-{{--                           onclick="event.preventDefault();--}}
-{{--                                        this.closest('form').submit();">--}}
-{{--        {{ __('Log Out') }}--}}
-{{--    </x-responsive-nav-link>--}}
-{{--</form>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</nav>--}}
 <nav class="flex flex-col md:flex-row md:min-h-screen">
     <div @click.away="open = false"
          class="flex flex-col md:w-56 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0"
@@ -150,7 +50,7 @@
                 <span class="">Guest</span>
             </a>
             <a href="{{route('showroom')}}"
-                class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                class="{{ request()->is('rooms') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_226_8888)">
                         <path
@@ -166,9 +66,8 @@
 
                 <span>Rooms</span>
             </a>
-            <a href="{{route('showroom')}}"
-                class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg     focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="{{route('hotel.index')}}"
+               class="{{ request()->is('hotel/*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M9.568 3H5.25C4.65326 3 4.08097 3.23705 3.65901 3.65901C3.23705 4.08097 3 4.65326 3 5.25V9.568C3 10.165 3.237 10.738 3.659 11.159L13.24 20.74C13.939 21.439 15.02 21.612 15.847 21.07C17.9286 19.7066 19.7066 17.9286 21.07 15.847C21.612 15.02 21.439 13.939 20.74 13.24L11.16 3.66C10.951 3.45077 10.7029 3.28478 10.4297 3.17154C10.1565 3.05829 9.86371 3 9.568 3Z"
                         stroke="#5D6679" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -179,7 +78,7 @@
                 <span>Hotel</span>
             </a>
             <a href="#"
-                class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg     focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M12 6V18M9 15.182L9.879 15.841C11.05 16.72 12.949 16.72 14.121 15.841C15.293 14.962 15.293 13.538 14.121 12.659C13.536 12.219 12.768 12 12 12C11.275 12 10.55 11.78 9.997 11.341C8.891 10.462 8.891 9.038 9.997 8.159C11.103 7.28 12.897 7.28 14.003 8.159L14.418 8.489M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
@@ -209,7 +108,7 @@
                      class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
                         <a class="font-semibold {{ request()->is('hotelsettings/*') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                           href="{{route('hotelgeneralsettings')}}">Hotel Settings</a>
+                           href="{{route('hotel-settings.general')}}">Hotel Settings</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            href="#">Link #2</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
