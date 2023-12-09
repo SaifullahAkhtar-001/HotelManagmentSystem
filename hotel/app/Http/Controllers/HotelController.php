@@ -12,7 +12,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        return view('dashboard.hotel.index',[
+        return view('dashboard.hotel.index', [
             'hotels' => Hotel::all(),
         ]);
     }
@@ -34,7 +34,7 @@ class HotelController extends Controller
 
         Hotel::create($attributes);
 
-        return redirect()->route('hotel.index')->with('success','Hotel Created');
+        return redirect()->route('hotel.index')->with('success', 'Hotel Created');
     }
 
     /**
@@ -54,15 +54,23 @@ class HotelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $hotel = Hotel::findOrFail($id);
+        return view('dashboard.hotel.edit', [
+            'hotel' => $hotel,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Hotel $hotel, $id)
     {
-        //
+        $attributes = $this->getAttributes();
+
+        $hotels = $hotel->where('id', $id)->get();
+
+        $hotels->update($attributes);
+        return redirect()->route('hotel.edit')->with('success', 'Post is successfully Updated 🚀 ');
     }
 
     /**

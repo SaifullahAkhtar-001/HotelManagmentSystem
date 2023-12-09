@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
             // Check if the user's name is 'test'
             if ($user->role == 'admin' && $user->hasHotel == 0) {
                 // Redirect to create.blade.php
-                return redirect('/createhotel');
+                return redirect('/hotel/create');
             }
         }
         return redirect()->intended(RouteServiceProvider::HOME);
