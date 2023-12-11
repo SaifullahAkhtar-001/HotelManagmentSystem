@@ -40,6 +40,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('hotel', HotelController::class);
 
     Route::get('/rooms', [RoomController::class, 'showRooms'])->name('showroom');
+    // routes/web.php
+
+
+
+Route::get('/hotel/settings/general', [HotelSettingsController::class, 'general'])->name('hotel.settings.general');
+//Route::put('/hotel/settings/general', [HotelSettingsController::class, 'updateGeneral'])->name('hotel.settings.general.update');
+
 });
 
 

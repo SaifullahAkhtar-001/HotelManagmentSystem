@@ -13,7 +13,7 @@ class HotelController extends Controller
     public function index()
     {
         return view('dashboard.hotel.index', [
-            'hotels' => Hotel::all(),
+            'hotels' => Hotel::where('user_id', auth()->id())->get(),
         ]);
     }
 
