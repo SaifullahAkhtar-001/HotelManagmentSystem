@@ -9,8 +9,8 @@
         @csrf
 
         <x-hotel-input name="hotel_name" value="" title="Hotel Name" type="text"/>
-        <x-hotel-textarea name="short_description" title="Short Description"/>
-        <x-hotel-textarea name="description" title="Description"/>
+        <x-hotel-textarea name="short_description" value="" title="Short Description"/>
+        <x-hotel-textarea name="description" value="" title="Description"/>
         <x-hotel-input name="email" value="" title="Email" type="email"/>
         <x-hotel-input name="phone" value="" title="Phone" type="text"/>
         <x-hotel-input name="address" value="" title="Address" type="text"/>
