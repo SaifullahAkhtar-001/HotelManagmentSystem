@@ -3,15 +3,27 @@
     <th class="px-6 py-4 font-bold text-gray-900">
         <div class="font-medium text-gray-700">{{$hotel->hotel_name}}</div>
     </th>
-    <td class="px-6 py-4">
+    @if($hotel->active)
+        <td class="px-6 py-4">
           <span
               class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
           >
             <span class="h-1.5 w-1.5 rounded-full bg-green-600"></span>
             Active
           </span>
-    </td>
-    <td class="px-6 py-4">Islamabad</td>
+        </td>
+    @else
+        <td class="px-6 py-4">
+          <span
+              class="inline-flex items-center gap-1 rounded-full bg-red-50 px-2 py-1 text-xs font-semibold text-red-600"
+          >
+            <span class="h-1.5 w-1.5 rounded-full bg-red-600"></span>
+            Disable
+          </span>
+        </td>
+    @endif
+
+    <td class="px-6 py-4">{{$hotel->city}}</td>
     <td class="px-6 py-4">
         <div class="flex gap-2">
             <span

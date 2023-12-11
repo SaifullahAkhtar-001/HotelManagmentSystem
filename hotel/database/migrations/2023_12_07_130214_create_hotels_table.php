@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->text('address');
             $table->string('city');
+            $table->boolean('active')->default(0);
             $table->timestamps();
 
             $table->foreignID('user_id')->constrained()->cascadeOnDelete();
