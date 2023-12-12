@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\settings;
 
 class Hotel extends Model
 {
@@ -13,7 +14,10 @@ class Hotel extends Model
         'id'
     ];
 
-
+    public function settings()
+    {
+        return $this->hasOne(Setting::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -44,8 +44,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
 
+
 Route::get('/hotel/settings/general', [HotelSettingsController::class, 'general'])->name('hotel.settings.general');
-//Route::put('/hotel/settings/general', [HotelSettingsController::class, 'updateGeneral'])->name('hotel.settings.general.update');
+Route::put('/hotel/settings/general', [HotelSettingsController::class, 'updateGeneral'])->name('hotel.settings.general.update');
 
 });
 
