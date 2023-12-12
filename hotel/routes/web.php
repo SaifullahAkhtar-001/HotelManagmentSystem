@@ -32,22 +32,16 @@ Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
     ->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/hotel-hotel-settings/general', [HotelSettingsController::class, 'general'])->name('hotel-settings.general');
-    Route::get('/hotel-hotel-settings/interior', [HotelSettingsController::class, 'interior'])->name('hotel-settings.interior');
-    Route::get('/hotel-hotel-settings/amenities', [HotelSettingsController::class, 'amenities'])->name('hotel-settings.amenities');
+    Route::get('/hotel-settings/general', [HotelSettingsController::class, 'general'])->name('hotel-settings.general');
+    Route::get('/hotel-settings/interior', [HotelSettingsController::class, 'interior'])->name('hotel-settings.interior');
+    Route::get('/hotel-settings/amenities', [HotelSettingsController::class, 'amenities'])->name('hotel-settings.amenities');
 
 
     Route::resource('hotel', HotelController::class);
 
     Route::get('/rooms', [RoomController::class, 'showRooms'])->name('showroom');
-    // routes/web.php
 
-
-
-
-Route::get('/hotel/settings/general', [HotelSettingsController::class, 'general'])->name('hotel.settings.general');
-Route::put('/hotel/settings/general', [HotelSettingsController::class, 'updateGeneral'])->name('hotel.settings.general.update');
-
+    Route::post('/hotel-settings/general', [HotelSettingsController::class, 'getValues'])->name('getValues');
 });
 
 

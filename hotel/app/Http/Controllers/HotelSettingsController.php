@@ -12,12 +12,30 @@ use App\Models\Settings;
 class HotelSettingsController extends Controller
 {
     public function general()
-   
-   
-    {
-        $hotel = Hotel::with('settings')->where('user_id', auth()->id())->firstOrFail();
 
-        return view('dashboard.hotel-settings.general', compact('hotel'));
+
+    {
+
+        $hotels = Hotel::where('user_id', auth()->id())->get();
+        $generalSettings = '';
+        return view('dashboard.hotel-settings.general', compact('generalSettings','hotels'));
+    }
+    public function getValues(){
+        $hotels = Hotel::where('user_id', auth()->id())->get();
+        $hotel = Hotel::find(request()->hotel_id);
+
+        $generalSettings = [
+            'hotelName' => $hotel->hotel_name,
+            'hotelAddress' => $hotel->address,
+            'contactInformation' => [
+                'phone' => $hotel->phone ,
+                'email' => $hotel->email ,
+            ],
+            'active' => $hotel->active ,
+
+        ];
+
+        return view('dashboard.hotel-settings.general', compact('generalSettings','hotels'));
     }
 
     public function updateGeneral(Request $request)

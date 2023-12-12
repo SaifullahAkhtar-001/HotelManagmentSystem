@@ -1,54 +1,38 @@
 <x-hotelSettingsSection>
-
-
-    <!-- resources/views/dashboard/hotel-settings/general.blade.php -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- resources/views/dashboard/hotel-settings/general.blade.php -->
-
-
-    <div class="container">
-        <h2 class="mt-4">General Settings</h2>
-
-        <form method="post" action="{{ route('hotel.settings.general.update') }}">
+    <div class="">
+        <h1 class="text-4xl my-8 font-bold">
+            General Settings
+        </h1>
+        <form action="{{route('getValues')}}" method="post">
             @csrf
-            @method('put')
-
-            <div class="form-group">
-                <label for="hotel_name">Hotel Name:</label>
-                <input type="text" class="form-control" name="hotel_name"
-                    value="{{ $hotel->settings->hotel_name ?? '' }}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="hotel_address">Hotel Address:</label>
-                <input type="text" class="form-control" name="hotel_address"
-                    value="{{ $hotel->settings->hotel_address ?? '' }}" required>
-            </div>
-
-            <div class="form-group">
-                <h3>Contact Information</h3>
-                <label for="phone">Phone:</label>
-                <input type="text" class="form-control" name="phone" value="{{ $hotel->settings->phone ?? '' }}"
-                    required>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" name="email" value="{{ $hotel->settings->email ?? '' }}"
-                    required>
-            </div>
-
-            <!-- Add more fields as needed -->
-
-            <button type="submit" class="btn btn-success">Save Changes</button>
+            <label>
+                <select onchange="this.form.submit()" name='hotel_id'
+                        class="py-3 px-4 pe-9 mb-5 block w-34 shadow-lg border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                    <option selected>Select the Hotel</option>
+                    @foreach($hotels as $hotel )
+                        <option value="{{$hotel->id}}">{{$hotel->hotel_name}}</option>
+                    @endforeach
+                </select>
+            </label>
         </form>
     </div>
 
+    @if($generalSettings)
 
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+        <form method="post" action="">
+            @csrf
+            @method('put')
 
+            <x-hotel-input name="hotel_name" :value="$generalSettings['hotelName']" title="Hotel Name" type="text"/>
+            <x-hotel-textarea name="address" :value="$generalSettings['hotelAddress']" title="Address"/>
+            <x-hotel-input name="email" :value="$generalSettings['contactInformation']['email']" title="Email" type="email"/>
+            <x-hotel-input name="phone" :value=" $generalSettings['contactInformation']['phone'] " title="Phone" type="text"/>
+            <x-toggle :checker="$hotel->active ? 'checked' : '' "/>
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5">Create Hotel</button>
+
+
+
+        </form>
+    @endif
 
 </x-hotelSettingsSection>
