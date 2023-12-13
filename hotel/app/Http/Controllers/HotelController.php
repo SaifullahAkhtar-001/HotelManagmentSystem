@@ -93,7 +93,7 @@ class HotelController extends Controller
             'city' => 'required',
             'active' => ''
         ]);
-        $attributes['active'] = $attributes['active'] ?? 0;
+        $attributes['active'] ??= 0;
         $attributes['user_id'] = auth()->id();
 
         return $attributes;
