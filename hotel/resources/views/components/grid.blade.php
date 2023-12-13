@@ -6,11 +6,9 @@
 
     <div class="m-4 flex items-center text-center">
         <div>
-            <h1 class="text-xl">Luxurious Rooms</h1>
+            <h1 class="text-xl">{{$hotel->amenities['amenity1']}}</h1>
             <p class="text-lg font-light">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s
+            {{$hotel->amenities['amenity1_description']}}
             <hr class="w-12 mx-auto mt-4 border-b-2 border-stone-400"/>
 
             </p>
@@ -23,11 +21,9 @@
 
     <div class="m-4 flex items-center text-center">
         <div>
-            <h1 class="text-xl">Luxurious Rooms</h1>
+            <h1 class="text-xl">{{$hotel->amenities['amenity2']}}</h1>
             <p class="text-lg font-light">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s
+                {{$hotel->amenities['amenity2_description']}}
             </p>
             <hr class="w-12 mx-auto mt-4 border-b-2 border-stone-400"/>
         </div>
@@ -46,11 +42,9 @@
 
     <div class="m-4 flex items-center text-center">
         <div>
-            <h1 class="text-xl">Luxurious Rooms</h1>
+            <h1 class="text-xl">{{$hotel->amenities['amenity3']}}</h1>
             <p class="text-lg font-light">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s
+                {{$hotel->amenities['amenity3_description']}}
             </p>
             <hr class="w-12 mx-auto mt-4 border-b-2 border-stone-400"/>
         </div>
@@ -62,11 +56,9 @@
 
     <div class="m-4 flex items-center text-center">
         <div>
-            <h1 class="text-xl">Luxurious Rooms</h1>
+            <h1 class="text-xl">{{$hotel->amenities['amenity4']}}</h1>
             <p class="text-lg font-light">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s
+                {{$hotel->amenities['amenity4_description']}}
             </p>
             <hr class="w-12 mx-auto mt-4 border-b-2 border-stone-400"/>
         </div>

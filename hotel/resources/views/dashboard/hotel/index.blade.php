@@ -18,7 +18,6 @@
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
                 @foreach($hotels as $hotel)
-                    @dd($hotel->data['b'])
                     <x-tablerow :hotel="$hotel"/>
                 @endforeach
             </tbody>

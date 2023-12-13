@@ -15,7 +15,8 @@ class Hotel extends Model
     ];
 
     protected $casts = [
-        'data' => 'json',
+        'interior' => 'json',
+        'amenities' => 'json',
     ];
 
     public function user()

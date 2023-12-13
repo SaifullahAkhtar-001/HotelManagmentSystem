@@ -50,7 +50,7 @@
 
     <!-- Main container div: holds the entire content of the footer, including four sections (TW elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. -->
     <div class="mx-6 py-10 text-center md:text-left">
-        <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div class="grid-1 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
             <div class="flex flex-col gap-4 max-sm:justify-center max-sm:items-center">
                 <h6 class="mb-4 items-center justify-center font-semibold uppercase md:justify-start">
                     ABOUT
@@ -58,9 +58,7 @@
                 </h6>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    {{$hotel->about}}
                 </p>
             </div>
 

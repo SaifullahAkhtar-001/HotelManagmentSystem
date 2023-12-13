@@ -18,8 +18,10 @@ return new class extends Migration
             $table->text('description');
             $table->string('email');
             $table->string('phone');
+            $table->string('about');
             $table->text('address');
-            $table->json('data')->nullable();
+            $table->json('interior')->nullable();
+            $table->json('amenities')->nullable();
             $table->string('city')->nullable();
             $table->boolean('active')->default(0);
             $table->timestamps();
