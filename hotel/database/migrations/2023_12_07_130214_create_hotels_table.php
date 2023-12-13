@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->text('address');
-            $table->string('city');
+            $table->json('data')->nullable();
+            $table->string('city')->nullable();
             $table->boolean('active')->default(0);
             $table->timestamps();
 

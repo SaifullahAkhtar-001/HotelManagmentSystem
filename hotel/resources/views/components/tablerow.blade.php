@@ -45,7 +45,7 @@
     </td>
     <td class="px-6 py-4">
         <div class="flex justify-center gap-4">
-            <form method="POST" action="{{ route('hotel.destroy', $hotel->id) }}">
+            <form method="POST" action="{{ route('hotels.destroy', $hotel->id) }}">
                 @csrf
                 @method('DELETE')
 
@@ -67,7 +67,7 @@
                     </svg>
                 </button>
             </form>
-            <a x-data="{ tooltip: 'Edite' }" href="{{ route('hotel.edit', $hotel->id) }}">
+            <a x-data="{ tooltip: 'Edite' }" href="{{ route('hotels.edit', $hotel->id) }}">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

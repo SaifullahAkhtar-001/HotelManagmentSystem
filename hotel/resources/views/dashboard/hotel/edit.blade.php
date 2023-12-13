@@ -5,7 +5,7 @@
         </h1>
 
 
-        <form method="POST" action="{{route('hotel.update', $hotel->id)}}" class="max-w-4xl">
+        <form method="POST" action="{{route('hotels.update', $hotel->id)}}" class="max-w-4xl">
             @csrf
             @method('PUT')
             <x-hotel-input name="hotel_name" :value="$hotel->hotel_name" title="Hotel Name" type="text"/>

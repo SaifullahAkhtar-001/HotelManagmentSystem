@@ -26,6 +26,10 @@ class DatabaseSeeder extends Seeder
              'email' => 'hotel@example.com',
              'phone' => '123-456-7890',
              'address' => '123 Main Street',
+             'data' => [
+               'a' => '1',
+                 'b'=> '2'
+             ],
              'city' => 'Cityville',
              'active' => 1,
          ]);

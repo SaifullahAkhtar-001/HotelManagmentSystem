@@ -14,10 +14,10 @@ class Hotel extends Model
         'id'
     ];
 
-    public function settings()
-    {
-        return $this->hasOne(Setting::class);
-    }
+    protected $casts = [
+        'data' => 'json',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

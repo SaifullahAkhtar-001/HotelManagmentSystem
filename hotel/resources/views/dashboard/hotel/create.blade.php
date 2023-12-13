@@ -6,7 +6,7 @@
     @foreach( $errors->all() as $errors)
     <p>{{$errors}}</p>
     @endforeach
-    <form method="POST" action="{{route('hotel.store')}}" class="max-w-4xl">
+    <form method="POST" action="{{route('hotels.store')}}" class="max-w-4xl">
         @csrf
 
         <x-hotel-input name="hotel_name" value="" title="Hotel Name" type="text"/>

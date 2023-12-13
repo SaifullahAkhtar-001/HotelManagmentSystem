@@ -66,8 +66,8 @@
 
                 <span>Rooms</span>
             </a>
-            <a href="{{route('hotel.index')}}"
-               class="{{ request()->is('hotel/*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="{{route('hotels.index')}}"
+               class="{{ request()->is('hotels*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M9.568 3H5.25C4.65326 3 4.08097 3.23705 3.65901 3.65901C3.23705 4.08097 3 4.65326 3 5.25V9.568C3 10.165 3.237 10.738 3.659 11.159L13.24 20.74C13.939 21.439 15.02 21.612 15.847 21.07C17.9286 19.7066 19.7066 17.9286 21.07 15.847C21.612 15.02 21.439 13.939 20.74 13.24L11.16 3.66C10.951 3.45077 10.7029 3.28478 10.4297 3.17154C10.1565 3.05829 9.86371 3 9.568 3Z"
                         stroke="#5D6679" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -75,7 +75,7 @@
                           stroke-linejoin="round"/>
                 </svg>
 
-                <span>Hotel</span>
+                <span>Hotels</span>
             </a>
             <a href="#"
                 class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
@@ -107,7 +107,7 @@
                      x-transition:leave-end="transform opacity-0 scale-95"
                      class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
-                        <a class="font-semibold {{ request()->is('hotelsettings/*') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        <a class="font-semibold {{ request()->is('hotel-settings/*') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            href="{{route('hotel-settings.general')}}">Hotel Settings</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            href="#">Link #2</a>

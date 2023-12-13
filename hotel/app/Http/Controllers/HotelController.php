@@ -34,7 +34,7 @@ class HotelController extends Controller
 
         Hotel::create($attributes);
 
-        return redirect()->route('hotel.index')->with('success', 'Hotel Created');
+        return redirect()->route('hotels.index')->with('success', 'Hotel Created');
     }
 
     /**
@@ -68,7 +68,7 @@ class HotelController extends Controller
         $hotel = Hotel::find($id);
         $attributes = $this->getAttributes();
         $hotel->update($attributes);
-        return redirect()->route('hotel.index')->with('success', 'Post is successfully Updated 🚀 ');
+        return redirect()->route('hotels.index')->with('success', 'Post is successfully Updated 🚀 ');
     }
 
     /**
@@ -99,4 +99,14 @@ class HotelController extends Controller
         return $attributes;
 
     }
+    public function general(){
+        return view('dashboard.hotel-settings.general');
+    }
+    public function amenities(){
+        return view('dashboard.hotel-settings.amentities');
+    }
+    public function interior(){
+        return view('dashboard.hotel-settings.interior');
+    }
+
 }
