@@ -26,21 +26,13 @@
     <td class="px-6 py-4">{{$hotel->city}}</td>
     <td class="px-6 py-4">
         <div class="flex gap-2">
-            <span
-                class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600"
-            >
-              WIFI
+            @foreach($hotel->facilities as $facility)
+                <span
+                    class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600"
+                >
+              {{$facility->name}}
             </span>
-            <span
-                class="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-1 text-xs font-semibold text-indigo-600"
-            >
-              FOOD
-            </span>
-            <span
-                class="inline-flex items-center gap-1 rounded-full bg-violet-50 px-2 py-1 text-xs font-semibold text-violet-600"
-            >
-              LAUNDRY
-            </span>
+            @endforeach
         </div>
     </td>
     <td class="px-6 py-4">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Facility;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,8 @@ class HotelController extends Controller
      */
     public function index()
     {
-        return view('dashboard.hotel.index', [
-            'hotels' => Hotel::where('user_id', auth()->id())->get(),
-        ]);
+        $hotels = Hotel::where('user_id', auth()->id())->with('facilities')->get();
+        return view('dashboard.hotel.index', compact('hotels'));
     }
 
     /**
@@ -22,7 +22,8 @@ class HotelController extends Controller
      */
     public function create()
     {
-        return view('dashboard.hotel.create');
+        $facilities =Facility::all();
+        return view('dashboard.hotel.create', compact('facilities'));
     }
 
     /**
@@ -32,7 +33,9 @@ class HotelController extends Controller
     {
         $attributes = $this->getAttributes();
 
-        Hotel::create($attributes);
+        $hotel = Hotel::create($attributes);
+
+        $hotel->facilities()->attach($request->facilities);
 
         return redirect()->route('hotels.index')->with('success', 'Hotel Created');
     }
@@ -55,19 +58,19 @@ class HotelController extends Controller
     public function edit(string $id)
     {
         $hotel = Hotel::findOrFail($id);
-        return view('dashboard.hotel.edit', [
-            'hotel' => $hotel,
-        ]);
+        $facilities = Facility::all();
+        return view('dashboard.hotel.edit',compact('hotel','facilities'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update($id)
+    public function update(Request $request,$id)
     {
         $hotel = Hotel::find($id);
         $attributes = $this->getAttributes();
         $hotel->update($attributes);
+        $hotel->facilities()->sync($request->facilities);
         return redirect()->route('hotels.index')->with('success', 'Post is successfully Updated 🚀 ');
     }
 

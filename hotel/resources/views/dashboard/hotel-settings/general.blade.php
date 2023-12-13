@@ -6,15 +6,15 @@
     </div>
 {{--        <form action="{{route('getValues')}}" method="post">--}}
 {{--            @csrf--}}
-{{--            <label>--}}
-{{--                <select onchange="this.form.submit()" name='hotel_id'--}}
-{{--                        class="py-3 px-4 pe-9 mb-5 block w-34 shadow-lg border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">--}}
-{{--                    <option selected>Select the Hotel</option>--}}
-{{--                    @foreach($hotels as $hotel )--}}
-{{--                        <option value="{{$hotel->id}}">{{$hotel->hotel_name}}</option>--}}
-{{--                    @endforeach--}}
-{{--                </select>--}}
-{{--            </label>--}}
+            <label>
+                <select onchange="this.form.submit()" name='hotel_id'
+                        class="py-3 px-4 pe-9 mb-5 block w-34 shadow-lg border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                    <option selected>Select the Hotel</option>
+                    @foreach($hotels as $hotel )
+                        <option value="{{$hotel->id}}">{{$hotel->hotel_name}}</option>
+                    @endforeach
+                </select>
+            </label>
 {{--        </form>--}}
 {{--    </div>--}}
 

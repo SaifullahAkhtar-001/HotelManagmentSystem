@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl  mx-auto">
         <h1 class="text-4xl my-12 font-bold">
-            Create Hotel
+            Edit Hotel
         </h1>
 
 
@@ -15,6 +15,13 @@
             <x-hotel-input name="phone" :value="$hotel->phone" title="Phone" type="text"/>
             <x-hotel-input name="address" :value="$hotel->address" title="Address" type="text"/>
             <x-hotel-input name="city" :value="$hotel->city" title="City" type="text"/>
+            <label for="facilities" class="block mb-2 text-sm font-medium text-gray-900">Facilities:</label>
+            @foreach($facilities as $facility)
+                <label>
+                    <input type="checkbox" name="facilities[]" value="{{ $facility->id }}" {{ in_array($facility->id, $hotel->facilities->pluck('id')->toArray()) ? 'checked' : '' }}>
+                    {{ $facility->name }}
+                </label>
+            @endforeach
             <x-toggle :checker="$hotel->active ? 'checked' : '' "/>
             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-5">Edit Hotel</button>
         </form>

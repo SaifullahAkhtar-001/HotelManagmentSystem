@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('email');
             $table->string('phone');
-            $table->string('about');
+            $table->string('about')->nullable();
             $table->text('address');
             $table->json('interior')->nullable();
             $table->json('amenities')->nullable();
