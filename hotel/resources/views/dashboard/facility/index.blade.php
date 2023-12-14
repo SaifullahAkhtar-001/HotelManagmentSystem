@@ -20,7 +20,7 @@
                         <div class="font-medium text-gray-700">{{$facility->name}}</div>
                     </th>
                     <td class="px-6 py-4">
-                        <div class="flex justify-end mr-12 gap-4">
+                        <div class="flex justify-end md:mr-12 gap-4">
                             <form method="POST" action="{{ route('facility.destroy', $facility->id) }}">
                                 @csrf
                                 @method('DELETE')

@@ -9,9 +9,9 @@
             <thead class="bg-gray-50">
             <tr>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Status</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Location</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Facilities</th>
+                <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Status</th>
+                <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Location</th>
+                <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Facilities</th>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
             </tr>
             </thead>

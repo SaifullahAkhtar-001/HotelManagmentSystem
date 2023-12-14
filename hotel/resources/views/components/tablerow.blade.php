@@ -1,10 +1,10 @@
 @props(['hotel'])
 <tr class="hover:bg-gray-50">
-    <th class="px-6 py-4 font-bold text-gray-900">
+    <th class="max-md:hidden px-6 py-4 font-bold text-gray-900">
         <div class="font-medium text-gray-700">{{$hotel->hotel_name}}</div>
     </th>
     @if($hotel->active)
-        <td class="px-6 py-4">
+        <td class="max-md:hidden px-6 py-4">
           <span
               class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
           >
@@ -13,7 +13,7 @@
           </span>
         </td>
     @else
-        <td class="px-6 py-4">
+        <td class="max-md:hidden px-6 py-4">
           <span
               class="inline-flex items-center gap-1 rounded-full bg-red-50 px-2 py-1 text-xs font-semibold text-red-600"
           >
@@ -23,7 +23,7 @@
         </td>
     @endif
 
-    <td class="px-6 py-4">{{$hotel->city}}</td>
+    <td class="max-md:hidden px-6 py-4">{{$hotel->city}}</td>
     <td class="px-6 py-4">
         <div class="flex gap-2">
             @foreach($hotel->facilities as $facility)
