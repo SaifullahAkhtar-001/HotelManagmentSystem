@@ -32,7 +32,7 @@
          x-transition:leave="transition ease-in duration-300"
          x-transition:leave-start="opacity-100"
          x-transition:leave-end="opacity-0"
-         class="fixed bg-purple-500 text-white py-4 px-8 rounded-full top-4 left-1/2 transform -translate-x-1/2 text-sm"
+         class="fixed z-[1000] bg-purple-500 text-white py-4 px-8 rounded-full top-4 left-1/2 transform -translate-x-1/2 text-sm"
          style="animation: floatIn 0.5s ease-in-out forwards;"
     >
         <p>{{ session('success') }}</p>

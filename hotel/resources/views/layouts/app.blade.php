@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,11 +18,11 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="md:flex  min-h-screen bg-gray-100">
+        <div class="md:flex  m-0 p-0 min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main class="md:flex-1 p-6">
+            <main class="md:flex-1 md:ml-56 p-6">
                 <x-flash/>
                 {{ $slot }}
             </main>

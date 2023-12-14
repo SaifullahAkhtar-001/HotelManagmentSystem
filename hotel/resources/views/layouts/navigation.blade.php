@@ -1,4 +1,4 @@
-<nav class="flex flex-col md:flex-row md:min-h-screen">
+<nav class="md:fixed md:top-0 md:left-0 md:bottom-0 flex flex-col md:flex-row md:min-h-screen">
     <div @click.away="open = false"
          class="flex flex-col md:w-56 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0"
          x-data="{ open: false }">
@@ -116,8 +116,8 @@
                      x-transition:leave-end="transform opacity-0 scale-95"
                      class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
-                        <a class="font-semibold {{ request()->is('hotel-settings/*') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                           href="{{route('hotel-settings.general')}}">Hotel Settings</a>
+                        <a class="font-semibold {{ request()->is('hotel-settings*') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                           href="{{route('hotels.settings')}}">Hotel Settings</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            href="#">Link #2</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
