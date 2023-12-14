@@ -103,12 +103,11 @@ class HotelController extends Controller
 
     }
 
-    public function settings(Request $request)
+    public function settings()
     {
-
         $hotels = Hotel::where('user_id', auth()->id())->with('facilities')->get();
-        $hotel = $hotels->first();
-        return view('dashboard.hotel.settings' ,compact('hotels', 'hotel'));
+        $hotels = $hotels->first();
+        return view('dashboard.hotel.settings' ,compact('hotels'));
     }
 
     public function save_settings(Request $request){
