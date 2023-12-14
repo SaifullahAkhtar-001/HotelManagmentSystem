@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div class="my-4">
     <label class="font-semibold block pb-2">Status</label>
     <label class="relative inline-flex items-center cursor-pointer">
     <input type="checkbox" name="active" value="1" class="sr-only peer" {{$checker}}>
