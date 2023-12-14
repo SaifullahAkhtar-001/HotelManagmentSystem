@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreatehotelController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\notHotelController;
 use App\Http\Controllers\HotelSettingsController;
@@ -38,6 +39,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     Route::resource('hotels', HotelController::class);
+
+    Route::resource('facility',FacilityController::class);
 
     Route::get('/rooms', [RoomController::class, 'showRooms'])->name('showroom');
 

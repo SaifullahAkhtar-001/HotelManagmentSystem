@@ -22,7 +22,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        $facilities =Facility::all();
+        $facilities = Facility::all();
         return view('dashboard.hotel.create', compact('facilities'));
     }
 
@@ -106,7 +106,7 @@ class HotelController extends Controller
         return view('dashboard.hotel-settings.general');
     }
     public function amenities(){
-        return view('dashboard.hotel-settings.amentities');
+        return view('dashboard.hotel-settings.amenities');
     }
     public function interior(){
         return view('dashboard.hotel-settings.interior');

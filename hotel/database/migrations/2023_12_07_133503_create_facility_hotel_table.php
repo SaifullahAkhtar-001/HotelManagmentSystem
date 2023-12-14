@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('facility_hotel', function (Blueprint $table) {
             $table->id();
             $table->foreignId('hotel_id');
-            $table->foreignId('facility_id')->constrained();
+            $table->foreignId('facility_id');
             $table->timestamps();
         });
     }
