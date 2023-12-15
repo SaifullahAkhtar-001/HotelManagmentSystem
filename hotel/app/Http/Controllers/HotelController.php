@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Facility;
 use App\Models\Hotel;
+use App\Models\ImgGallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HotelController extends Controller
 {
@@ -13,7 +15,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::where('user_id', auth()->id())->with('facilities')->get();
+        $hotels = Hotel::where('user_id', auth()->id())->with('facilities','imggallery')->get();
         return view('dashboard.hotel.index', compact('hotels'));
     }
 
@@ -34,6 +36,22 @@ class HotelController extends Controller
         $attributes = $this->getAttributes();
 
         $hotel = Hotel::create($attributes);
+
+        if ($request->hasFile('hotel_img')){
+            $image = $request->file('hotel_img');
+
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+            $path = $image->storeAs('images', $imageName, 'public');
+
+            $imageUrl = Storage::url($path);
+        }
+        ImgGallery::create([
+            'url' => $imageUrl,
+            'imagable_id' => $hotel->id,
+            'imagable_type' => Hotel::class
+        ]);
+
 
         $hotel->facilities()->attach($request->facilities);
 

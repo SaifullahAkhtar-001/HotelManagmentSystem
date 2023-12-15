@@ -6,12 +6,15 @@
         @foreach( $errors->all() as $errors)
             <p>{{$errors}}</p>
         @endforeach
-        <form method="POST" action="{{route('hotels.store')}}" class="max-w-4xl">
+        <form method="POST" action="{{route('hotels.store')}}" enctype="multipart/form-data" class="max-w-4xl">
             @csrf
 
             <x-hotel-input name="hotel_name" value="" title="Hotel Name" type="text"/>
             <x-hotel-textarea name="short_description" value="" title="Short Description"/>
             <x-hotel-textarea name="description" value="" title="Description"/>
+            <label>Hotel Image
+                <input type="file" name="hotel_img" id="" >
+            </label>
             <x-hotel-input name="email" value="" title="Email" type="email"/>
             <x-hotel-input name="phone" value="" title="Phone" type="text"/>
             <x-hotel-input name="address" value="" title="Address" type="text"/>

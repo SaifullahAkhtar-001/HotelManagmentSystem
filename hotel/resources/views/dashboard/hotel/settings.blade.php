@@ -1,6 +1,6 @@
 <x-hotelSettingsSection>
     <div class="flex-col gap-4">
-        <h1 class="text-4xl my-8 font-bold ">
+        <h1 id="general" class="text-4xl my-8 font-bold ">
             Settings
         </h1>
         @foreach( $errors->all() as $errors)
@@ -8,7 +8,7 @@
         @endforeach
         <form action="{{ route('hotels.save') }}" method="post">
             @csrf
-            <div id="general" class="text-2xl mb-4 font-semibold">General Settings</div>
+            <div class="text-2xl mb-4 font-semibold">General Settings</div>
             <x-hotel-input name="hotel_name" :value="$hotels->hotel_name" title="Hotel Name" type="text" />
             <x-hotel-textarea name="short_description" :value="$hotels->short_description" title="Short Description" />
             <x-hotel-textarea name="description" :value="$hotels->description" title="Description" />

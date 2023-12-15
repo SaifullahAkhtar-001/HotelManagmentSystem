@@ -28,10 +28,16 @@ class Hotel extends Model
     {
         return $this->belongsToMany(Facility::class);
     }
+<<<<<<< Updated upstream
     protected $fillable = ['user_id', 'name', 'address', 'location', 'contact_number', 'email', 'description', 'rooms', 'facilities'];
 
     public function rooms()
     {
         return $this->hasMany(Room::class);
+=======
+
+    public function imggallery(){
+        return $this->morphMany(ImgGallery::class,'imagable');
+>>>>>>> Stashed changes
     }
 }

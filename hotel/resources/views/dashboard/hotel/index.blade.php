@@ -17,7 +17,7 @@
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
                 @foreach($hotels as $hotel)
-                    <x-tablerow :hotel="$hotel"/>
+                    <x-hotel-tablerow :hotel="$hotel"/>
                 @endforeach
             </tbody>
         </table>

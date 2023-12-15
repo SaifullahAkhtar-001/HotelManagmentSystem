@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Hotel;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -81,6 +82,12 @@ class DatabaseSeeder extends Seeder
              'city' => 'Cityville',
              'active' => 1,
          ]);
+
+        \App\Models\ImgGallery::factory()->create([
+            'url' => 'random',
+            'imagable_id' => 1,
+            'imagable_type' => Hotel::class
+        ]);
 
         $hotel->facilities()->attach($facility);
 
