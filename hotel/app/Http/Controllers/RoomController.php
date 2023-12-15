@@ -12,7 +12,6 @@ class RoomController extends Controller
     {
         // Get all hotels related to the authenticated user
         $hotels = auth()->user()->hotels;
-
         // Get all rooms related to the hotels
         $rooms = Room::whereIn('hotel_id', $hotels->pluck('id'))->get();
 
@@ -24,6 +23,8 @@ class RoomController extends Controller
     {
         // Get all hotels related to the authenticated user
         $hotels = auth()->user()->hotels;
+
+        dd($hotels);
 
         return view('dashboard/rooms/create', compact('hotels'));
     }

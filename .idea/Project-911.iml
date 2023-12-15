@@ -5,7 +5,6 @@
       <sourceFolder url="file://$MODULE_DIR$/hotel/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/hotel/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/hotel/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
-      <sourceFolder url="file://$MODULE_DIR$/hotel/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/hotel/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/hotel/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/hotel/tests/Unit" isTestSource="true" />
@@ -123,6 +122,8 @@
       <excludeFolder url="file://$MODULE_DIR$/hotel/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/hotel/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/hotel/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/hotel/vendor/intervention/gif" />
+      <excludeFolder url="file://$MODULE_DIR$/hotel/vendor/intervention/image" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

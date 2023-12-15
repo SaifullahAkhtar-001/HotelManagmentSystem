@@ -1,7 +1,6 @@
 <div class="grid lg:grid-rows-2 lg:grid-cols-4 mt-5  lg:grid-flow-col">
-
-    <div>
-        <img draggable="false" src="{{asset('images/img (1).jpg') }}" alt=""/>
+    <div class="h-[317px] overflow-hidden relative">
+        <img draggable="false"  src="{{asset($hotel->imggallery[0]->url) }}" alt=""/>
     </div>
 
     <div class="m-4 flex items-center text-center">
@@ -15,7 +14,7 @@
         </div>
     </div>
 
-    <div class="lg:hidden">
+    <div class="lg:hidden h-[317px] overflow-hidden relative">
         <img draggable="false" src="{{asset('images/img (1).jpg') }}" alt=""/>
     </div>
 
@@ -30,12 +29,12 @@
     </div>
 
 
-    <div class="max-lg:hidden">
+    <div class="max-lg:hidden h-[317px] overflow-hidden relative">
         <img draggable="false" src="{{asset('images/img (2).jpg') }}" alt=""/>
     </div>
 
 
-    <div>
+    <div class="h-[317px] overflow-hidden relative">
         <img draggable="false" src="{{asset('images/img (2).jpg') }}" alt=""/>
     </div>
 
@@ -50,7 +49,7 @@
         </div>
     </div>
 
-    <div class="lg:hidden">
+    <div class="lg:hidden h-[317px] overflow-hidden relative">
         <img draggable="false" src="{{asset('images/img (3).jpg') }}" alt=""/>
     </div>
 
@@ -65,7 +64,7 @@
     </div>
 
 
-    <div class="max-lg:hidden">
+    <div class="max-lg:hidden h-[317px] overflow-hidden relative">
         <img draggable="false" src="{{asset('images/img (4).jpg') }}" alt=""/>
     </div>
 
