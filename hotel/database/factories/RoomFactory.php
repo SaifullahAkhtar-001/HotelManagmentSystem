@@ -14,10 +14,16 @@ class RoomFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
-    {
-        return [
-            //
-        ];
-    }
+    
+     public function definition(): array
+        {
+            return [
+                'room_number' => $this->faker->randomNumber,
+                
+                'description' => $this->faker->paragraph,
+                'status' => $this->faker->sentence,
+                
+                
+            ];
+        }
 }

@@ -1,7 +1,5 @@
 <?php
 
-// app/Http/Controllers/RoomController.php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -12,30 +10,35 @@ class RoomController extends Controller
 {
     public function index()
     {
-        $hotel = Hotel::where('user_id', auth()->id())->firstOrFail();
-        $rooms = $hotel->rooms;
+        // Get all hotels related to the authenticated user
+        $hotels = auth()->user()->hotels;
 
-        return view('rooms.index', compact('rooms'));
+        // Get all rooms related to the hotels
+        $rooms = Room::whereIn('hotel_id', $hotels->pluck('id'))->get();
+
+
+        return view('dashboard/rooms/index', compact('rooms'));
     }
 
     public function create()
     {
-        return view('rooms.create');
+        // Get all hotels related to the authenticated user
+        $hotels = auth()->user()->hotels;
+
+        return view('dashboard/rooms/create', compact('hotels'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
+            'hotel_id' => 'required|exists:hotels,id,user_id,' . auth()->id(),
             'room_number' => 'required|string',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
             // Add more validation rules as needed
         ]);
 
-        $hotel = Hotel::where('user_id', auth()->id())->firstOrFail();
-
         $room = new Room($request->all());
-        $room->hotel()->associate($hotel);
         $room->save();
 
         return redirect()->route('rooms.index')->with('success', 'Room created successfully.');
@@ -43,11 +46,21 @@ class RoomController extends Controller
 
     public function edit(Room $room)
     {
+        // Check if the room is related to the authenticated user's hotels
+        if (!$this->isUserRoom($room)) {
+            return redirect()->route('rooms.index')->with('error', 'Unauthorized.');
+        }
+
         return view('rooms.edit', compact('room'));
     }
 
     public function update(Request $request, Room $room)
     {
+        // Check if the room is related to the authenticated user's hotels
+        if (!$this->isUserRoom($room)) {
+            return redirect()->route('rooms.index')->with('error', 'Unauthorized.');
+        }
+
         $request->validate([
             'room_number' => 'required|string',
             'description' => 'nullable|string',
@@ -62,9 +75,19 @@ class RoomController extends Controller
 
     public function destroy(Room $room)
     {
+        // Check if the room is related to the authenticated user's hotels
+        if (!$this->isUserRoom($room)) {
+            return redirect()->route('rooms.index')->with('error', 'Unauthorized.');
+        }
+
         $room->delete();
 
         return redirect()->route('rooms.index')->with('success', 'Room deleted successfully.');
     }
-}
 
+    private function isUserRoom(Room $room)
+    {
+        // Check if the room's hotel is related to the authenticated user
+        return auth()->user()->hotels->contains($room->hotel);
+    }
+}

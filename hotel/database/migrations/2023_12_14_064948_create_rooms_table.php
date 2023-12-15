@@ -15,16 +15,13 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
 
         $table->id();
-        $table->unsignedBigInteger('hotel_id');
-        $table->unsignedBigInteger('room_type_id');
+        $table->foreignId('hotel_id');
+        $table->foreignId('room_type_id');
         $table->string('room_number');
         $table->string('status');
-        
         $table->text('description')->nullable();
         $table->timestamps();
 
-        $table->foreign('hotel_id')->references('id')->on('hotels');
-        $table->foreign('room_type_id')->references('id')->on('room_types');
     });
 }
 

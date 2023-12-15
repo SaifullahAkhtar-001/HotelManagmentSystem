@@ -34,10 +34,10 @@ Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('hotels', HotelController::class);
-
+    Route::resource('rooms', RoomController::class);
     Route::resource('facility',FacilityController::class);
 
-    Route::get('/rooms', [RoomController::class, 'showRooms'])->name('showroom');
+    // Route::get('/rooms', [RoomController::class, 'showRooms'])->name('showroom');
     Route::get('/abc', [HotelController::class, 'settings']);
     Route::get('/hotel-settings', [HotelController::class, 'settings'])->name('hotels.settings');
     Route::post('/hotel-settings', [HotelController::class, 'save_settings'])->name('hotels.save');
@@ -49,5 +49,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+// Route::middleware('auth')->group(function () {
+//     Route::get('/rooms/view', [RoomController::class, 'index'])->name('rooms.index');
+//     Route::post('/rooms/create', [RoomController::class, 'create'])->name('rooms.create');
+//     Route::get('/rooms/{id}/edit', [RoomController::class, 'edit'])->name('rooms.edit');
+//     Route::put('/rooms/{id}', [RoomController::class, 'update'])->name('rooms.update');
+//     Route::delete('/rooms/{id}', [RoomController::class, 'destroy'])->name('rooms.destroy');
+    
 
+// });
 require __DIR__ . '/auth.php';

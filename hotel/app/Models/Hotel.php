@@ -28,4 +28,10 @@ class Hotel extends Model
     {
         return $this->belongsToMany(Facility::class);
     }
+    protected $fillable = ['user_id', 'name', 'address', 'location', 'contact_number', 'email', 'description', 'rooms', 'facilities'];
+
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
 }
