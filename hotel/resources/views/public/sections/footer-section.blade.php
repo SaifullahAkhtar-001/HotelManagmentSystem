@@ -57,7 +57,7 @@
                     <hr class="w-16 max-sm:mx-auto mt-4 border-b-2 border-blue-400"/>
                 </h6>
 
-                <p>
+                <p class="line-clamp-5">
                     {{$hotel->about}}
                 </p>
             </div>

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
              'email' => 'test@example.com',
          ]);
         $facility =  \App\Models\Facility::factory()->create([
-            'name' => 'Wifi',
+            'name' => 'wifi',
         ]);
          $hotel = \App\Models\Hotel::factory()->create([
              'hotel_name' => 'Example Hotel',
@@ -50,6 +50,10 @@ class DatabaseSeeder extends Seeder
          ]);
 
         $hotel->facilities()->attach($facility);
+
+        $facility =  \App\Models\Facility::factory()->create([
+            'name' => 'food',
+        ]);
 
         $hotel = \App\Models\Hotel::factory()->create([
              'hotel_name' => 'Example Hotel',

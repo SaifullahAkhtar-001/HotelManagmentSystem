@@ -12,6 +12,7 @@
             <x-hotel-input name="hotel_name" :value="$hotels->hotel_name" title="Hotel Name" type="text" />
             <x-hotel-textarea name="short_description" :value="$hotels->short_description" title="Short Description" />
             <x-hotel-textarea name="description" :value="$hotels->description" title="Description" />
+            <x-hotel-textarea name="about" :value="$hotels->about" title="About" />
             <x-hotel-input name="email" :value="$hotels->email" title="Email" type="email" />
             <x-hotel-input name="phone" :value="$hotels->phone" title="Phone" type="text" />
             <x-hotel-input name="address" :value="$hotels->address" title="Address" type="text" />
