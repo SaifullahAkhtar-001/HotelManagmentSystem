@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Hotel;
+use App\Models\Roomtype;
 
 class RoomController extends Controller
 {
     public function index()
     {
-        // Get all hotels related to the authenticated user
+        
         $hotels = auth()->user()->hotels;
-        // Get all rooms related to the hotels
+        
         $rooms = Room::whereIn('hotel_id', $hotels->pluck('id'))->get();
 
 
@@ -21,50 +22,60 @@ class RoomController extends Controller
 
     public function create()
     {
-        // Get all hotels related to the authenticated user
+        
         $hotels = auth()->user()->hotels;
+        
+        $roomTypes = Roomtype::all();
 
-        return view('dashboard/rooms/create', compact('hotels'));
+        return view('dashboard.rooms.create', compact('hotels', 'roomTypes'));
     }
 
     public function store(Request $request)
     {
+    
         $request->validate([
             'hotel_id' => 'required|exists:hotels,id,user_id,' . auth()->id(),
+            'room_type_id' => 'required|exists:room_types,id',
             'room_number' => 'required|string',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
-            // Add more validation rules as needed
+            
         ]);
 
-        $room = new Room($request->all());
-        $room->save();
+        
+        Room::create($request->all());
 
+        
         return redirect()->route('rooms.index')->with('success', 'Room created successfully.');
     }
 
-    public function edit(Room $room)
-    {
-        // Check if the room is related to the authenticated user's hotels
-        if (!$this->isUserRoom($room)) {
-            return redirect()->route('rooms.index')->with('error', 'Unauthorized.');
-        }
+    
 
-        return view('rooms.edit', compact('room'));
+
+
+    public  function edit(Request $request, $id)
+    {
+        
+        $room = Room::findOrFail($id);
+
+            return redirect()->route('rooms.index');
+
+        $hotels = auth()->user()->hotels;
+        $roomTypes = RoomType::all();
+
+        return view('dashboard.rooms.edit', compact('room', 'hotels', 'roomTypes'));
     }
 
-    public function update(Request $request, Room $room)
+
+    public function update(Request $request, $id)
     {
-        // Check if the room is related to the authenticated user's hotels
-        if (!$this->isUserRoom($room)) {
-            return redirect()->route('rooms.index')->with('error', 'Unauthorized.');
-        }
+        
 
         $request->validate([
             'room_number' => 'required|string',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
-            // Add more validation rules as needed
+            
         ]);
 
         $room->update($request->all());
@@ -72,21 +83,14 @@ class RoomController extends Controller
         return redirect()->route('rooms.index')->with('success', 'Room updated successfully.');
     }
 
-    public function destroy(Room $room)
+    public function destroy(string $id)
     {
-        // Check if the room is related to the authenticated user's hotels
-        if (!$this->isUserRoom($room)) {
-            return redirect()->route('rooms.index')->with('error', 'Unauthorized.');
-        }
+       $room=Room::findOrFail($id);
 
         $room->delete();
 
         return redirect()->route('rooms.index')->with('success', 'Room deleted successfully.');
     }
 
-    private function isUserRoom(Room $room)
-    {
-        // Check if the room's hotel is related to the authenticated user
-        return auth()->user()->hotels->contains($room->hotel);
-    }
+   
 }
