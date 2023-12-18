@@ -24,8 +24,6 @@ class RoomController extends Controller
         // Get all hotels related to the authenticated user
         $hotels = auth()->user()->hotels;
 
-        dd($hotels);
-
         return view('dashboard/rooms/create', compact('hotels'));
     }
 

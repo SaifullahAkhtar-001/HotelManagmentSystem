@@ -15,7 +15,7 @@
 
             </div>
         </div>
-        <div class="max-sm:hidden">
+        <div class="max-sm:hidden ">
             @include('components.search-room')
         </div>
     </div>
