@@ -13,6 +13,14 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+<style>
+    .button-color{
+    background-color: {{$hotel->city}}
+    }
+    .button-color:hover {
+    background-color: blue;
+    }
+</style>
 <body class="antialiased">
 
 <div>

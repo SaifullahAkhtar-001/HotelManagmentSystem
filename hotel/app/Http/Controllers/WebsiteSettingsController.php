@@ -17,6 +17,5 @@ class WebsiteSettingsController extends Controller
             'showBookingFilter' => ''
         ]);
         WebsiteSettings::create($attributes);
-        dd($request);
     }
 }

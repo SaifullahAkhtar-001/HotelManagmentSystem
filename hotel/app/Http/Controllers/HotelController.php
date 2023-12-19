@@ -37,22 +37,22 @@ class HotelController extends Controller
 
         $hotel = Hotel::create($attributes);
 
-        if ($request->hasFile('hotel_img')){
-
-            $image = $request->file('hotel_img');
-
-
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-
-            $path = $image->storeAs('images', $imageName, 'public');
-
-            $imageUrl = Storage::url($path);
-        }
-        ImgGallery::create([
-            'url' => $imageUrl,
-            'imagable_id' => $hotel->id,
-            'imagable_type' => Hotel::class
-        ]);
+//        if ($request->hasFile('hotel_img')){
+//
+//            $image = $request->file('hotel_img');
+//
+//
+//            $imageName = time() . '.' . $image->getClientOriginalExtension();
+//
+//            $path = $image->storeAs('images', $imageName, 'public');
+//
+//            $imageUrl = Storage::url($path);
+//        }
+//        ImgGallery::create([
+//            'url' => $imageUrl,
+//            'imagable_id' => $hotel->id,
+//            'imagable_type' => Hotel::class
+//        ]);
 
 
         $hotel->facilities()->attach($request->facilities);
@@ -116,7 +116,7 @@ class HotelController extends Controller
             'city' => 'required',
             'active' => ''
         ]);
-        $attributes['active'] ??= 0;
+        $attributes['active'] = request()->has('active');
         $attributes['user_id'] = auth()->id();
 
         return $attributes;
