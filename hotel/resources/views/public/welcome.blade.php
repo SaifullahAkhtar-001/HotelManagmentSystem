@@ -15,7 +15,7 @@
 </head>
 <style>
     .button-color{
-    background-color: {{$hotel->city}}
+    background-color: {{$website_settings->button_color}}
     }
     .button-color:hover {
     background-color: blue;

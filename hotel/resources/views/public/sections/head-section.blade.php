@@ -15,7 +15,7 @@
 
             </div>
         </div>
-        <div class="max-sm:hidden {{ $showBookingFilter ? '' : 'hidden' }}">
+        <div class="max-sm:hidden {{ $website_settings->showBookingFilter ? '' : 'hidden' }}">
             @include('components.search-room')
         </div>
     </div>

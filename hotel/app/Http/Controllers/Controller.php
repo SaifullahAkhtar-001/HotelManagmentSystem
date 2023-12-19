@@ -17,6 +17,7 @@ class Controller extends BaseController
         $showBookingFilter = WebsiteSettings::first()->showBookingFilter;
 
         $hotel = Hotel::first();
-        return view('public.welcome',compact('hotel', 'showBookingFilter'));
+        $website_settings = WebsiteSettings::first();
+        return view('public.welcome',compact('hotel', 'website_settings'));
     }
 }

@@ -102,9 +102,11 @@ class DatabaseSeeder extends Seeder
             'description' => 'lorem lorem ......',
             'price' => '13'
         ]);
-        
-           
-    
-    
+
+        \App\Models\WebsiteSettings::factory()->create([
+            'showBookingFilter' => '1',
+            'button_color' => '#2B35AF'
+        ]);
+
     }
 }
