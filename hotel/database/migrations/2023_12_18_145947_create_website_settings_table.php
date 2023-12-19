@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('website_settings', function (Blueprint $table) {
             $table->id();
+            $table->boolean('showBookingFilter')->nullable();
             $table->timestamps();
         });
     }

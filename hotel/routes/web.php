@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HotelController;
@@ -20,11 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('public.welcome', [
-        'hotel' => Hotel::first(),
-    ]);
-})->name('home');
+Route::get('/', [Controller::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
     ->middleware(['auth', 'verified'])
@@ -34,7 +31,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('hotels', HotelController::class);
     Route::resource('rooms', RoomController::class);
     Route::resource('facility',FacilityController::class);
-    Route::resource('website-settings',WebsiteSettingsController::class);
+
+
+    Route::get('website-settings',[WebsiteSettingsController::class, 'index'])->name('website-settings.index');
+    Route::post('website-settings',[WebsiteSettingsController::class, 'update'])->name('website-settings.update');
 
     Route::get('/hotel-settings/{id}', [HotelController::class, 'settings'])->name('hotels.settings');
     Route::post('/hotel-settings', [HotelController::class, 'save_settings'])->name('hotels.save');
