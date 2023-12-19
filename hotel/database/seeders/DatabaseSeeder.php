@@ -91,5 +91,20 @@ class DatabaseSeeder extends Seeder
 
         $hotel->facilities()->attach($facility);
 
+
+        \App\Models\Roomtype::factory()->create([
+            'name' => 'Duplex',
+            'description' => 'lorem lorem ......',
+            'price' => '123'
+        ]);
+        \App\Models\Roomtype::factory()->create([
+            'name' => 'Economy',
+            'description' => 'lorem lorem ......',
+            'price' => '13'
+        ]);
+        
+           
+    
+    
     }
 }

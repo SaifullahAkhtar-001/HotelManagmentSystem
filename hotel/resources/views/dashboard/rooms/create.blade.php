@@ -31,8 +31,16 @@
 
             <x-hotel-input name="room_number" value="" title="Room Name" type="integer"/>
             <x-hotel-textarea name="description" value="" title="Description" type="string"/>
-            <x-hotel-textarea name="price" value="" title="Price" type="text"/>
-            <x-toggle checker=""/>
+            <div class="form-group">
+                <label for="status">Select Room Status:</label>
+                <select name="status" id="status" class="form-control">
+                    <option value="available">Available</option>
+                    <option value="occupied">Occupied</option>
+                    <option value="maintenance">Maintenance</option>
+                    <!-- Add more status options as needed -->
+                </select>
+            </div>
+            
             <x-submit-button value="Create Room"/>
         </form>
 

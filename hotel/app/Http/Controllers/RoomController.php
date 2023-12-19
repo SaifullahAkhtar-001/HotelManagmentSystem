@@ -17,7 +17,7 @@ class RoomController extends Controller
         $rooms = Room::whereIn('hotel_id', $hotels->pluck('id'))->get();
 
 
-        return view('dashboard/rooms/index', compact('rooms'));
+        return view('dashboard/rooms/index', compact('rooms',));
     }
 
     public function create()
@@ -26,24 +26,23 @@ class RoomController extends Controller
         $hotels = auth()->user()->hotels;
         
         $roomTypes = Roomtype::all();
+        $rooms=Room::all();
 
-        return view('dashboard.rooms.create', compact('hotels', 'roomTypes'));
+        return view('dashboard/rooms/create', compact('hotels', 'roomTypes','rooms'));
     }
 
     public function store(Request $request)
     {
     
-        $request->validate([
+       $attributes =  $request->validate([
             'hotel_id' => 'required|exists:hotels,id,user_id,' . auth()->id(),
-            'room_type_id' => 'required|exists:room_types,id',
-            'room_number' => 'required|string',
+            'room_type_id' => 'required|exists:roomtypes,id',
+            'room_number' => 'required',
             'description' => 'nullable|string',
-            'price' => 'required|numeric',
-            
+            'status'=>'required|string'
         ]);
-
         
-        Room::create($request->all());
+        Room::create($attributes);
 
         
         return redirect()->route('rooms.index')->with('success', 'Room created successfully.');
@@ -57,9 +56,6 @@ class RoomController extends Controller
     {
         
         $room = Room::findOrFail($id);
-
-            return redirect()->route('rooms.index');
-
         $hotels = auth()->user()->hotels;
         $roomTypes = RoomType::all();
 
@@ -75,6 +71,7 @@ class RoomController extends Controller
             'room_number' => 'required|string',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
+            'status'=> 'required'
             
         ]);
 
