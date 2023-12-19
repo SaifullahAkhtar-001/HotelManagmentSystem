@@ -11,14 +11,14 @@
                 <tr>
 
                     <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Room Number</th>
-                    <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">description</th>
-                    <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">status</th>
+                    <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Description</th>
+                    <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Room Type</th>
                     <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
                 </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100 border-t border-gray-100">
                     @foreach($rooms as $room)
-                        <x-hotel-tablerow :Room="$room"/>
+                        <x-room-tablerow :room="$room"/>
                     @endforeach
                 </tbody>
             </table>

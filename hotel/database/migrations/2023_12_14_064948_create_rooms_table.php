@@ -18,7 +18,6 @@ return new class extends Migration
         $table->foreignId('hotel_id');
         $table->foreignId('room_type_id');
         $table->string('room_number');
-        $table->string('status');
         $table->text('description')->nullable();
         $table->timestamps();
 

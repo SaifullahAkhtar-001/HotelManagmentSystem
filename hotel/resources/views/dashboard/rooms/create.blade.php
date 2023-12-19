@@ -31,7 +31,6 @@
 
             <x-hotel-input name="room_number" value="" title="Room Name" type="integer"/>
             <x-hotel-textarea name="description" value="" title="Description" type="string"/>
-            <x-hotel-textarea name="price" value="" title="Price" type="text"/>
             <x-toggle checker=""/>
             <x-submit-button value="Create Room"/>
         </form>
