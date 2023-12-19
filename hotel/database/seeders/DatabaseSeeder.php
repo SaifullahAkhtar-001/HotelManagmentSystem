@@ -102,5 +102,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'lorem lorem ......',
             'price' => '13'
         ]);
+        
+           
+    
+    
     }
 }

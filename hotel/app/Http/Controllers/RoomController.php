@@ -26,8 +26,9 @@ class RoomController extends Controller
         $hotels = auth()->user()->hotels;
         
         $roomTypes = Roomtype::all();
+        $rooms=Room::all();
 
-        return view('dashboard/rooms/create', compact('hotels', 'roomTypes'));
+        return view('dashboard/rooms/create', compact('hotels', 'roomTypes','rooms'));
     }
 
     public function store(Request $request)
@@ -36,8 +37,9 @@ class RoomController extends Controller
        $attributes =  $request->validate([
             'hotel_id' => 'required|exists:hotels,id,user_id,' . auth()->id(),
             'room_type_id' => 'required|exists:roomtypes,id',
-            'room_number' => 'required|string',
+            'room_number' => 'required',
             'description' => 'nullable|string',
+            'status'=>'required|string'
         ]);
         
         Room::create($attributes);
@@ -69,6 +71,7 @@ class RoomController extends Controller
             'room_number' => 'required|string',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
+            'status'=> 'required'
             
         ]);
 

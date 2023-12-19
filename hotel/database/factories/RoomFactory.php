@@ -19,7 +19,7 @@ class RoomFactory extends Factory
         {
             return [
                 'room_number' => $this->faker->randomNumber,
-                
+                'price'=>$this->faker->randomNumber,
                 'description' => $this->faker->paragraph,
                 'status' => $this->faker->sentence,
                 

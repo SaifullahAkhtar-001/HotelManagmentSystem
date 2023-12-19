@@ -24,8 +24,9 @@ class HotelController extends Controller
      */
     public function create()
     {
+        $hotels=Hotel::all();
         $facilities = Facility::all();
-        return view('dashboard.hotel.create', compact('facilities'));
+        return view('dashboard.hotel.create', compact('facilities','hotels'));
     }
 
     /**
