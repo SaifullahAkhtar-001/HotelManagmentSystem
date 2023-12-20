@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('showBookingFilter')->nullable();
             $table->string('button_color')->nullable();
+            $table->integer('nav_layout')->nullable();
             $table->timestamps();
         });
     }

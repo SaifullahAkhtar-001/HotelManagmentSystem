@@ -17,6 +17,7 @@ class WebsiteSettingsController extends Controller
         $settings = WebsiteSettings::first();
         $attributes = $request->validate([
             'button_color' => '',
+            'nav_layout' => '',
         ]);
         $attributes['showBookingFilter'] = $request->has('showBookingFilter');
         $settings->update($attributes);

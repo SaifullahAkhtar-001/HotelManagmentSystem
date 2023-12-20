@@ -2,7 +2,7 @@
     style="background-image: url('{{ asset('images/hotel.jpg') }}');">
 
     <div class="h-full  backdrop-blur-sm">
-        <x-nav />
+        <x-nav :nav_layout="$website_settings->nav_layout" />
         <div class="h-[90vh] max-w-6xl pt-[25vh] mx-auto flex flex-col items-center gap-6 text-center">
             <p class="text-xl font-light">Welcome To</p>
             <hr class="w-12">

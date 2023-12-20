@@ -105,7 +105,8 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\WebsiteSettings::factory()->create([
             'showBookingFilter' => '1',
-            'button_color' => '#2B35AF'
+            'button_color' => '#2B35AF',
+            'nav_layout' => '2',
         ]);
 
     }
