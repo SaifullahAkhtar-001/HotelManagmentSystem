@@ -1,6 +1,6 @@
 @props(['nav_layout'])
 @if($nav_layout == 1)
-<nav class="flex justify-between items-center h-[10vh] bg-transparent max-sm:mx-2 sm:max-w-6xl mx-auto">
+<nav class="flex justify-between items-center py-6 bg-transparent max-sm:mx-2 sm:max-w-6xl mx-auto">
     <a href="#home" class="text-4xl  hover:tracking-widest	transition-all cursor-pointer">
         Hotel
     </a>
@@ -36,7 +36,7 @@
 </nav>
 @elseif($nav_layout == 2)
 <nav
-    class="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+    class="z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
     <div class="px-4">
         <div class="flex items-center justify-between">
             <div class="flex shrink-0">

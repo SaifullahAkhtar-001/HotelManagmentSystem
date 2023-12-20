@@ -4,7 +4,7 @@
 
 .hover_im{
     position: absolute;
-    right: 24px;
+    right: 12px;
     display: none;
 }
 .im_wrapper:hover > .hover_im {
