@@ -17,7 +17,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased" x-data="{ isOpen: false, buttonVisible: true }">
 <a href="{{route('home')}}"
     class="bg-blue-900 shadow-2xl backdrop-filter backdrop-blur-md bg-opacity-25 transition-all z-[1001] fixed hover:bg-opacity-70 bottom-4 text-sm right-2 p-4 rounded-full font-bold hover:text-blue-50">
     Visit Website
