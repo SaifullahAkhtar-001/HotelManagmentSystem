@@ -26,3 +26,4 @@ class HotelFactory extends Factory
         ];
     }
 }
+

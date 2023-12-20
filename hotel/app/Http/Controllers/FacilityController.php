@@ -34,6 +34,7 @@ class FacilityController extends Controller
         ]);
 
         Facility::create($attributes);
+        
 
         return redirect()->route('facility.index')->with('success', 'Facility Created');
     }
@@ -78,4 +79,7 @@ class FacilityController extends Controller
         $facility->delete();
         return redirect()->back()->with('success', 'Deleted Successfully');
     }
+    
+   
 }
+

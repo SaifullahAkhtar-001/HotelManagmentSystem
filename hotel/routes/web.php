@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [Controller::class, 'index'])->name('home');
+Route::get('facility/create',[FacilityController::class,'facilityCreate'])->name('facility.create');
+
 
 Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
     ->middleware(['auth', 'verified'])

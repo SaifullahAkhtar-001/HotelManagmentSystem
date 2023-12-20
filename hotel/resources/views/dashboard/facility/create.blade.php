@@ -9,6 +9,7 @@
     <form method="POST" action="{{route('facility.store')}}" class="max-w-4xl">
         @csrf
         <x-hotel-input name="name" value="" title="Facility Name" type="text"/>
+        <input type="hidden" name="form_source" value="create_facility_page">
         <x-submit-button value="Create Facility" />
     </form>
 
