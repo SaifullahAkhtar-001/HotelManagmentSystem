@@ -176,7 +176,7 @@ class HotelController extends Controller
                 'amenity4_description' => $request->amenity4_description,
             ],
         ]);
-        return redirect()->route('hotels.settings')->with('success', 'Post is successfully Updated 🚀 ');
+        return redirect()->route('hotels.settings',['id' => $hotel->id])->with('success', 'Hotel Settings is successfully Updated 🚀 ');
 
 
 
