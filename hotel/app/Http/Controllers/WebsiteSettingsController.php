@@ -18,8 +18,9 @@ class WebsiteSettingsController extends Controller
         $attributes = $request->validate([
             'button_color' => '',
             'nav_layout' => '',
+            'booking_filter_layout' => '',
         ]);
-        $attributes['showBookingFilter'] = $request->has('showBookingFilter');
+        $attributes['show_booking_filter'] = $request->has('show_booking_filter');
         $settings->update($attributes);
 
         return redirect()->route('website-settings.index')->with('success', 'Saved');

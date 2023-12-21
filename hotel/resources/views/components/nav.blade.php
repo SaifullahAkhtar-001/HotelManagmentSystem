@@ -1,26 +1,26 @@
 @props(['nav_layout'])
 @if($nav_layout == 1)
-<nav class="flex justify-between items-center py-6 bg-transparent max-sm:mx-2 sm:max-w-6xl mx-auto">
-    <a href="#home" class="text-4xl  hover:tracking-widest	transition-all cursor-pointer">
-        Hotel
-    </a>
-    <div class="flex items-center justify-center gap-6">
-        @if (Route::has('login'))
-            @auth
-                <a href="{{ url('/dashboard') }}" class="hover:font-bold transition-all">
-                    Dashboard
-                </a>
-            @else
-                <a href="{{ route('login') }}" class="hover:font-bold transition-all">
-                    Sign In
-                </a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="hover:font-bold transition-all">
-                        Register
+    <nav class="flex justify-between items-center py-2 backdrop-blur-lg max-sm:mx-2 sm:max-w-6xl mx-auto">
+        <a href="#home" class="text-4xl  hover:tracking-widest	transition-all cursor-pointer">
+            Hotel
+        </a>
+        <div class="flex items-center justify-center gap-6">
+            @if (Route::has('login'))
+                @auth
+                    <a href="{{ url('/dashboard') }}" class="hover:font-bold transition-all">
+                        Dashboard
                     </a>
-                @endif
-            @endauth
-        @endif
+                @else
+                    <a href="{{ route('login') }}" class="hover:font-bold transition-all">
+                        Sign In
+                    </a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="hover:font-bold transition-all">
+                            Register
+                        </a>
+                    @endif
+                @endauth
+            @endif
             <li class="font-sans block lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700">
                 <a href="#" role="button" class="relative flex">
                     <svg class="w-7 h-7" fill="white" viewbox="0 0 24 24">
@@ -32,35 +32,44 @@
                     </span>
                 </a>
             </li>
-    </div>
-</nav>
+        </div>
+    </nav>
 @elseif($nav_layout == 2)
-<nav
-    class="z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
-    <div class="px-4">
-        <div class="flex items-center justify-between">
-            <div class="flex shrink-0">
-                <a aria-current="page" class="flex items-center" href="/">
-                    <img class="h-7 rounded-full w-auto" src="{{asset('images/logo.jpg')}}" alt="">
-                    <p class="sr-only">Website Title</p>
-                </a>
-            </div>
-            <div class="hidden md:flex md:items-center md:justify-center md:gap-5">
-                <a aria-current="page"
-                   class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                   href="#">How it works</a>
-                <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                   href="#">Pricing</a>
-                <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                   href="#">About</a>
-            </div>
-            <div class="flex items-center justify-end gap-3">
-                <a class="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
-                   href="/login">Sign in</a>
-                <a class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                   href="/login">Login</a>
+    <nav
+        class="z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+        <div class="px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex shrink-0">
+                    <a aria-current="page" class="flex items-center" href="/">
+                        <img class="h-7 rounded-full w-auto" src="{{asset('images/logo.jpg')}}" alt="">
+                        <p class="sr-only">Website Title</p>
+                    </a>
+                </div>
+                <div class="hidden md:flex md:items-center md:justify-center md:gap-5">
+                    <a aria-current="page"
+                       class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                       href="#">How it works</a>
+                    <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                       href="#">Pricing</a>
+                    <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                       href="#">About</a>
+                </div>
+                <div class="flex items-center justify-end gap-3">
+                    @if (Route::has('login'))
+                        @auth
+                            <a class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                               href="{{ url('/dashboard') }}">Dashboard</a>
+                        @else
+                            <a class="inline-flex items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
+                               href="{{ route('login') }}">Sign in</a>
+                            @if (Route::has('register'))
+                                <a class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                                   href="{{ route('register') }}">Register</a>
+                            @endif
+                        @endauth
+                    @endif
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 @endif

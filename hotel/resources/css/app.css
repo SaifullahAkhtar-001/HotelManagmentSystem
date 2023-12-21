@@ -5,6 +5,7 @@
 .hover_im{
     position: absolute;
     right: 12px;
+    top: 240px;
     display: none;
 }
 .im_wrapper:hover > .hover_im {
