@@ -36,7 +36,7 @@
     </nav>
 @elseif($nav_layout == 2)
     <nav
-        class="z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+        class="z-30 mx-auto w-full max-w-screen-md bg-white/50 py-3 shadow-xl hover:shadow-2xl backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
         <div class="px-4">
             <div class="flex items-center justify-between">
                 <div class="flex shrink-0">

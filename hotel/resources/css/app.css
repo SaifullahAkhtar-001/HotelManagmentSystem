@@ -11,3 +11,9 @@
 .im_wrapper:hover > .hover_im {
     display: block;
 }
+.nav_im_in{
+    display: none;
+}
+.nav_im_wrap:hover > .nav_im_in {
+    display: block;
+}

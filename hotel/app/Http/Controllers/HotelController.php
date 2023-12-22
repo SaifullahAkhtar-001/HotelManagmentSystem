@@ -38,6 +38,7 @@ class HotelController extends Controller
 
         $hotel = Hotel::create($attributes);
 
+        $errors = $request->errors();
 //        if ($request->hasFile('hotel_img')){
 //
 //            $image = $request->file('hotel_img');
@@ -108,10 +109,8 @@ class HotelController extends Controller
     public function getAttributes(): array
     {
         $attributes = request()->validate([
-            'hotel_name' => 'required',
-            'short_description' => 'required',
-            'description' => 'required',
-            'email' => 'required',
+            'hotel_name' => 'required|min:3',
+            'email' => 'required|email',
             'phone' => 'required',
             'address' => 'required',
             'city' => 'required',
