@@ -78,4 +78,13 @@ class FacilityController extends Controller
         $facility->delete();
         return redirect()->back()->with('success', 'Deleted Successfully');
     }
+    public function showfacility(){
+        return view('dashboard.hotel.createfacility');
+    }
+    public function facilityCreate(request $request){
+        $facility=new facility;
+        $facility->name=$request->name;
+        $facility->save();
+        return redirect()->route('hotels.create')->with ('success','Created Successfully');
+    }
 }

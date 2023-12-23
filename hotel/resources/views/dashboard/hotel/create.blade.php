@@ -31,9 +31,14 @@
                     </label>
                 @endforeach
             </div>
+            <div class="mb-4 mt-5">
+                <a href="{{ route('create.facility') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Facility</a>
+            </div>
+            
             </label>
             <x-toggle checker=""/>
             <x-submit-button value="Create Hotel"/>
+            
         </form>
 
     </div>
