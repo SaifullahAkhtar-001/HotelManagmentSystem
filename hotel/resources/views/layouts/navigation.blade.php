@@ -1,6 +1,6 @@
-<nav class="md:fixed md:top-0 md:left-0 md:bottom-0 flex flex-col md:flex-row md:min-h-screen">
+<nav class="md:fixed md:top-0 md:left-0 p-2 md:bottom-0 flex flex-col md:flex-row md:min-h-screen">
     <div @click.away="open = false"
-         class="flex flex-col md:w-56 text-gray-700 bg-white flex-shrink-0"
+         class="flex flex-col md:w-56 p-2 rounded-2xl shadow-xl text-gray-700 bg-white flex-shrink-0"
          x-data="{ open: false }">
         <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
             <a href="{{route('dashboard')}}"
@@ -17,7 +17,7 @@
                 </svg>
             </button>
         </div>
-        <nav :class="{'block': open, 'hidden': !open}"
+        <nav class="{'block': open, 'hidden': !open}"
              class="relative flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
             <a href="{{route('dashboard')}}"
                 class="font-semibold {{ request()->routeIs('dashboard') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm text-gray-900 rounded-lg   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
@@ -132,7 +132,7 @@
                     href="route('logout')"
                     onclick="event.preventDefault();
                                         this.closest('form').submit();"
-                    class="md:absolute flex gap-2 items-center cursor-pointer bottom-4 left-2 px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                    class="md:absolute flex gap-2 items-center cursor-pointer bottom-4 left-2 px-4 py-2 m-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
 
                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.75 6.01624C15.75 7.0108 15.3549 7.96462 14.6516 8.66789C13.9484 9.37115 12.9945 9.76624 12 9.76624C11.0054 9.76624 10.0516 9.37115 9.34833 8.66789C8.64506 7.96462 8.24998 7.0108 8.24998 6.01624C8.24998 5.02167 8.64506 4.06785 9.34833 3.36458C10.0516 2.66132 11.0054 2.26624 12 2.26624C12.9945 2.26624 13.9484 2.66132 14.6516 3.36458C15.3549 4.06785 15.75 5.02167 15.75 6.01624ZM4.50098 20.1342C4.53311 18.1666 5.33731 16.2904 6.74015 14.9103C8.14299 13.5302 10.0321 12.7567 12 12.7567C13.9679 12.7567 15.857 13.5302 17.2598 14.9103C18.6626 16.2904 19.4668 18.1666 19.499 20.1342C17.1464 21.213 14.5881 21.7697 12 21.7662C9.32398 21.7662 6.78398 21.1822 4.50098 20.1342Z" stroke="#5D6679" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

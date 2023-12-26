@@ -26,11 +26,11 @@
     class="bg-blue-900 shadow-2xl backdrop-filter backdrop-blur-md bg-opacity-25 transition-all z-[1001] fixed hover:bg-opacity-70 bottom-4 text-sm right-2 p-4 rounded-full font-bold hover:text-blue-50">
     Visit Website
 </a>
-<div class="md:flex  m-0 p-0 min-h-screen bg-gray-100">
+<div class="md:flex m-0 p-0 min-h-screen bg-gray-100">
     @include('layouts.navigation')
 
     <!-- Page Content -->
-    <main class="md:flex-1 md:ml-56 p-6">
+    <main class="md:flex-1 md:ml-56 p-10">
         <x-flash/>
         {{ $slot }}
     </main>
