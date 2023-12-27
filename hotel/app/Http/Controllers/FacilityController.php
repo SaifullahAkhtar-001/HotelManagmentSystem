@@ -68,6 +68,7 @@ class FacilityController extends Controller
     }
 
     /**
+     * helooo
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
