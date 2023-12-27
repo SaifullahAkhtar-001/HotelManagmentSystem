@@ -13,7 +13,6 @@
             <hr class="w-24">
             <div class="sm:hidden">
                 <x-responsive-search />
-
             </div>
         </div>
         <div class="w-full absolute bottom-0 max-sm:hidden {{ $website_settings->show_booking_filter ? '' : 'hidden' }}">

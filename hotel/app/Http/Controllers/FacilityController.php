@@ -29,12 +29,10 @@ class FacilityController extends Controller
      */
     public function store(Request $request)
     {
-        $attributes = $request->validate([
-            'name' => 'required'
-        ]);
+        $attributes = $this->getAttribute();
 
         Facility::create($attributes);
-        
+
 
         return redirect()->route('facility.index')->with('success', 'Facility Created');
     }
@@ -61,10 +59,9 @@ class FacilityController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
         $facility = Facility::findOrFail($id);
-        $attributes = $request->validate([
-            'name' => 'required'
-        ]);
+        $attributes = $this->getAttribute();
         $facility->update($attributes);
 
         return redirect()->route('facility.index')->with('success','Facility Updated');
@@ -79,15 +76,21 @@ class FacilityController extends Controller
         $facility->delete();
         return redirect()->back()->with('success', 'Deleted Successfully');
     }
-    
-   
+
+    public function getAttribute(){
+        $attributes = request()->validate([
+            'name' => 'required|unique:facilities'
+        ]);
+        return $attributes;
+    }
+
     public function showfacility(){
-        return view('dashboard.facility.createFacility');
+        return view('dashboard.facility.createfacility');
     }
     public function facilityCreate(request $request){
-        $facility=new facility;
-        $facility->name=$request->name;
-        $facility->save();
+        $attributes = $this->getAttribute();
+
+        Facility::create($attributes);
         return redirect()->route('hotels.create')->with ('success','Created Successfully');
     }
 }
