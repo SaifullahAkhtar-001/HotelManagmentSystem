@@ -1,8 +1,6 @@
 <x-app-layout>
 <div class="max-w-7xl  mx-auto">
-    <h1 class="text-4xl my-8 font-bold">
-        Create Facility
-    </h1>
+    <x-form.header title="Create Facility" subTitle="Here You Will Add Your Available Facility!" />
     @foreach( $errors->all() as $errors)
     <p>{{$errors}}</p>
     @endforeach
@@ -11,6 +9,8 @@
         <x-hotel-input name="name" value="" title="Facility Name" type="text"/>
         <input type="hidden" name="form_source" value="create_facility_page">
         <x-submit-button value="Create Facility" />
+        <x-form.input class="mb-8" name="name" type="name" label="Name" />
+        <x-form.submit-button value="Create Facility" />
     </form>
 
 </div>

@@ -81,5 +81,14 @@ class FacilityController extends Controller
     }
     
    
+    public function showfacility(){
+        return view('dashboard.facility.createFacility');
+    }
+    public function facilityCreate(request $request){
+        $facility=new facility;
+        $facility->name=$request->name;
+        $facility->save();
+        return redirect()->route('hotels.create')->with ('success','Created Successfully');
+    }
 }
 

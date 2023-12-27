@@ -9,7 +9,7 @@
             @csrf
             @method('PUT')
             <x-hotel-input name="name" :value="$facility->name" title="Name" type="text"/>
-            <x-submit-button value="Edit Facility" />
+            <x-form.submit-button value="Edit Facility" />
         </form>
 
     </div>

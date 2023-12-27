@@ -10,11 +10,11 @@
             @method('PUT')
             <x-hotel-input name="Room_number" :value="$room->room_number" title="Room Number" type="text"/>
             <x-hotel-textarea name="description" :value="$room->description" title="Description"/>
-            
+
             <x-hotel-input name="status" :value="$room->status" title="status" type="text"/>
-          
-            
-            <x-submit-button value="Save" />
+
+
+            <x-form.submit-button value="Save" />
         </form>
 
     </div>

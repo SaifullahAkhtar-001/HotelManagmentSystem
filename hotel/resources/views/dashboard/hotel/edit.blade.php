@@ -25,7 +25,7 @@
                 </label>
             @endforeach
             <x-toggle :checker="$hotel->active ? 'checked' : '' "/>
-            <x-submit-button value="Edit Hotel" />
+            <x-form.submit-button value="Edit Hotel" />
         </form>
 
     </div>

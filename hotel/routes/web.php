@@ -40,6 +40,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/hotel-settings/{id}', [HotelController::class, 'settings'])->name('hotels.settings');
     Route::post('/hotel-settings', [HotelController::class, 'save_settings'])->name('hotels.save');
+    Route::get('/createfacility',[FacilityController::class,'showfacility'])->name('facility.show');
+    Route::post('/createfacility',[FacilityController::class,'facilityCreate'])->name('create.facility');
 });
 
 

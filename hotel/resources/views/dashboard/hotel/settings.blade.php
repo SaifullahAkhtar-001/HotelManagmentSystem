@@ -40,7 +40,7 @@
             <x-hotel-input name="amenity4" :value="$hotels->amenities['amenity4'] ?? ''" title="Title" type="text" />
             <x-hotel-textarea name="amenity4_description" :value="$hotels->amenities['amenity4_description'] ?? ''" title="Description" />
 
-            <x-submit-button value="Save" />
+            <x-form.submit-button value="Save" />
         </form>
     </div>
 </x-hotelSettingsSection>

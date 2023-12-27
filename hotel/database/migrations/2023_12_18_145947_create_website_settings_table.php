@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('website_settings', function (Blueprint $table) {
             $table->id();
-            $table->boolean('showBookingFilter')->nullable();
+            $table->boolean('show_booking_filter')->nullable();
+            $table->integer('booking_filter_layout')->nullable();
             $table->string('button_color')->nullable();
             $table->integer('nav_layout')->nullable();
             $table->timestamps();

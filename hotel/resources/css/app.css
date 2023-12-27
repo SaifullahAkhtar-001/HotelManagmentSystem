@@ -4,9 +4,16 @@
 
 .hover_im{
     position: absolute;
-    right: 24px;
+    right: 12px;
+    top: 240px;
     display: none;
 }
 .im_wrapper:hover > .hover_im {
+    display: block;
+}
+.nav_im_in{
+    display: none;
+}
+.nav_im_wrap:hover > .nav_im_in {
     display: block;
 }
