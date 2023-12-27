@@ -66,11 +66,10 @@ class RoomController extends Controller
     public function update(Request $request, $id)
     {
 
-
+        $room = Room::findOrFail($id);
         $request->validate([
             'room_number' => 'required|string',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric',
+            'description' => 'required|string',
             'status' => 'required'
 
         ]);
