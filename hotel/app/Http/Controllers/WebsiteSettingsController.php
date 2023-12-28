@@ -21,6 +21,9 @@ class WebsiteSettingsController extends Controller
             'booking_filter_layout' => '',
         ]);
         $attributes['show_booking_filter'] = $request->has('show_booking_filter');
+        $attributes['show_interior'] = $request->has('show_interior');
+        $attributes['show_amenities'] = $request->has('show_amenities');
+        $attributes['show_room'] = $request->has('show_room');
         $settings->update($attributes);
 
         return redirect()->route('website-settings.index')->with('success', 'Saved');

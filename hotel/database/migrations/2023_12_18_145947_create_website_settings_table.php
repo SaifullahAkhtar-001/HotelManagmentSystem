@@ -14,10 +14,15 @@ return new class extends Migration
         Schema::create('website_settings', function (Blueprint $table) {
             $table->id();
             $table->boolean('show_booking_filter')->nullable();
+            $table->boolean('show_interior')->nullable();
+            $table->boolean('show_amenities')->nullable();
+            $table->boolean('show_room')->nullable();
             $table->integer('booking_filter_layout')->nullable();
             $table->string('button_color')->nullable();
             $table->integer('nav_layout')->nullable();
             $table->timestamps();
+
+            $table->foreignID('hotel_id')->constrained()->cascadeOnDelete();
         });
     }
 

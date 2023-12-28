@@ -20,11 +20,13 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <style>
-    .button-color{
-    background-color: {{$website_settings->button_color}}
+    .button-color {
+        background-color: {{$website_settings->button_color}}
+
     }
+
     .button-color:hover {
-    background-color: blue;
+        background-color: blue;
     }
 </style>
 <body class="font-inter text-gray-700 antialiased">
@@ -32,9 +34,15 @@
 <div>
 
     @include('public.sections.head-section')
-    @include('public.sections.interior-section')
-    @include('public.sections.amenities-section')
-    @include('public.sections.rooms-section')
+    @if($website_settings->show_interior)
+        @include('public.sections.interior-section')
+    @endif
+    @if($website_settings->show_amenities)
+        @include('public.sections.amenities-section')
+    @endif
+    @if($website_settings->show_room)
+        @include('public.sections.rooms-section')
+    @endif
     @include('public.sections.testimonial-section')
     @include('public.sections.footer-section')
 </div>

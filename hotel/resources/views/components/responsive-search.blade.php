@@ -26,7 +26,7 @@
                  class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl"
             >
                 <div class="flex items-center pb-8 justify-between space-x-4">
-                    <h1 class="text-xlfont-medium text-gray-800 ">Search a Room</h1>
+                    <h1 class="text-xl font-medium text-gray-800 ">Search a Room</h1>
 
                     <button @click="modelOpen = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

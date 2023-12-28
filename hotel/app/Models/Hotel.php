@@ -23,6 +23,10 @@ class Hotel extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function website_settings()
+    {
+        return $this->belongsTo(WebsiteSettings::class);
+    }
 
     public function facilities()
     {

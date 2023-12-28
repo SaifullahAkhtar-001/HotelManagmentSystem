@@ -60,7 +60,32 @@
                 </ul>
             </div>
 
+            <div class="flex flex-col gap-2 py-3 border-b-2 mb-4">
+                <div class="font-bold">Show Interior Section</div>
+                <label for="show_interior">
+                    <input {{ $settings->show_interior ? 'checked' : '' }} id="show_interior"
+                           name="show_interior" type="checkbox" value="1"
+                           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 cursor-pointer">
+                </label>
+            </div>
 
+            <div class="flex flex-col gap-2 py-3 border-b-2 mb-4">
+                <div class="font-bold">Show Amenities Section</div>
+                <label for="show_amenities">
+                    <input {{ $settings->show_amenities ? 'checked' : '' }} id="show_interior"
+                           name="show_amenities" type="checkbox" value="1"
+                           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 cursor-pointer">
+                </label>
+            </div>
+
+            <div class="flex flex-col gap-2 py-3 border-b-2 mb-4">
+                <div class="font-bold">Show Room Section</div>
+                <label for="show_room">
+                    <input {{ $settings->show_room ? 'checked' : '' }} id="show_room"
+                           name="show_room" type="checkbox" value="1"
+                           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 cursor-pointer">
+                </label>
+            </div>
 
             <!-- Submit Button -->
             <x-form.submit-button value="Save"/>

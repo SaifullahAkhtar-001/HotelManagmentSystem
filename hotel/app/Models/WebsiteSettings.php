@@ -10,4 +10,9 @@ class WebsiteSettings extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function hotel()
+    {
+        return $this->hasOne(Hotel::class);
+    }
 }

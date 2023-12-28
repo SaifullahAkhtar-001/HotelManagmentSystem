@@ -24,7 +24,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        
+
         $facilities = Facility::all();
         return view('dashboard.hotel.create', compact('facilities'));
     }
@@ -37,8 +37,7 @@ class HotelController extends Controller
         $attributes = $this->getAttributes();
 
         $hotel = Hotel::create($attributes);
-
-        $errors = $request->errors();
+        
 //        if ($request->hasFile('hotel_img')){
 //
 //            $image = $request->file('hotel_img');
@@ -176,9 +175,6 @@ class HotelController extends Controller
             ],
         ]);
         return redirect()->route('hotels.settings',['id' => $hotel->id])->with('success', 'Hotel Settings is successfully Updated 🚀 ');
-
-
-
     }
 
 }
