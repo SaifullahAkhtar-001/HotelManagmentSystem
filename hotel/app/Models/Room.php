@@ -18,4 +18,7 @@ class Room extends Model
     {
         return $this->belongsTo(RoomType::class);
     }
+    public function imggallery(){
+        return $this->morphMany(ImgGallery::class,'imagable');
+    }
 }

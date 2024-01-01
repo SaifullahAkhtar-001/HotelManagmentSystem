@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImgGallery;
 use Illuminate\Http\Request;
 use App\Models\Room;
-use App\Models\Hotel;
 use App\Models\Roomtype;
+use Illuminate\Support\Facades\Storage;
 
 class RoomController extends Controller
 {
@@ -33,24 +34,37 @@ class RoomController extends Controller
 
     public function store(Request $request)
     {
-
         $attributes =  $request->validate([
             'hotel_id' => 'required|exists:hotels,id,user_id,' . auth()->id(),
             'room_type_id' => 'required|exists:roomtypes,id',
             'room_number' => 'required',
             'description' => 'nullable|string',
-            'status' => 'required|string'
+            'status' => 'required|string',
         ]);
 
-        Room::create($attributes);
+        $room = Room::create($attributes);
+        $request->validate([
+            'room_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        if ($request->hasFile('room_img')) {
 
+            $image = $request->file('room_img');
+
+
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+            $path = $image->storeAs('images', $imageName, 'public');
+
+            $imageUrl = Storage::url($path);
+        }
+        ImgGallery::create([
+            'url' => $imageUrl,
+            'imagable_id' => $room->id,
+            'imagable_type' => Room::class
+        ]);
 
         return redirect()->route('rooms.index')->with('success', 'Room created successfully.');
     }
-
-
-
-
 
     public  function edit(Request $request, $id)
     {
@@ -82,7 +96,7 @@ class RoomController extends Controller
     public function destroy(string $id)
     {
         $room = Room::findOrFail($id);
-
+        ImgGallery::where('imagable_id', $room->id)->where('imagable_type' , Room::class)->delete();
         $room->delete();
 
         return redirect()->route('rooms.index')->with('success', 'Room deleted successfully.');

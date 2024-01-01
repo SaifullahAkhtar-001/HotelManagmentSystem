@@ -68,7 +68,7 @@ class FacilityController extends Controller
     }
 
     /**
-     * 
+     *
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
@@ -85,7 +85,7 @@ class FacilityController extends Controller
         return $attributes;
     }
 
-    public function showfacility(){
+    public function showFacility(){
         return view('dashboard.facility.createfacility');
     }
     public function facilityCreate(request $request){

@@ -37,7 +37,7 @@ class HotelController extends Controller
         $attributes = $this->getAttributes();
 
         $hotel = Hotel::create($attributes);
-        
+
 //        if ($request->hasFile('hotel_img')){
 //
 //            $image = $request->file('hotel_img');

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\WebsiteSettingsController;
 use App\Models\Hotel;
+use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,8 +41,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/hotel-settings/{id}', [HotelController::class, 'settings'])->name('hotels.settings');
     Route::post('/hotel-settings', [HotelController::class, 'save_settings'])->name('hotels.save');
-    Route::get('/createfacility',[FacilityController::class,'showfacility'])->name('facility.show');
-    Route::post('/createfacility',[FacilityController::class,'facilityCreate'])->name('create.facility');
+    Route::get('/createFacility',[FacilityController::class,'showFacility'])->name('facility.show');
+    Route::post('/createFacility',[FacilityController::class,'facilityCreate'])->name('create.facility');
 });
 
 

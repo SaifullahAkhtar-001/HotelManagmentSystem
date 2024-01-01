@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('url');
             $table->morphs('imagable');
             $table->timestamps();
+
         });
     }
 
