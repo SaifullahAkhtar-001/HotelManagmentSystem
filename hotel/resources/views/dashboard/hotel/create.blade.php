@@ -12,9 +12,7 @@
             <x-form.input name="address" type="text" label="Address"/>
             <div class="flex gap-3">
                 <x-form.input class="flex-1" name="city" type="text" label="City"/>
-                <x-form.input class="flex-1" name="country" type="text"
-                              label="Country"/>
-                <x-form.input class="flex-1" name="zip_code" type="text"
+                <x-form.input class="flex-1" name="zip_code" type="number"
                               label="Zip Code"/>
             </div>
             <label for="facilities" class="block text-sm font-semibold text-gray-500">Facilities:
@@ -34,6 +32,13 @@
             </div>
             </label>
             <x-toggle checker=""/>
+            <div class="my-3 max-w-xs">
+                <label for="example1" class="mb-1 block text-sm font-medium text-gray-700">Upload image</label>
+                <input name="hotel_images[]" type="file" class="mt-2 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-blue-500 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-60" multiple />
+            </div>
+            @error('hotel_images')
+            <p id="standard_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">{{ $message }}</p>
+            @enderror
             <x-form.submit-button value="Create Hotel"/>
         </form>
 

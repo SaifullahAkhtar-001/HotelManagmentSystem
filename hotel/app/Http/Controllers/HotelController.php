@@ -7,128 +7,137 @@ use App\Models\Hotel;
 use App\Models\ImgGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class HotelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $hotels = Hotel::where('user_id', auth()->id())->with('facilities','imggallery')->get();
-        return view('dashboard.hotel.index', compact('hotels'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-
-        $facilities = Facility::all();
-        return view('dashboard.hotel.create', compact('facilities'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $attributes = $this->getAttributes();
-
-        $hotel = Hotel::create($attributes);
-
-//        if ($request->hasFile('hotel_img')){
-//
-//            $image = $request->file('hotel_img');
-//
-//
-//            $imageName = time() . '.' . $image->getClientOriginalExtension();
-//
-//            $path = $image->storeAs('images', $imageName, 'public');
-//
-//            $imageUrl = Storage::url($path);
-//        }
-//        ImgGallery::create([
-//            'url' => $imageUrl,
-//            'imagable_id' => $hotel->id,
-//            'imagable_type' => Hotel::class
-//        ]);
-
-
-        $hotel->facilities()->attach($request->facilities);
-
-        return redirect()->route('hotels.index')->with('success', 'Hotel Created');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-//        $hotel = Hotel::findOrFail($id);
-//
-//        return view('dashboard.hotel.index',[
-//            'hotels' => $hotel->toArray(),
-//        ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        $hotel = Hotel::findOrFail($id);
-        $facilities = Facility::all();
-        return view('dashboard.hotel.edit', compact('hotel', 'facilities'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
-    {
-        $hotel = Hotel::find($id);
-        $attributes = $this->getAttributes();
-        $hotel->update($attributes);
-        $hotel->facilities()->sync($request->facilities);
-        return redirect()->route('hotels.index')->with('success', 'Post is successfully Updated 🚀 ');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $hotel = Hotel::findOrFail($id);
-        $hotel->delete();
-        return redirect()->back()->with('success', 'Deleted Successfully');
-    }
-
-    public function getAttributes(): array
+    private function getAttributes(): array
     {
         $attributes = request()->validate([
             'hotel_name' => 'required|min:3',
             'email' => 'required|email',
             'phone' => 'required',
             'address' => 'required',
+            'zip_code' => 'required',
             'city' => 'required',
             'active' => ''
         ]);
+
         $attributes['active'] = request()->has('active');
         $attributes['user_id'] = auth()->id();
 
         return $attributes;
+    }
 
+    private function storeHotelImage(Request $request, Hotel $hotel)
+    {
+        $images = [];
+        if ($request->hasFile('hotel_images')) {
+            foreach ($request->file('hotel_images') as $image) {
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $path = $image->storeAs('images', $imageName, 'public');
+                $images[] = Storage::url($path);
+            }
+        }
+
+        // Attach images to ImgGallery
+        $hotel->imggallery()->createMany(array_map(function ($url) {
+            return ['url' => $url];
+        }, $images));
+    }
+
+    private function deleteHotelImages($imageUrls)
+    {
+        foreach ($imageUrls as $imageUrl) {
+            $imagePathRelativeToDisk = Str::after($imageUrl, '/storage');
+            Storage::disk('public')->delete($imagePathRelativeToDisk);
+        }
+    }
+
+    public function index()
+    {
+        $hotels = Hotel::where('user_id', auth()->id())->with('facilities', 'imggallery')->get();
+        return view('dashboard.hotel.index', compact('hotels'));
+    }
+
+    public function create()
+    {
+        $facilities = Facility::all();
+        return view('dashboard.hotel.create', compact('facilities'));
+    }
+
+    public function store(Request $request)
+    {
+        $attributes = $this->getAttributes();
+        $request->validate([
+            'hotel_images.*' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'hotel_images' => 'required_without_all:other_field1,other_field2,...',
+        ]);
+        $hotel = Hotel::create($attributes);
+        $this->storeHotelImage($request, $hotel);
+        $hotel->facilities()->attach($request->facilities);
+
+        // Store hotel images
+
+        return redirect()->route('hotels.index')->with('success', 'Hotel Created');
+    }
+
+    public function edit(string $id)
+    {
+        $hotel = Hotel::findOrFail($id);
+
+        $hotel_images = $hotel->imggallery;
+
+        $facilities = Facility::all();
+
+        return view('dashboard.hotel.edit', compact('hotel', 'facilities', 'hotel_images'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $hotel = Hotel::find($id);
+        $attributes = $this->getAttributes();
+
+        $request->validate([
+            'hotel_images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $hotel->update($attributes);
+        $hotel->facilities()->sync($request->facilities);
+
+        // Store hotel images
+        $this->storeHotelImage($request, $hotel);
+
+        // Delete old hotel images
+        $this->deleteHotelImages($hotel->imggallery);
+
+
+        return redirect()->route('hotels.index')->with('success', 'Hotel updated successfully.');
+    }
+
+    public function destroy(string $id)
+    {
+        $hotel = Hotel::findOrFail($id);
+        // Delete all hotel images
+        $this->deleteHotelImages($hotel->imggallery->pluck('url')->toArray());
+
+        ImgGallery::where('imagable_id', $hotel->id)->where('imagable_type', Hotel::class)->delete();
+
+
+        // Delete the hotel
+        $hotel->delete();
+
+        return redirect()->back()->with('success', 'Deleted Successfully');
     }
 
     public function settings($id)
     {
         $hotels = Hotel::with('facilities')->find($id);
-        return view('dashboard.hotel.settings' ,compact('hotels'));
+        return view('dashboard.hotel.settings', compact('hotels'));
     }
 
-    public function save_settings(Request $request){
+    public function save_settings(Request $request)
+    {
         $hotels = Hotel::where('user_id', auth()->id())->with('facilities')->get();
         $hotel = $hotels->first();
         $request->validate([
@@ -174,7 +183,7 @@ class HotelController extends Controller
                 'amenity4_description' => $request->amenity4_description,
             ],
         ]);
-        return redirect()->route('hotels.settings',['id' => $hotel->id])->with('success', 'Hotel Settings is successfully Updated 🚀 ');
-    }
 
+        return redirect()->route('hotels.settings', ['id' => $hotel->id])->with('success', 'Hotel Settings is successfully Updated 🚀 ');
+    }
 }
