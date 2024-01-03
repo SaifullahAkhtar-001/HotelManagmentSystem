@@ -5,6 +5,6 @@
     <p class="text-lg font-light ">
         {{$description}}
     </p>
-    <hr class="w-24 mx-auto mt-4 border-b-2 border-stone-400"/>
+    <hr class="w-24 mx-auto mt-4 border-b-2 hr-color"/>
 
 </div>

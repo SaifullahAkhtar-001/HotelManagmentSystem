@@ -14,8 +14,6 @@ class Controller extends BaseController
 
     public function index()
     {
-        $showBookingFilter = WebsiteSettings::first()->showBookingFilter;
-
         $hotel = Hotel::first();
         $website_settings = WebsiteSettings::first();
         return view('public.welcome',compact('hotel', 'website_settings'));

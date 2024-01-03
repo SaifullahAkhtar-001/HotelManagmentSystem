@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('website_settings', function (Blueprint $table) {
             $table->id();
-            $table->boolean('show_booking_filter')->nullable();
-            $table->boolean('show_interior')->nullable();
-            $table->boolean('show_amenities')->nullable();
-            $table->boolean('show_room')->nullable();
-            $table->integer('booking_filter_layout')->nullable();
-            $table->string('button_color')->nullable();
-            $table->integer('nav_layout')->nullable();
+            $table->boolean('show_booking_filter')->default(1)->nullable();
+            $table->boolean('show_interior')->default(1)->nullable();
+            $table->boolean('show_amenities')->default(1)->nullable();
+            $table->boolean('show_room')->default(1)->nullable();
+            $table->integer('booking_filter_layout')->default(1)->nullable();
+            $table->string('button_color')->default('#2B35AF')->nullable();
+            $table->string('hr_color')->default('#6b7280')->nullable();
+            $table->integer('nav_layout')->default(1)->nullable();
+            $table->string('hero_section_image_url')->default('images/hotel.jpg')->nullable();
             $table->timestamps();
 
             $table->foreignID('hotel_id')->constrained()->cascadeOnDelete();

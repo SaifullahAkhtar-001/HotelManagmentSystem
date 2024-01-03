@@ -28,6 +28,10 @@
     .button-color:hover {
         background-color: blue;
     }
+
+    .hr-color {
+        border-color: {{$website_settings->hr_color}}
+    }
 </style>
 <body class="font-inter text-gray-700 antialiased">
 

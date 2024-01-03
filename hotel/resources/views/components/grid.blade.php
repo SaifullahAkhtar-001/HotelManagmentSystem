@@ -4,13 +4,12 @@
     </div>
 
     <div class="m-4 flex items-center text-center">
-        <div>
+        <div class="w-full mx-auto">
             <h1 class="text-xl">{{$hotel->amenities['amenity1']}}</h1>
-            <p class="text-lg font-light">
+            <p class="text-lg font-light ">
             {{$hotel->amenities['amenity1_description']}}
-            <hr class="w-12 mx-auto mt-4 border-b-2 border-stone-400"/>
-
             </p>
+            <hr class="w-12 mx-auto mt-4 border-b-2 hr-color"/>
         </div>
     </div>
 
@@ -19,12 +18,12 @@
     </div>
 
     <div class="m-4 flex items-center text-center">
-        <div>
+        <div class="w-full mx-auto">
             <h1 class="text-xl">{{$hotel->amenities['amenity2']}}</h1>
             <p class="text-lg font-light">
                 {{$hotel->amenities['amenity2_description']}}
             </p>
-            <hr class="w-12 mx-auto mt-4 border-b-2 border-stone-400"/>
+            <hr class="w-12 mx-auto mt-4 border-b-2 hr-color"/>
         </div>
     </div>
 
@@ -40,12 +39,12 @@
 
 
     <div class="m-4 flex items-center text-center">
-        <div>
+        <div class="w-full mx-auto">
             <h1 class="text-xl">{{$hotel->amenities['amenity3']}}</h1>
             <p class="text-lg font-light">
                 {{$hotel->amenities['amenity3_description']}}
             </p>
-            <hr class="w-12 mx-auto mt-4 border-b-2 border-stone-400"/>
+            <hr class="w-12 mx-auto mt-4 border-b-2 hr-color"/>
         </div>
     </div>
 
@@ -54,12 +53,12 @@
     </div>
 
     <div class="m-4 flex items-center text-center">
-        <div>
+        <div class="w-full mx-auto">
             <h1 class="text-xl">{{$hotel->amenities['amenity4']}}</h1>
             <p class="text-lg font-light">
                 {{$hotel->amenities['amenity4_description']}}
             </p>
-            <hr class="w-12 mx-auto mt-4 border-b-2 border-stone-400"/>
+            <hr class="w-12 mx-auto mt-4 border-b-2 hr-color"/>
         </div>
     </div>
 
