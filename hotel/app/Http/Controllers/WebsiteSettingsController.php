@@ -24,6 +24,7 @@ class WebsiteSettingsController extends Controller
             'nav_layout' => '',
             'booking_filter_layout' => '',
             'hero_section_image_url' => '',
+            'interior_display_format' => '',
         ]);
         $attributes['show_booking_filter'] = $request->has('show_booking_filter');
         $attributes['show_interior'] = $request->has('show_interior');

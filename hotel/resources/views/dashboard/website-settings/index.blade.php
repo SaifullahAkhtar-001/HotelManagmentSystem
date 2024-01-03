@@ -23,9 +23,9 @@
                     </label>
 
                 </div>
-
             </x-website_settings.block-wrapper>
 
+            <!-- Hero Section Settings -->
             <x-website_settings.block-wrapper title="Hero Section Settings">
                 <!-- Navbar Layout Selection -->
                 <div class="border-b-2 mb-4 py-4 ">
@@ -100,6 +100,7 @@
                 </div>
             </x-website_settings.block-wrapper>
 
+            <!-- Interior Section Settings -->
             <x-website_settings.block-wrapper title="Interior Section Settings">
                 <!-- show interior section -->
                 <div class="flex flex-col gap-2 py-3 border-b-2 mb-4">
@@ -109,6 +110,25 @@
                                name="show_interior" type="checkbox" value="1"
                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 cursor-pointer">
                     </label>
+                </div>
+                <div class="border-b-2 mb-4 py-4 ">
+                    <h3 class="mb-4 font-bold">Select the Interior Image Showcase Format</h3>
+                    <ul class="flex gap-2 w-56 text-sm font-medium text-gray-900  rounded-lg">
+                        <li class="w-full im_wrapper rounded-lg hover:shadow-xl transition-all shadow-md">
+                            <x-website_settings.list-item value="carousal" label="Carousal" name="interior_display_format" :settings="$settings"
+                                                          :checker="$settings->interior_display_format == 'carousal' ? 'checked' : ''"/>
+{{--                            <x-website_settings.preview>--}}
+{{--                                <x-nav nav_layout="1"/>--}}
+{{--                            </x-website_settings.preview>--}}
+                        </li>
+                        <li class="w-full im_wrapper shadow-md hover:shadow-xl transition-all rounded-lg ">
+                            <x-website_settings.list-item value="gallery" label="Gallery" name="interior_display_format" :settings="$settings"
+                                                          :checker="$settings->interior_display_format == 'gallery' ? 'checked' : ''"/>
+{{--                            <x-website_settings.preview>--}}
+{{--                                <x-nav nav_layout="2"/>--}}
+{{--                            </x-website_settings.preview>--}}
+                        </li>
+                    </ul>
                 </div>
             </x-website_settings.block-wrapper>
 
@@ -124,6 +144,7 @@
                 </div>
             </x-website_settings.block-wrapper>
 
+            <!-- Room Section Settings -->
             <x-website_settings.block-wrapper title="Room Section Settings">
                 <!-- show room section -->
                 <div class="flex flex-col gap-2 py-3 border-b-2 mb-4">

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('hr_color')->default('#6b7280')->nullable();
             $table->integer('nav_layout')->default(1)->nullable();
             $table->string('hero_section_image_url')->default('images/hotel.jpg')->nullable();
+            $table->string('interior_display_format')->default('carousal')->nullable();
             $table->timestamps();
 
             $table->foreignID('hotel_id')->constrained()->cascadeOnDelete();
