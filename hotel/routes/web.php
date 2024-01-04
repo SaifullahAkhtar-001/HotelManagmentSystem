@@ -24,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [Controller::class, 'index'])->name('home');
+Route::get('/testroom', function(){
+    return view('public/pages/room');
+});
 Route::get('facility/create',[FacilityController::class,'facilityCreate'])->name('facility.create');
 
 
