@@ -10,13 +10,13 @@
             <tr>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">room_number</th>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">description</th>
-                
+
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
                 @foreach($rooms as $room)
-                    <x-tablerow :Room="$room"/>
+                    <x-tablerow.room :Room="$room"/>
                 @endforeach
             </tbody>
         </table>

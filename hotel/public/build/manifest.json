@@ -1,0 +1,16 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-3966b63f.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/images/hotel.jpg": {
+    "file": "assets/hotel-8f013a4a.jpg",
+    "src": "resources/images/hotel.jpg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-b1941ff8.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

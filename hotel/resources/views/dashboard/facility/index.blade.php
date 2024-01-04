@@ -15,7 +15,7 @@
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
             @foreach($facilities as $facility)
-                <x-facility-tablerow :facility="$facility"/>
+                <x-tablerow.facility :facility="$facility"/>
             @endforeach
             </tbody>
         </table>

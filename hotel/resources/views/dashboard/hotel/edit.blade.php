@@ -46,7 +46,7 @@
                     </p>
                 @endforeach
             @endforeach
-            @isset($hotel_images)
+            @if($hotel_images->count() > 0)
                 <div class="h-40 w-full flex gap-3">
                     @foreach($hotel_images as $image)
                         <div class="flex gap-3 w-32 h-32 relative">
@@ -71,8 +71,8 @@
                     @endforeach
                 </div>
             @else
-                <p>No Image Linked to this Hotel !</p>
-            @endisset
+                <p class="text-xs text-red-500">No Image Linked to this Hotel !</p>
+            @endif
 
             <x-form.submit-button value="Edit Hotel"/>
         </form>
