@@ -6,6 +6,9 @@
             <x-form.input class="mb-8" name="name" type="name" label="Name" />
             <x-form.input class="mb-8" name="description" type="description" label="Description" />
             <x-form.input class="mb-8" name="price" type="number" label="Price" />
+            <x-form.input class="mb-8" name="capacity" type="number" label="Capacity" />
+            <x-form.input class="mb-8" name="size" type="number" label="Size" />
+            <x-form.input class="mb-8" name="cancellation_policy" type="text" label="Cancellation Policy" />
             <div class="my-3 max-w-xs">
                 <label for="example1" class="mb-1 block text-sm font-medium text-gray-700">Upload image</label>
                 <input name="roomtype_images[]" type="file" class="mt-2 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-blue-500 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-60" multiple />

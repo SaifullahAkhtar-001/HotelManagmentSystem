@@ -37,6 +37,19 @@ class RoomtypeController extends Controller
             Storage::disk('public')->delete($imagePathRelativeToDisk);
         }
     }
+
+    private function attributes(Request $request): array
+    {
+        $attributes = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:555',
+            'cancellation_policy' => 'required|string|max:555',
+            'price' => 'required|numeric',
+            'capacity' => 'required|numeric',
+            'size' => 'required|numeric',
+        ]);
+        return $attributes;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -59,11 +72,7 @@ class RoomtypeController extends Controller
      */
     public function store(Request $request)
     {
-        $attributes = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            ]);
+        $attributes = $this->attributes($request);
         $request->validate([
             'roomtype_images.*' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
             'roomtype_images' => 'required_without_all:other_field1,other_field2,...',
@@ -98,11 +107,7 @@ class RoomtypeController extends Controller
     public function update(Request $request, string $id)
     {
         $roomtype = Roomtype::findOrFail($id);
-        $attributes = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'price' => 'required|numeric',
-        ]);
+        $attributes = $this->attributes($request);
 
         $request->validate([
             'roomtype_images.*' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',

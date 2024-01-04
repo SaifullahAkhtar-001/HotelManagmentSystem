@@ -9,6 +9,10 @@
             <x-form.input class="mb-8" name="description" type="description" label="Description"
                           :value="$roomtype->description"/>
             <x-form.input class="mb-8" name="price" type="number" label="Price" :value="$roomtype->price"/>
+            <x-form.input class="mb-8" name="capacity" type="number" label="Capacity" :value="$roomtype->capacity"/>
+            <x-form.input class="mb-8" name="size" type="number" label="Size" :value="$roomtype->size"/>
+            <x-form.input class="mb-8" name="cancellation_policy" type="text" label="Cancellation Policy"
+                          :value="$roomtype->cancellation_policy"/>
             <div class="my-3 max-w-xs">
                 <label for="example1" class="mb-1 block text-sm font-medium text-gray-700">Upload image</label>
                 <input name="roomtype_images[]" type="file"

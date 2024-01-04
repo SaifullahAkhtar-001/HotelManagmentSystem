@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('roomtypes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->text('description');
+            $table->string('cancellation_policy');
             $table->integer('price');
+            $table->integer('capacity');
+            $table->integer('size');
             $table->timestamps();
         });
-            
-            
+
+
     }
 
     /**
