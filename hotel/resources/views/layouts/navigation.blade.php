@@ -49,7 +49,7 @@
 
                 <span class="">Guest</span>
             </a>
-            <a href="{{route('rooms.index')}}"
+            <a href="{{route('rooms.index.blade.php')}}"
                 class="{{ request()->is('rooms*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_226_8888)">
@@ -66,7 +66,7 @@
 
                 <span>Rooms</span>
             </a>
-            <a href="{{route('facility.index')}}"
+            <a href="{{route('facility.index.blade.php')}}"
                 class="{{ request()->is('facility*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -77,7 +77,7 @@
                 </svg>
                 <span class="">Facilities</span>
             </a>
-            <a href="{{route('hotels.index')}}"
+            <a href="{{route('hotels.index.blade.php')}}"
                class="{{ request()->is('hotels*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.75 21H20.25M4.5 3H19.5M5.25 3V21M18.75 3V21M9 6.75H10.5M9 9.75H10.5M9 12.75H10.5M13.5 6.75H15M13.5 9.75H15M13.5 12.75H15M9 21V17.625C9 17.004 9.504 16.5 10.125 16.5H13.875C14.496 16.5 15 17.004 15 17.625V21" stroke="#5D6679" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -117,7 +117,7 @@
                      class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow ">
                         <a class="font-semibold {{ request()->is('website-settings*') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                          href="{{route('website-settings.index')}}" >Website Settings</a>
+                          href="{{route('website-settings.index.blade.php')}}" >Website Settings</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            href="#">Link #2</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
