@@ -1,6 +1,6 @@
 @props(['nav_layout'])
 @if($nav_layout == 1)
-    <nav class="flex justify-between items-center py-2 backdrop-blur-lg max-sm:mx-2 sm:max-w-6xl mx-auto">
+    <nav class="flex justify-between items-center py-2 backdrop-blur-xl max-sm:mx-2 sm:max-w-6xl mx-auto">
         <a href="#home" class="text-4xl  hover:tracking-widest	transition-all cursor-pointer">
             Hotel
         </a>

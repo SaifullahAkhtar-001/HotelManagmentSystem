@@ -41,7 +41,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('facility',FacilityController::class);
 
 
-    Route::get('website-settings',[WebsiteSettingsController::class, 'index'])->name('website-settings.index.blade.php');
+    Route::get('website-settings',[WebsiteSettingsController::class, 'index'])->name('website-settings.index');
     Route::post('website-settings',[WebsiteSettingsController::class, 'update'])->name('website-settings.update');
 
     Route::get('/hotel-settings/{id}', [HotelController::class, 'settings'])->name('hotels.settings');

@@ -1,4 +1,4 @@
-<div class="p-14 mb-6 rounded-[2rem] mx-auto max-w-fit bg-stone-800 bg-opacity-70 flex justify-center items-center">
+<div class="p-14 mb-6 rounded-full mx-auto max-w-fit bg-stone-800 bg-opacity-70 flex justify-center items-center">
     <form>
         <div class="flex items-center justify-center gap-4 mx-auto max-w-fit ">
             <div class="relative">
