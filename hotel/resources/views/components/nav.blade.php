@@ -1,6 +1,7 @@
-@props(['nav_layout'])
+@props(['nav_layout' => 2 , 'cus_class'=>0])
 @if($nav_layout == 1)
-    <nav class="flex justify-between items-center py-2 backdrop-blur-xl max-sm:mx-2 sm:max-w-6xl mx-auto">
+    <nav class="{{ $cus_class ? '' : 'fixed top-0 w-[100vw]' }}  z-30 backdrop-blur-xl">
+    <div class="flex justify-between items-center py-6  max-sm:mx-2 sm:max-w-6xl mx-auto">
         <a href="#home" class="text-4xl  hover:tracking-widest	transition-all cursor-pointer">
             Hotel
         </a>
@@ -33,10 +34,11 @@
                 </a>
             </li>
         </div>
+    </div>
     </nav>
 @elseif($nav_layout == 2)
     <nav
-        class="z-30 mx-auto w-full max-w-screen-md bg-white/50 py-3 shadow-xl hover:shadow-2xl backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+        class="{{ $cus_class ? '' : 'fixed top-4 left-1/2 transform -translate-x-1/2' }} z-30 mx-auto w-full max-w-screen-md bg-white/50 py-3 shadow-xl hover:shadow-2xl backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
         <div class="px-4">
             <div class="flex items-center justify-between">
                 <div class="flex shrink-0">

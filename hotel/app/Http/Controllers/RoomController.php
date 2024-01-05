@@ -39,6 +39,12 @@ class RoomController extends Controller
         return view('dashboard/rooms/index', compact('rooms'));
     }
 
+    public function show($id)
+    {
+        $room = Room::findOrFail($id);
+        return view('dashboard/rooms/show', compact('room'));
+    }
+
     public function create()
     {
         $hotels = $this->getHotels();

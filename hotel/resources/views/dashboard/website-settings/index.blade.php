@@ -35,14 +35,14 @@
                             <x-website_settings.list-item value="1" label="Layout 1" name="nav_layout" :settings="$settings"
                                                           :checker="$settings->nav_layout == 1 ? 'checked' : ''"/>
                             <x-website_settings.preview>
-                                <x-nav nav_layout="1"/>
+                                <x-nav nav_layout="1" cus_class="1"/>
                             </x-website_settings.preview>
                         </li>
                         <li class="w-full im_wrapper shadow-md hover:shadow-xl transition-all rounded-lg ">
                             <x-website_settings.list-item value="2" label="Layout 2" name="nav_layout" :settings="$settings"
                                                           :checker="$settings->nav_layout == 2 ? 'checked' : ''"/>
                             <x-website_settings.preview>
-                                <x-nav nav_layout="2"/>
+                                <x-nav nav_layout="2" cus_class="1"/>
                             </x-website_settings.preview>
                         </li>
                     </ul>
