@@ -24,9 +24,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [Controller::class, 'index'])->name('home');
-Route::get('/testroom', function(){
-    return view('public/pages/room');
-});
+Route::get('/room/{id}', [Controller::class, 'room'])->name('room.show');
+
 Route::get('facility/create',[FacilityController::class,'facilityCreate'])->name('facility.create');
 
 
@@ -46,8 +45,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/hotel-settings/{id}', [HotelController::class, 'settings'])->name('hotels.settings');
     Route::post('/hotel-settings', [HotelController::class, 'save_settings'])->name('hotels.save');
-    Route::get('/createFacility',[FacilityController::class,'showFacility'])->name('facility.show');
-    Route::post('/createFacility',[FacilityController::class,'facilityCreate'])->name('create.facility');
 });
 
 

@@ -1,9 +1,9 @@
 @props(['nav_layout' => 2 , 'cus_class'=>0])
 @if($nav_layout == 1)
-    <nav class="{{ $cus_class ? '' : 'fixed top-0 w-[100vw]' }}  z-30 backdrop-blur-xl">
+    <nav id="navbar" class="{{ $cus_class ? '' : 'fixed top-0 w-[100vw]' }} text-gray-100 z-30 bg-black/50 backdrop-blur-xl">
     <div class="flex justify-between items-center py-6  max-sm:mx-2 sm:max-w-6xl mx-auto">
-        <a href="#home" class="text-4xl  hover:tracking-widest	transition-all cursor-pointer">
-            Hotel
+        <a href="{{route('home')}}" class="md:text-4xl text-xl  hover:tracking-widest	transition-all cursor-pointer">
+            Hotel De Papea'
         </a>
         <div class="flex items-center justify-center gap-6">
             @if (Route::has('login'))
@@ -37,7 +37,7 @@
     </div>
     </nav>
 @elseif($nav_layout == 2)
-    <nav
+    <nav id="navbar"
         class="{{ $cus_class ? '' : 'fixed top-4 left-1/2 transform -translate-x-1/2' }} z-30 mx-auto w-full max-w-screen-md bg-white/50 py-3 shadow-xl hover:shadow-2xl backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
         <div class="px-4">
             <div class="flex items-center justify-between">

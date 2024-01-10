@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hotel;
 use App\Models\ImgGallery;
+use App\Models\WebsiteSettings;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\RoomType;
@@ -42,7 +44,8 @@ class RoomController extends Controller
     public function show($id)
     {
         $room = Room::findOrFail($id);
-        return view('dashboard/rooms/show', compact('room'));
+        $website_settings = WebsiteSettings::where('hotel_id' , $room->hotel->id)->first();
+        return view('dashboard/rooms/show', compact('room', 'website_settings'));
     }
 
     public function create()

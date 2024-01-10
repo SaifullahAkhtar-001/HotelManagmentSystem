@@ -1,4 +1,4 @@
-@props(['website_settings'])
+@props(['website_settings' => null])
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -40,7 +40,7 @@
 
 <div>
     <x-nav :nav_layout="$website_settings->nav_layout"/>
-    {{$slot}}
+    <div class="min-h-screen">{{$slot}}</div>
     @include('public.sections.footer-section')
 </div>
 

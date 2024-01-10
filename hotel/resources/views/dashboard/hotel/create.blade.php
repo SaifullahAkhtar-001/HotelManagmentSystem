@@ -27,7 +27,8 @@
                         </label>
                     @endforeach
                 </div>
-                <x-add_button link="{{route('create.facility')}}" tooltip="Add Facility"/>
+                <x-add_button link="{{ route('facility.create') . '?hotel=true' }}" tooltip="Add Facility"/>
+
 
             </div>
             </label>

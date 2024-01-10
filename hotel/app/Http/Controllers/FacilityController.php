@@ -21,7 +21,9 @@ class FacilityController extends Controller
      */
     public function create()
     {
-        return view('dashboard.facility.create');
+        $isHotel = request('hotel');
+
+        return view('dashboard.facility.create', compact('isHotel'));
     }
 
     /**
@@ -33,6 +35,9 @@ class FacilityController extends Controller
 
         Facility::create($attributes);
 
+        if($request->isHotel) {
+            return redirect()->route('hotels.create')->with ('success','Created Successfully');
+        }
 
         return redirect()->route('facility.index')->with('success', 'Facility Created');
     }
@@ -83,16 +88,6 @@ class FacilityController extends Controller
             'name' => 'required|unique:facilities'
         ]);
         return $attributes;
-    }
-
-    public function showFacility(){
-        return view('dashboard.facility.createfacility');
-    }
-    public function facilityCreate(request $request){
-        $attributes = $this->getAttribute();
-
-        Facility::create($attributes);
-        return redirect()->route('hotels.create')->with ('success','Created Successfully');
     }
 }
 
