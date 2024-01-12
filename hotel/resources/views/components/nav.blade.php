@@ -2,7 +2,7 @@
 @if($nav_layout == 1)
     <nav id="navbar" class="{{ $cus_class ? '' : 'fixed top-0 w-[100vw]' }} text-gray-100 z-30 bg-black/50 backdrop-blur-xl">
     <div class="flex justify-between items-center py-6  max-sm:mx-2 sm:max-w-6xl mx-auto">
-        <a href="{{route('home')}}" class="md:text-4xl text-xl  hover:tracking-widest	transition-all cursor-pointer">
+        <a href="{{route('home')}}" class="md:text-4xl text-xl  hover:tracking-widest transition-all cursor-pointer">
             Hotel De Papea'
         </a>
         <div class="flex items-center justify-center gap-6">

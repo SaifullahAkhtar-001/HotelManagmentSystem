@@ -24,6 +24,7 @@
             @error('room_img')
             <p id="standard_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">{{ $message }}</p>
             @enderror
+            <x-image-preview :images="$room->imggallery"/>
             <x-form.submit-button value="Save" />
         </form>
 

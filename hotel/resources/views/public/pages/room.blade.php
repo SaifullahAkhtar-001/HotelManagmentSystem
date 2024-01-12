@@ -1,13 +1,15 @@
 <x-public-layout :website_settings="$website_settings">
     <div class="flex flex-col gap-4" id='navbar'>
-        <a href="/#room" type="button"  class="max-md:hidden fixed top-8 left-4 flex items-center justify-center w-24 z-50 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border border-gray-200 rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100">
-            <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+        <a type="button" href="{{ url()->previous() }}"
+                class="max-md:hidden fixed top-8 left-4 flex items-center justify-center w-24 z-50 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border border-gray-200 rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100">
+            <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"/>
             </svg>
             <span>Go back</span>
         </a>
         <section class="flex flex-col h-fit gap-2">
-            <div style="background-image: url('{{ asset($room->imggallery->first()->url) }}');"
+            <div style="background-image: url('{{ asset($room->imggallery->where('is_hero', true)->first()->url) }}');"
                  class="bg-opacity-50 bg-cover bg-center h-[70vh] bg-stone-300 text-white">
                 <div class="h-full pt-3 bg-black/30 backdrop-blur-sm">
                     <div class="h-[90vh] max-w-3xl mx-8 pt-[12vh] md:pt-[25vh] flex flex-col justify-start gap-4">

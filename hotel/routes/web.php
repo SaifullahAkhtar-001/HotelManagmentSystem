@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\ImgGalleryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomtypeController;
@@ -39,7 +40,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('roomtype', RoomtypeController::class);
     Route::resource('facility',FacilityController::class);
 
-
+    Route::get('/delete-image-from-gallery/{id}', [ImgGalleryController::class, 'destroy'])->name('image.delete');
     Route::get('website-settings',[WebsiteSettingsController::class, 'index'])->name('website-settings.index');
     Route::post('website-settings',[WebsiteSettingsController::class, 'update'])->name('website-settings.update');
 
