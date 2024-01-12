@@ -37,7 +37,7 @@
     </div>
     </nav>
 @elseif($nav_layout == 2)
-    <nav id="navbar"
+    <nav
         class="{{ $cus_class ? '' : 'fixed top-4 left-1/2 transform -translate-x-1/2' }} z-30 mx-auto w-full max-w-screen-md bg-white/50 py-3 shadow-xl hover:shadow-2xl backdrop-blur-xl md:top-6 md:rounded-3xl lg:max-w-screen-lg">
         <div class="px-4">
             <div class="flex items-center justify-between">
