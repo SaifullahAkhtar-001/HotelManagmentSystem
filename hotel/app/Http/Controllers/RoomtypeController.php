@@ -33,8 +33,8 @@ class RoomtypeController extends Controller
     private function deleteHotelImages($imageUrls)
     {
         foreach ($imageUrls as $imageUrl) {
-            $imagePathRelativeToDisk = Str::after($imageUrl, '/storage');
-            Storage::disk('public')->delete($imagePathRelativeToDisk);
+                $imagePathRelativeToDisk = Str::after($imageUrl, '/storage');
+                Storage::disk('public')->delete($imagePathRelativeToDisk);
         }
     }
 
@@ -97,8 +97,7 @@ class RoomtypeController extends Controller
     public function edit(string $id)
     {
         $roomtype = Roomtype::findOrFail($id);
-        $roomtype_images = $roomtype->imggallery;
-        return view('dashboard.room-type.edit', compact('roomtype', 'roomtype_images'));
+        return view('dashboard.room-type.edit', compact('roomtype'));
     }
 
     /**

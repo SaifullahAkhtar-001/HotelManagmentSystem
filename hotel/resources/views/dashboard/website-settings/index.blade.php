@@ -4,7 +4,6 @@
     </div>
     <form method="post">
         @csrf
-
         <div class="flex flex-col gap-6">
             <!-- General Settings -->
             <x-website_settings.block-wrapper title="General Settings">
@@ -32,14 +31,16 @@
                     <h3 class="mb-4 font-bold">Select the navbar layout</h3>
                     <ul class="flex gap-2 w-56 text-sm font-medium text-gray-900  rounded-lg">
                         <li class="w-full im_wrapper rounded-lg hover:shadow-xl transition-all shadow-md">
-                            <x-website_settings.list-item value="1" label="Layout 1" name="nav_layout" :settings="$settings"
+                            <x-website_settings.list-item value="1" label="Layout 1" name="nav_layout"
+                                                          :settings="$settings"
                                                           :checker="$settings->nav_layout == 1 ? 'checked' : ''"/>
                             <x-website_settings.preview>
                                 <x-nav nav_layout="1" cus_class="1"/>
                             </x-website_settings.preview>
                         </li>
                         <li class="w-full im_wrapper shadow-md hover:shadow-xl transition-all rounded-lg ">
-                            <x-website_settings.list-item value="2" label="Layout 2" name="nav_layout" :settings="$settings"
+                            <x-website_settings.list-item value="2" label="Layout 2" name="nav_layout"
+                                                          :settings="$settings"
                                                           :checker="$settings->nav_layout == 2 ? 'checked' : ''"/>
                             <x-website_settings.preview>
                                 <x-nav nav_layout="2" cus_class="1"/>
@@ -55,7 +56,7 @@
                         <div class="flex">
                             <div class="grid grid-cols-5 max-lg:grid-cols-1 gap-4 w-fit">
                                 @foreach($hotel->imggallery as $img)
-                                    <x-website_settings.image-radio :img="$img" :settings="$settings"/>
+                                    <x-website_settings.image-radio name="hotel_{{$hotel->id}}" :img="$img" :settings="$settings"/>
                                 @endforeach
                             </div>
                         </div>
@@ -115,23 +116,20 @@
                     <h3 class="mb-4 font-bold">Select the Interior Image Showcase Format</h3>
                     <ul class="flex gap-2 w-56 text-sm font-medium text-gray-900  rounded-lg">
                         <li class="w-full im_wrapper rounded-lg hover:shadow-xl transition-all shadow-md">
-                            <x-website_settings.list-item value="carousal" label="Carousal" name="interior_display_format" :settings="$settings"
+                            <x-website_settings.list-item value="carousal" label="Carousal"
+                                                          name="interior_display_format" :settings="$settings"
                                                           :checker="$settings->interior_display_format == 'carousal' ? 'checked' : ''"/>
-{{--                            <x-website_settings.preview>--}}
-{{--                                <x-nav nav_layout="1"/>--}}
-{{--                            </x-website_settings.preview>--}}
                         </li>
                         <li class="w-full im_wrapper shadow-md hover:shadow-xl transition-all rounded-lg ">
-                            <x-website_settings.list-item value="gallery" label="Gallery" name="interior_display_format" :settings="$settings"
+                            <x-website_settings.list-item value="gallery" label="Gallery" name="interior_display_format"
+                                                          :settings="$settings"
                                                           :checker="$settings->interior_display_format == 'gallery' ? 'checked' : ''"/>
-{{--                            <x-website_settings.preview>--}}
-{{--                                <x-nav nav_layout="2"/>--}}
-{{--                            </x-website_settings.preview>--}}
                         </li>
                     </ul>
                 </div>
             </x-website_settings.block-wrapper>
 
+            <!-- Amenities Section Settings -->
             <x-website_settings.block-wrapper title="Amenities Section Settings">
                 <!-- show amenities section -->
                 <div class="flex flex-col gap-2 py-3 border-b-2 mb-4">
@@ -155,7 +153,27 @@
                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 cursor-pointer">
                     </label>
                 </div>
+                @foreach($roomtypes as $roomtype)
+                    <div class="flex flex-col gap-2 py-3 border-b-2 mb-4">
+                        <div class="font-semibold">Select the {{$roomtype->name}} Room Hero Section Image</div>
+                        @if($roomtype->imggallery->count() > 0)
+                            <div class="flex">
+                                <div class="grid grid-cols-5 max-lg:grid-cols-1 gap-4 w-fit">
+                                    @foreach($roomtype->imggallery as $img)
+                                        <x-website_settings.image-radio name="room_type_{{$roomtype->id}}" :img="$img" :settings="$settings"/>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @else
+                            <div class="flex items-center justify-center w-full h-36 bg-gray-100">
+                                <div class="text-gray-500">No Images Found</div>
+                            </div>
+                        @endif
+                    </div>
+                @endforeach
             </x-website_settings.block-wrapper>
+
+
             <!-- Submit Button -->
             <x-form.submit-button value="Save"/>
         </div>
