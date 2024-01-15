@@ -24,6 +24,10 @@ class WebsiteSettingsController extends Controller
         $attributes = $request->validate([
             'button_color' => '',
             'hr_color' => '',
+            'h1_color' => '',
+            'h2_color' => '',
+            'h3_color' => '',
+            'text_color' => '',
             'nav_layout' => '',
             'booking_filter_layout' => '',
             'interior_display_format' => '',

@@ -17,6 +17,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "flowbite": "^2.2.0"
+        "flowbite": "^2.2.0",
+        "tailwind-scrollbar-hide": "^1.1.7"
     }
 }

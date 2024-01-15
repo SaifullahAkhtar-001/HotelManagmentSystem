@@ -20,29 +20,54 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <style>
     .button-color {
         background-color: {{$website_settings->button_color}}
 
 
     }
-
     .button-color:hover {
         background-color: blue;
     }
 
     .hr-color {
         border-color: {{$website_settings->hr_color}}
-
     }
+
+    .text-color {
+        color: {{$website_settings->text_color}}
+    }
+    .h1_color {
+        color: {{$website_settings->h1_color}}
+    }
+    .h2_color {
+        color: {{$website_settings->h2_color}}
+    }
+    .h3_color {
+        color: {{$website_settings->h3_color}}
+    }
+
 </style>
 <body class="font-inter text-gray-700 antialiased">
+
 
 <div>
     <x-nav :nav_layout="$website_settings->nav_layout"/>
     <div class="min-h-screen">{{$slot}}</div>
     @include('public.sections.footer-section')
 </div>
+<script>
+    const slideLeft = () => {
+        var slider = document.getElementById('slider');
+        slider.scrollLeft = slider.scrollLeft - 500;
+    };
 
+    const slideRight = () => {
+        var slider = document.getElementById('slider');
+        slider.scrollLeft = slider.scrollLeft + 500;
+    };
+
+</script>
 </body>
 </html>

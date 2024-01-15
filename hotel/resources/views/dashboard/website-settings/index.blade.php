@@ -7,21 +7,21 @@
         <div class="flex flex-col gap-6">
             <!-- General Settings -->
             <x-website_settings.block-wrapper title="General Settings">
-                <!-- Button Color Selection -->
-                <div class="flex flex-col gap-3 border-b-2 py-1 mb-4">
-                    <div class="font-bold">Select Button Color</div>
-                    <label>
-                        <input type="color" value="{{ $settings->button_color }}" name="button_color"/>
-                    </label>
-
+                <div class="flex gap-4">
+                    <!-- Button Color Selection -->
+                    <x-website_settings.color-selector name="button" :settings="$settings"/>
+                    <!-- Divider Color Selection -->
+                    <x-website_settings.color-selector name="hr" :settings="$settings"/>
+                    <!-- H1 Color Selection -->
+                    <x-website_settings.color-selector name="h1" :settings="$settings"/>
+                    <!-- H2 Color Selection -->
+                    <x-website_settings.color-selector name="h2" :settings="$settings"/>
+                    <!-- H3 Color Selection -->
+                    <x-website_settings.color-selector name="h3" :settings="$settings"/>
+                    <!-- Text Color Selection -->
+                    <x-website_settings.color-selector name="text" :settings="$settings"/>
                 </div>
-                <div class="flex flex-col gap-3 border-b-2 py-1 mb-4">
-                    <div class="font-bold">Divider Color</div>
-                    <label>
-                        <input type="color" value="{{ $settings->hr_color }}" name="hr_color"/>
-                    </label>
 
-                </div>
             </x-website_settings.block-wrapper>
 
             <!-- Hero Section Settings -->
@@ -56,7 +56,8 @@
                         <div class="flex">
                             <div class="grid grid-cols-5 max-lg:grid-cols-1 gap-4 w-fit">
                                 @foreach($hotel->imggallery as $img)
-                                    <x-website_settings.image-radio name="hotel_{{$hotel->id}}" :img="$img" :settings="$settings"/>
+                                    <x-website_settings.image-radio name="hotel_{{$hotel->id}}" :img="$img"
+                                                                    :settings="$settings"/>
                                 @endforeach
                             </div>
                         </div>
@@ -160,7 +161,8 @@
                             <div class="flex">
                                 <div class="grid grid-cols-5 max-lg:grid-cols-1 gap-4 w-fit">
                                     @foreach($roomtype->imggallery as $img)
-                                        <x-website_settings.image-radio name="room_type_{{$roomtype->id}}" :img="$img" :settings="$settings"/>
+                                        <x-website_settings.image-radio name="room_type_{{$roomtype->id}}" :img="$img"
+                                                                        :settings="$settings"/>
                                     @endforeach
                                 </div>
                             </div>
