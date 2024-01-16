@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\Interior;
 use App\Models\Room;
 use App\Models\Roomtype;
 use App\Models\WebsiteSettings;
@@ -19,7 +20,8 @@ class Controller extends BaseController
         $hotel = Hotel::first();
         $website_settings = WebsiteSettings::first();
         $room_types = Roomtype::all();
-        return view('public.welcome',compact('hotel', 'website_settings', 'room_types'));
+        $interior = Interior::where('hotel_id', $hotel->id)->get()->first();
+        return view('public.welcome',compact('hotel', 'website_settings', 'room_types', 'interior'));
     }
     public function room($id)
     {

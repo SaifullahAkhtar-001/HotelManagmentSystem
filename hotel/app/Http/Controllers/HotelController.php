@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Facility;
 use App\Models\Hotel;
 use App\Models\ImgGallery;
+use App\Models\Interior;
 use App\Models\WebsiteSettings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -78,6 +79,9 @@ class HotelController extends Controller
         $this->storeHotelImage($request, $hotel);
         $hotel->facilities()->attach($request->facilities);
         WebsiteSettings::create([
+            'hotel_id' => $hotel->id,
+        ]);
+        Interior::create([
             'hotel_id' => $hotel->id,
         ]);
 

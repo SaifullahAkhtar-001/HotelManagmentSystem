@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ImgGalleryController;
+use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomtypeController;
@@ -36,6 +38,8 @@ Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('hotels', HotelController::class);
+    Route::resource('interior', InteriorController::class);
+    Route::resource('amenity', AmenityController::class);
     Route::resource('rooms', RoomController::class);
     Route::resource('roomtype', RoomtypeController::class);
     Route::resource('facility',FacilityController::class);

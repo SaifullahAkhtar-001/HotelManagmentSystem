@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\settings;
 
 class Hotel extends Model
 {
@@ -26,6 +25,10 @@ class Hotel extends Model
     public function website_settings()
     {
         return $this->belongsTo(WebsiteSettings::class);
+    }
+    public function interior()
+    {
+        return $this->belongsTo(Interior::class);
     }
 
     public function facilities()

@@ -14,9 +14,10 @@ class WebsiteSettingsController extends Controller
     {
         $roomtypes = Roomtype::all();
         $hotel = auth()->user()->hotels->first();
-        $settings = WebsiteSettings::where('hotel_id', $hotel->id)->first();
+        $settings = $hotel ? WebsiteSettings::where('hotel_id', $hotel->id)->first() : null;
         return view('dashboard.website-settings.index', compact('settings', 'hotel', 'roomtypes'));
     }
+
     public function update(Request $request)
     {
         $hotel = auth()->user()->hotels->first();
@@ -39,13 +40,13 @@ class WebsiteSettingsController extends Controller
         $hotels = Hotel::all();
         foreach ($hotels as $hotel) {
             $hotel->imggallery()->update(['is_hero' => false]);
-            $hotel->imggallery()->where('id', $request->input('hotel_'.$hotel->id))->update(['is_hero' => true]);
+            $hotel->imggallery()->where('id', $request->input('hotel_' . $hotel->id))->update(['is_hero' => true]);
         }
 
         $types = Roomtype::all();
         foreach ($types as $type) {
             $type->imggallery()->update(['is_hero' => false]);
-            $type->imggallery()->where('id', $request->input('room_type_'.$type->id))->update(['is_hero' => true]);
+            $type->imggallery()->where('id', $request->input('room_type_' . $type->id))->update(['is_hero' => true]);
         }
         $settings->update($attributes);
 

@@ -2,6 +2,7 @@
     <x-form.header title="Website Settings" subTitle="Here You Will Configure Your Website!"/>
     <div class="max-h-56 max-w-xl">
     </div>
+    @if($settings)
     <form method="post">
         @csrf
         <div class="flex flex-col gap-6">
@@ -180,4 +181,11 @@
             <x-form.submit-button value="Save"/>
         </div>
     </form>
+    @else
+        <div class="flex gap-4 items-center ">
+            <p class="text-red-500">No Hotel Found!</p>
+            <a href="{{route('hotels.create')}}" class="bg-blue-500 text-white px-3 py-2 rounded-lg">Create Hotel</a>
+        </div>
+    @endif
+
 </x-app-layout>

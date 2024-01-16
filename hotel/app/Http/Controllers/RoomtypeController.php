@@ -110,6 +110,7 @@ class RoomtypeController extends Controller
 
         $request->validate([
             'roomtype_images.*' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'roomtype_images' => 'required_without_all:other_field1,other_field2,...',
         ]);
 
         $roomtype->update($attributes);

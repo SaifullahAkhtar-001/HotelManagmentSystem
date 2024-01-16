@@ -28,7 +28,7 @@
                     </p>
                 @endforeach
             @endforeach
-            <x-image-preview :images="$roomtype->imggallery"/>
+            <x-form.image-preview :images="$roomtype->imggallery"/>
             <x-form.submit-button value="Update Room Type"/>
         </form>
     </div>

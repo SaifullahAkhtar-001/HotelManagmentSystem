@@ -46,7 +46,7 @@
                     </p>
                 @endforeach
             @endforeach
-            <x-image-preview :images="$hotel->imggallery"/>
+            <x-form.image-preview :images="$hotel->imggallery"/>
 
 
             <x-form.submit-button value="Edit Hotel"/>
