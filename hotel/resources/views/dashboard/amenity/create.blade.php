@@ -1,17 +1,10 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto">
         <x-form.header title="Create Amenity" subTitle="Here You Will Add The Amenity Information !" />
-        <form method="POST" action="{{route('amenity.store')}}" enctype="multipart/form-data"
+        <form method="POST" action="{{route('hotels.amenity.store')}}" enctype="multipart/form-data"
               class="max-w-7xl flex flex-col gap-6">
             @csrf
-            <label for="hotel_id" class="block mb-2 text-sm font-medium text-gray-500 ">Select the Hotel
-                <select id="hotel_id" name="hotel_id"
-                        class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5">
-                    @foreach($hotels as $hotel)
-                        <option value="{{ $hotel->id }}">{{ $hotel->hotel_name }}</option>
-                    @endforeach
-                </select>
-            </label>
+            <input type="hidden" value="{{$hotel->id}}" name="hotel_id">
             <x-form.input name="name" type="name" label="Name"/>
             <x-form.input name="description" type="description" label="Description"/>
             <div class="my-3 max-w-xs">

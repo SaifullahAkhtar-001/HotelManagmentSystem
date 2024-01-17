@@ -3,5 +3,5 @@
         heading="Amenities"
         :description="$hotel->amenities['description']"
     />
-    @include('components.grid')
+    @include('components.amenity.cards-grid')
 </div>

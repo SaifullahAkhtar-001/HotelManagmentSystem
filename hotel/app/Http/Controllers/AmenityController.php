@@ -35,23 +35,23 @@ class AmenityController extends Controller
     {
         if ($oldImagePath) {
             $oldImagePathRelativeToDisk = Str::after($oldImagePath, '/storage');
-//            dd($oldImagePathRelativeToDisk);
             Storage::disk('public')->delete($oldImagePathRelativeToDisk);
         }
     }
-    public function index()
+    public function index(int $id)
     {
-        $amenities = Amenity::all();
-        return view('dashboard.amenity.index', compact('amenities'));
+        $hotel = Hotel::findOrFail($id);
+        $amenities = Amenity::where('hotel_id', $id)->get();
+        return view('dashboard.amenity.index', compact('amenities', 'hotel'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(int $id)
     {
-        $hotels = auth()->user()->hotels;
-        return view('dashboard.amenity.create' ,compact('hotels'));
+        $hotel = Hotel::findOrFail($id);
+        return view('dashboard.amenity.create' ,compact('hotel'));
     }
 
     /**
@@ -73,7 +73,10 @@ class AmenityController extends Controller
             'imagable_id' => $amenity->id,
             'imagable_type' => Amenity::class
         ]);
-        return redirect()->route('amenity.index')->with('success', 'Amenity created successfully.');
+
+        $hotel = Hotel::findOrFail($amenity->hotel_id);
+
+        return redirect()->route('hotels.amenity', $hotel->id)->with('success', 'Amenity created successfully.');
     }
 
     /**
@@ -118,7 +121,9 @@ class AmenityController extends Controller
             $this->deleteImage($oldImagePath);
         }
 
-        return redirect()->route('amenity.index')->with('success', 'Amenity updated successfully.');
+        $hotel = Hotel::findOrFail($amenity->hotel_id);
+
+        return redirect()->route('hotels.amenity', $hotel->id)->with('success', 'Amenity updated successfully.');
     }
 
     /**
@@ -127,6 +132,7 @@ class AmenityController extends Controller
     public function destroy(string $id)
     {
         $amenity = Amenity::findOrFail($id);
+        $hotel = Hotel::findOrFail($amenity->hotel_id);
         $oldImagePath = $amenity->imggallery->url ?? null;
 
         $this->deleteImage($oldImagePath);
@@ -135,6 +141,6 @@ class AmenityController extends Controller
 
         $amenity->delete();
 
-        return redirect()->route('amenity.index')->with('success', 'Amenity deleted successfully.');
+        return redirect()->route('hotels.amenity', $hotel->id)->with('success', 'Amenity deleted successfully.');
     }
 }

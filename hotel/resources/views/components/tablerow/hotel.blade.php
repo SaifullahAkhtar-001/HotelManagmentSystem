@@ -35,6 +35,10 @@
             @endforeach
         </div>
     </td>
+    <td class="max-md:hidden px-6 py-4 text-blue-500 underline flex gap-6 justify-center items-center">
+        <a href="{{route('hotels.interior', $hotel->id)}}">interior</a>
+        <a href="{{route('hotels.amenity', $hotel->id)}}">amenities</a>
+    </td>
     <td class="px-6 py-4">
         <div class="flex justify-center gap-4">
             <a x-data="{ tooltip: 'Edite' }" href="{{ route('hotels.edit', $hotel->id) }}">
@@ -55,7 +59,8 @@
                 </svg>
             </a>
             <a x-data="{ tooltip: 'Edite' }" href="{{ route('hotels.settings', $hotel->id) }}">
-                <svg fill="" class="h-6 w-6 fill-current hover:fill-green-500 transition-all" version="1.1" id="Capa_1" stroke="currentColor"
+                <svg fill="" class="h-6 w-6 fill-current hover:fill-green-500 transition-all" version="1.1" id="Capa_1"
+                     stroke="currentColor"
                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                      viewBox="0 0 478.703 478.703" xml:space="preserve">
                     <g>

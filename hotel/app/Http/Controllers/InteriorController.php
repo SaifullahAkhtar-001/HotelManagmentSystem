@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ImgGallery;
+use App\Models\Hotel;
 use App\Models\Interior;
-use App\Models\Roomtype;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rules\In;
 
 class InteriorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-
     private function storeHotelImage(Request $request, Interior $interior)
     {
         $images = [];
@@ -32,18 +25,21 @@ class InteriorController extends Controller
             return ['url' => $url];
         }, $images));
     }
-    public function index()
-    {
-        $interiors = Interior::all();
-        return view('dashboard.interior.index', compact('interiors'));
-    }
+
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function index($id)
     {
-        $hotels = auth()->user()->hotels;
+        $interiors = Interior::where('hotel_id', $id)->get();
+        $hotel = Hotel::findOrFail($id);
+        return view('dashboard.interior.index', compact('hotel','interiors'));
+    }
+
+    public function create($id)
+    {
+        $hotels = Hotel::findOrFail($id);
         return view('dashboard.interior.create', compact('hotels'));
     }
 
@@ -52,6 +48,7 @@ class InteriorController extends Controller
      */
     public function store(Request $request)
     {
+        $hotel = Hotel::findOrFail($request->hotel_id);
         $interior = Interior::where('hotel_id', $request->hotel_id)->first();
         $request->validate([
             'interior_images.*' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -60,38 +57,6 @@ class InteriorController extends Controller
 
         $this->storeHotelImage($request, $interior);
 
-        return redirect()->route('interior.index')->with('success', 'Interior created successfully');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-      //
+        return redirect()->route('hotels.interior', $hotel->id)->with('success', 'Interior created successfully');
     }
 }

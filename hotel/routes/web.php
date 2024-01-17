@@ -4,9 +4,11 @@ use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ImgGalleryController;
 use App\Http\Controllers\InteriorController;
+use App\Http\Controllers\NotInteriorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomtypeController;
@@ -26,8 +28,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Controller::class, 'index'])->name('home');
-Route::get('/room/{id}', [Controller::class, 'room'])->name('room.show');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/room/{id}', [HomeController::class, 'room'])->name('room.show');
 
 Route::get('facility/create',[FacilityController::class,'facilityCreate'])->name('facility.create');
 
@@ -38,11 +40,20 @@ Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('hotels', HotelController::class);
-    Route::resource('interior', InteriorController::class);
-    Route::resource('amenity', AmenityController::class);
+//    Route::resource('amenity', AmenityController::class);
     Route::resource('rooms', RoomController::class);
     Route::resource('roomtype', RoomtypeController::class);
     Route::resource('facility',FacilityController::class);
+
+    Route::get('hotels/amenity/{id}', [AmenityController::class, 'index'])->name('hotels.amenity');
+    Route::get('hotels/amenity/{id}/create', [AmenityController::class, 'create'])->name('hotels.amenity.create');
+    Route::post('hotels/amenity/store', [AmenityController::class, 'store'])->name('hotels.amenity.store');
+    Route::post('hotels/amenity/update/{id}', [AmenityController::class, 'update'])->name('hotels.amenity.edit');
+    Route::delete('hotels/amenity/{id}', [AmenityController::class, 'destroy'])->name('hotels.amenity.destroy');
+
+    Route::get('hotels/interior/{id}', [InteriorController::class, 'index'])->name('hotels.interior');
+    Route::get('hotels/interior/{id}/create', [InteriorController::class, 'create'])->name('hotels.interior.create');
+    Route::post('hotels/interior/store', [InteriorController::class, 'store'])->name('hotels.interior.save');
 
     Route::get('/delete-image-from-gallery/{id}', [ImgGalleryController::class, 'destroy'])->name('image.delete');
     Route::get('website-settings',[WebsiteSettingsController::class, 'index'])->name('website-settings.index');
