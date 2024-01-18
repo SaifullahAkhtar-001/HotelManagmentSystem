@@ -18,25 +18,31 @@ class Hotel extends Model
         'amenities' => 'json',
     ];
 
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function website_settings()
+    public function website_settings(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->belongsTo(WebsiteSettings::class);
+        return $this->hasOne(WebsiteSettings::class);
     }
-    public function interior()
+
+    public function term(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Term::class);
+    }
+    public function interior(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Interior::class);
     }
 
-    public function facilities()
+    public function facilities(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Facility::class);
     }
 
-    public function imggallery(){
+    public function imggallery(): \Illuminate\Database\Eloquent\Relations\MorphMany
+    {
         return $this->morphMany(ImgGallery::class,'imagable');
     }
 }

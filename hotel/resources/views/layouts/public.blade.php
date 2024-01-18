@@ -54,7 +54,7 @@
 
 <div>
     <x-nav :nav_layout="$website_settings->nav_layout"/>
-    <div class="min-h-screen">{{$slot}}</div>
+    <div {{ $attributes->merge(['class' => '']) }}>{{$slot}}</div>
     @include('public.sections.footer-section')
 </div>
 <script>

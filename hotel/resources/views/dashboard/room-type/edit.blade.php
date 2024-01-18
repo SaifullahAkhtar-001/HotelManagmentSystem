@@ -1,4 +1,9 @@
 <x-app-layout>
+    @if($errors->any())
+        @foreach($errors as $error)
+            <p>{{$error}}</p>
+        @endforeach
+    @endif
     <div class="max-w-7xl  mx-auto">
         <x-form.header title="Edit Room Type" subTitle="Here You Will Edit Your Available Room Type!"/>
         <form method="POST" action="{{route('roomtype.update', $roomtype->id)}}"

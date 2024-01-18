@@ -1,15 +1,12 @@
-@props(['amenity'])
+@props(['term'])
 
 <tr class="hover:bg-gray-50">
-    <th class="px-6 py-4 font-bold text-gray-900">
-        <div class="font-medium text-gray-700">{{$amenity->name}}</div>
-    </th>
-    <th class="px-6 py-4 font-bold text-gray-900">
-        <div class="font-medium text-gray-700">{{$amenity->description}}</div>
+    <th class="px-6 py-4 font-bold text-gray-900 ">
+        <div class="font-medium text-gray-700 line-clamp-1 max-md:max-w-[10rem] max-w-xl overflow-x-hidden">{{$term->term}}</div>
     </th>
     <td class="px-6 py-4">
         <div class="flex justify-end md:mr-12 gap-4">
-            <a x-data="{ tooltip: 'Edite' }" href="{{ route('hotels.amenity.update', $amenity->id) }}">
+            <a x-data="{ tooltip: 'Edite' }" href="{{ route('hotels.terms.edit', $term->id) }}">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -26,7 +23,7 @@
                     />
                 </svg>
             </a>
-            <form method="POST" action="{{ route('hotels.amenity.destroy', $amenity->id) }}">
+            <form method="POST" action="{{ route('hotels.terms.destroy', $term->id) }}">
                 @csrf
                 @method('DELETE')
 

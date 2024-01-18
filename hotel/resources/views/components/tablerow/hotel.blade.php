@@ -38,6 +38,7 @@
     <td class="max-md:hidden px-6 py-4 text-blue-500 underline flex gap-6 justify-center items-center">
         <a href="{{route('hotels.interior', $hotel->id)}}">interior</a>
         <a href="{{route('hotels.amenity', $hotel->id)}}">amenities</a>
+        <a href="{{route('hotels.terms', $hotel->id)}}">terms & conditions</a>
     </td>
     <td class="px-6 py-4">
         <div class="flex justify-center gap-4">

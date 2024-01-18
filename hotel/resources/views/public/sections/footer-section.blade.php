@@ -121,7 +121,7 @@
                 <div class="mb-4 mt-2 text-lg">
                     <h3>Policies</h3>
                     <h3>Legal Notice</h3>
-                    <h3>Terms And Conditions</h3>
+                    <a href="{{route('terms', $hotel->id)}}" class="hover:underline hover:text-blue-500">Terms And Conditions</a>
                     <h3>About Us</h3>
                     <h3>Secure Payment</h3>
                 </div>

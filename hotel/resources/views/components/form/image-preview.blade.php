@@ -1,5 +1,5 @@
 @if($images->count() > 0)
-    <div class="h-40 w-fit grid grid-cols-2 md:grid-cols-8 gap-5">
+    <div class="w-fit h-fit grid grid-cols-2 md:grid-cols-8 pb-4 gap-5">
         @foreach($images as $image)
             <div class="flex gap-3 w-32 h-32 relative">
                 <img src="{{ asset($image->url) }}" alt="" class="w-full object-cover rounded-xl">
