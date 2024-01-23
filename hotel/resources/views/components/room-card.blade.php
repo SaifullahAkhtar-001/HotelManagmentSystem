@@ -1,6 +1,6 @@
 @props(['room'])
 <article
-    class="shadow-2xl p-2 rounded-xl mx-auto pb-5 w-full max-w-xl max-h-md transform duration-500 hover:-translate-y-1 cursor-pointer group">
+    class="shadow-2xl p-2 rounded-xl mx-auto pb-5 w-full max-w-xl max-h-md transform duration-500 hover:-translate-y-1 group">
     <div class="max-h-[28rem] overflow-hidden">
         @if($room->imggallery->count() > 0)
         <img draggable="false" class="rounded-xl md:h-[28rem] h-[20rem] w-full transform duration-300 group-hover:scale-110" src="{{asset($room->imggallery->where('is_hero', true)->first()->url)}}" alt="">

@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/room/{id}', [HomeController::class, 'room'])->name('room.show');
 Route::get('/{id}/terms&condition', [HomeController::class, 'terms'])->name('terms');
+Route::get('/{id}/aboutUs', [HomeController::class, 'aboutUs'])->name('aboutUs');
 
 Route::get('facility/create',[FacilityController::class,'facilityCreate'])->name('facility.create');
 
@@ -60,6 +61,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/delete-image-from-gallery/{id}', [ImgGalleryController::class, 'destroy'])->name('image.delete');
     Route::get('website-settings',[WebsiteSettingsController::class, 'index'])->name('website-settings.index');
     Route::post('website-settings',[WebsiteSettingsController::class, 'update'])->name('website-settings.update');
+
+    Route::get('test', function(){
+        $hotel = Hotel::first();
+        $website_settings = $hotel->website_settings;
+        return view('public.pages.aboutUs',[
+            'hotel' => $hotel,
+            'website_settings' => $website_settings,
+        ]);
+    });
 
     Route::get('hotels/{id}/terms',[TermController::class, 'index'])->name('hotels.terms');
     Route::post('hotels/terms/store',[TermController::class, 'store'])->name('hotels.terms.store');

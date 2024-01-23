@@ -17,6 +17,8 @@ class HotelController extends Controller
     {
         $attributes = request()->validate([
             'hotel_name' => 'required|min:3',
+            'description' => 'required',
+            'about' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
             'address' => 'required',

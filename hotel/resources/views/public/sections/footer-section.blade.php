@@ -118,12 +118,9 @@
                 </h6>
                 <hr class="w-16 max-sm:mx-auto border-b-2 border-blue-400"/>
 
-                <div class="mb-4 mt-2 text-lg">
-                    <h3>Policies</h3>
-                    <h3>Legal Notice</h3>
+                <div class="mb-4 mt-2 text-lg flex flex-col">
                     <a href="{{route('terms', $hotel->id)}}" class="hover:underline hover:text-blue-500">Terms And Conditions</a>
-                    <h3>About Us</h3>
-                    <h3>Secure Payment</h3>
+                    <a href="{{route('aboutUs', $hotel->id)}}" class="hover:underline hover:text-blue-500">About Us</a>
                 </div>
 
             </div>

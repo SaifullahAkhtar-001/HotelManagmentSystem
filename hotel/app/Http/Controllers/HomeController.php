@@ -34,4 +34,11 @@ class HomeController extends Controller
         $terms = Hotel::findOrFail($id)->term;
         return view('public/pages/terms', compact('website_settings', 'terms'));
     }
+
+    public function aboutUs(int $id)
+    {
+        $hotel = Hotel::findOrFail($id);
+        $website_settings = $hotel->website_settings;
+        return view('public/pages/aboutUs', compact('website_settings', 'hotel'));
+    }
 }

@@ -9,6 +9,8 @@
                 <x-form.input class="lg:flex-1" name="email" type="email" label="Email"/>
                 <x-form.input class="flex-1" name="phone" type="text" label="Phone"/>
             </div>
+            <x-form.input name="about" type="text" label="About"/>
+            <x-form.input name="description" type="text" label="Description"/>
             <x-form.input name="address" type="text" label="Address"/>
             <div class="flex gap-3">
                 <x-form.input class="flex-1" name="city" type="text" label="City"/>
