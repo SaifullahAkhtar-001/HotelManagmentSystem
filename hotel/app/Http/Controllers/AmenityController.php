@@ -41,7 +41,7 @@ class AmenityController extends Controller
     public function index(int $id)
     {
         $hotel = Hotel::findOrFail($id);
-        $amenities = Amenity::where('hotel_id', $id)->get();
+        $amenities = Amenity::where('hotel_id', $id)->paginate(10);
         return view('dashboard.amenity.index', compact('amenities', 'hotel'));
     }
 

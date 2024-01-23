@@ -57,17 +57,5 @@
     <div {{ $attributes->merge(['class' => '']) }}>{{$slot}}</div>
     @include('public.sections.footer-section')
 </div>
-<script>
-    const slideLeft = () => {
-        var slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft - 500;
-    };
-
-    const slideRight = () => {
-        var slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft + 500;
-    };
-
-</script>
 </body>
 </html>

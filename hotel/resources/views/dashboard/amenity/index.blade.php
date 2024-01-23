@@ -19,6 +19,8 @@
                 @endforeach
             </tbody>
         </table>
-
+    </div>
+    <div class="mt-4">
+    {{$amenities->links()}}
     </div>
 </x-app-layout>

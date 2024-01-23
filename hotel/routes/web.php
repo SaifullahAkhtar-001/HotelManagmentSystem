@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ImgGalleryController;
 use App\Http\Controllers\InteriorController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NotInteriorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
@@ -46,6 +47,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('rooms', RoomController::class);
     Route::resource('roomtype', RoomtypeController::class);
     Route::resource('facility',FacilityController::class);
+    Route::resource('item',ItemController::class);
+
+    Route::post('/updateQuantity/{id}', [ItemController::class, 'updateQuantity'])->name('updateQuantity');
+    Route::get('/search-items', [ItemController::class, 'search'])->name('item.search');
+
 
     Route::get('hotels/amenity/{id}', [AmenityController::class, 'index'])->name('hotels.amenity');
     Route::get('hotels/amenity/{id}/create', [AmenityController::class, 'create'])->name('hotels.amenity.create');
