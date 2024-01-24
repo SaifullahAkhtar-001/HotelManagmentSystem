@@ -43,7 +43,7 @@
             </button>
         </form>
     </div>
-    <img src="{{asset('images/hotel.jpg')}}" alt="empty"
+    <img src="{{asset($item->imggallery->first()->url)}}" alt="empty"
          class="h-24 w-24 lg:h-36 lg:w-36 mx-auto my-auto object-cover object-center rounded-full">
     <div class="flex flex-col gap-3 max-lg:flex-1">
         <div class="lg:hidden flex justify-end w-full gap-4">
@@ -89,8 +89,10 @@
         </div>
         <div class="flex justify-between h-fit w-full">
             <h1 class="font-bold">{{$item->name}}</h1>
-            <p class="text-blue-500 whitespace-nowrap">${{$item->cost_per_unit}} <span class="text-xs">/each</span></p>
+            <p class="text-white text-sm {{ $item->status > $item->min_stock_level? 'bg-green-500/60' : '' }}  {{ $item->quantity < $item->min_stock_level ? 'bg-yellow-500/60' : '' }}  {{ $item->status == 0 ? 'bg-red-500/60' : '' }}  backdrop-blur-md px-2 py-auto rounded-xl items-center">{{$item->status}}</p>
         </div>
+        <p class="text-blue-500 whitespace-nowrap">${{$item->cost_per_unit}} <span class="text-xs">/each</span></p>
+
         <div class="flex items-center justify-between gap-4">
             <p>Quantity:</p>
             <div>
@@ -106,9 +108,9 @@
 
             </div>
         </div>
-        <button
+        <a href="{{route('item.show', $item->id)}}"
             class="max-sm:hidden bg-gray-300 hover:bg-gray-400 transition-all duration-200 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center me-2 cursor-pointer">
             see details
-        </button>
+        </a>
     </div>
 </div>

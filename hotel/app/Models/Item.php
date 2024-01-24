@@ -10,4 +10,8 @@ class Item extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function imggallery(){
+        return $this->morphMany(ImgGallery::class,'imagable');
+    }
 }

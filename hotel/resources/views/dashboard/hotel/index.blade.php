@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="flex mx-4 justify-between items-center pb-8 text-4xl">
+    <div class="flex mx-4 justify-between items-center py-8 text-4xl">
         <h1>Hotels</h1>
         <a href="{{route('hotels.create')}}" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 cursor-pointer">Add
             Hotel</a>

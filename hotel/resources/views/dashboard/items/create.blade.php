@@ -7,8 +7,10 @@
             <div class="flex gap-3">
                 <x-form.input name="name" type="text" label="Name" class="w-[30rem]"/>
                 <label class="flex-1">
-                    <select name="category"
-                            class="block cursor-pointer py-[11px] px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-200 @error('category') peer-focus:scale-75 peer-focus:text-red-600 @enderror peer-focus:text-blue-600 peer-focus:scale-75 peer">
+                    <select
+                        name="category"
+                        class="block cursor-pointer py-[11px] px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-200 @error('category') peer-focus:scale-75 peer-focus:text-red-600 @enderror peer-focus:text-blue-600 peer-focus:scale-75 peer"
+                    >
                         <option disabled selected>Select the Category</option>
                         <option value="room amenities">Room Amenities</option>
                         <option value="cleaning supplies">Cleaning Supplies</option>
@@ -31,7 +33,7 @@
                     <select name="unit_of_measurement"
                             class="block cursor-pointer py-[11px] px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-200 @error('category') peer-focus:scale-75 peer-focus:text-red-600 @enderror peer-focus:text-blue-600 peer-focus:scale-75 peer">
                         <option disabled selected>Select the unit</option>
-                        <option value="kg">Kgs</option>
+                        <option value="kg">kgs</option>
                         <option value="ml">ml</option>
                         <option value="pieces">pieces</option>
                     </select>
@@ -50,17 +52,8 @@
                             class="block cursor-pointer py-[11px] px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-200 @error('category') peer-focus:scale-75 peer-focus:text-red-600 @enderror peer-focus:text-blue-600 peer-focus:scale-75 peer">
                         <option disabled selected>Select the status</option>
                         <option value="Available">Available</option>
-                        <option value="In Use">In Use</option>
-                        <option value="Out of Stock">Out of Stock</option>
-                        <option value="Under Maintenance">Under Maintenance</option>
-                        <option value="Damaged">Damaged</option>
-                        <option value="On Order">On Order</option>
-                        <option value="Reserved">Reserved</option>
-                        <option value="Disposed">Disposed</option>
-                        <option value="Expired">Expired</option>
                         <option value="Low Stock">Low Stock</option>
-                        <option value="Not in Use">Not in Use</option>
-                        <option value="Lost">Lost</option>
+                        <option value="Out of Stock">Out of Stock</option>
                     </select>
                     @error('status')
                     <p id="standard_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400">
@@ -79,6 +72,13 @@
 
             <x-form.input name="hotel_id" type="number" label="Hotel Id" value="{{auth()->user()->hotels->first()->id}}"
                           class="hidden"/>
+            <div class="my-3 max-w-xs">
+                <label for="example1" class="mb-1 block text-sm font-medium text-gray-700">Upload image</label>
+                <input name="item_img" id="example1" type="file" class="mt-2 block w-full text-sm file:mr-4 file:rounded-md file:border-0 file:bg-blue-500 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-60" />
+            </div>
+            @error('item_img')
+            <p id="standard_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">{{ $message }}</p>
+            @enderror
 
             <x-form.submit-button value="Add Item"/>
         </form>

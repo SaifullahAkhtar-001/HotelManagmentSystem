@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImgGallery;
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ItemController extends Controller
 {
@@ -23,9 +26,24 @@ class ItemController extends Controller
             'date_of_purchase' => 'required',
             'expiry_date' => 'required',
             'notes' => 'required',
-            'status' => 'required',
             'hotel_id' => 'required',
         ]);
+    }
+
+    private function storeImage(Request $request)
+    {
+        $image = $request->file('item_img');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $path = $image->storeAs('images', $imageName, 'public');
+        return Storage::url($path);
+    }
+
+    private function deleteImage($oldImagePath)
+    {
+        if ($oldImagePath) {
+            $oldImagePathRelativeToDisk = Str::after($oldImagePath, '/storage');
+            Storage::disk('public')->delete($oldImagePathRelativeToDisk);
+        }
     }
 
     public function updateQuantity(Request $request, $id)
@@ -34,15 +52,32 @@ class ItemController extends Controller
             'newQuantity' => 'required|integer|min:0',
         ]);
 
-        Item::findOrFail($id)->update(['quantity' => $request->newQuantity]);
+        $item = Item::findOrFail($id);
+        //set status
+        if ($request->newQuantity < $item->min_stock_level && $request->newQuantity > 0 ) {
+            $status = 'Low Stock';
+        } elseif ($request->newQuantity == 0) {
+            $status = 'Out of Stock';
+        } else {
+            $status = 'Available';
+        }
+        $item->update(['quantity' => $request->newQuantity, 'status' => $status]);
 
 
         return response()->json(['success' => true, 'message' => 'Quantity updated successfully']);
     }
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::paginate(30);
-        return view('dashboard.items.index', compact('items'));
+        $items = Item::query();
+
+        $category = null;
+        if ($request->filled('category')) {
+            $category = $request->input('category');
+            $items->where('category', $category);
+        }
+
+        $filteredItems = $items->paginate(30);
+        return view('dashboard.items.index', compact('filteredItems', 'category'));
     }
 
     /**
@@ -60,8 +95,29 @@ class ItemController extends Controller
     {
         $attributes = $this->getAttributes($request);
 
-        Item::create($attributes);
+        if ($request->quantity < $request->min_stock_level || $request->quantity > 0 ){
+            $status = 'Low Stock';
+        }elseif ($request->quantity == 0){
+            $status = 'Out of Stock';}
+        else{
+            $status = 'Available';
+        }
 
+        $attributes['status'] = $status;
+
+        $request->validate([
+            'item_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $item = Item::create($attributes);
+
+        $imageUrl = $this->storeImage($request);
+
+        ImgGallery::create([
+            'url' => $imageUrl,
+            'imagable_id' => $item->id,
+            'imagable_type' => Item::class
+        ]);
         return redirect()->route('item.index')->with('success', 'Item created successfully.');
     }
 
@@ -70,7 +126,8 @@ class ItemController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $item = Item::findOrFail($id);
+        return view('dashboard.items.show', compact('item'));
     }
 
     /**
@@ -89,7 +146,22 @@ class ItemController extends Controller
     {
         $attributes = $this->getAttributes($request);
 
-        Item::findOrFail($id)->update($attributes);
+        $request->validate([
+            'item_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $item = Item::findOrFail($id)->update($attributes);
+
+        $oldImagePath = $item->imggallery->first()->url ?? null;
+
+        if ($request->hasFile('item_img')) {
+            $imageUrl = $this->storeImage($request);
+
+            // Update the image in ImgGallery
+            $item->imgGallery()->update(['url' => $imageUrl]);
+
+            $this->deleteImage($oldImagePath);
+        }
 
         return redirect()->route('item.index')->with('success', 'Item updated successfully.');
     }
@@ -99,7 +171,14 @@ class ItemController extends Controller
      */
     public function destroy(string $id)
     {
-        Item::findOrFail($id)->delete();
+        $item = Item::findOrFail($id);
+        $oldImagePath = $item->imggallery->first()->url ?? null;
+
+        $this->deleteImage($oldImagePath);
+
+        ImgGallery::where('imagable_id', $item->id)->where('imagable_type', Item::class)->delete();
+
+        $item->delete();
         return redirect()->route('item.index')->with('success', 'Item deleted successfully.');
     }
 }

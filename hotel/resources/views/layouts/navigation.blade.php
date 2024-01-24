@@ -1,4 +1,12 @@
-<nav class="md:fixed md:top-0 md:left-0 p-2 md:bottom-0 flex flex-col md:flex-row md:min-h-screen">
+<nav class="md:fixed relative md:top-0 md:left-0 p-2 md:bottom-0 flex flex-col md:flex-row md:min-h-screen">
+    <button type="button" onclick="window.history.back()"
+            class="max-md:hidden absolute top-4  right-[-8rem] flex items-center justify-center w-24 z-50 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border border-gray-200 rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100" {{ request()->is('dashboard') ? 'style=display:none;' : '' }}>
+        <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+             stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"/>
+        </svg>
+        <span>Go back</span>
+    </button>
     <div @click.away="open = false"
          class="flex flex-col md:w-56 p-2 rounded-2xl shadow-xl text-gray-700 bg-white flex-shrink-0"
          x-data="{ open: false }">
