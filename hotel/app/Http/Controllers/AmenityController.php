@@ -76,7 +76,7 @@ class AmenityController extends Controller
 
         $hotel = Hotel::findOrFail($amenity->hotel_id);
 
-        return redirect()->route('hotels.amenity', $hotel->id)->with('success', 'Amenity created successfully.');
+        return redirect()->route('admin.hotels.amenity', $hotel->id)->with('success', 'Amenity created successfully.');
     }
 
     /**
@@ -123,7 +123,7 @@ class AmenityController extends Controller
 
         $hotel = Hotel::findOrFail($amenity->hotel_id);
 
-        return redirect()->route('hotels.amenity', $hotel->id)->with('success', 'Amenity updated successfully.');
+        return redirect()->route('admin.hotels.amenity', $hotel->id)->with('success', 'Amenity updated successfully.');
     }
 
     /**
@@ -141,6 +141,6 @@ class AmenityController extends Controller
 
         $amenity->delete();
 
-        return redirect()->route('hotels.amenity', $hotel->id)->with('success', 'Amenity deleted successfully.');
+        return redirect()->route('admin.hotels.amenity', $hotel->id)->with('success', 'Amenity deleted successfully.');
     }
 }

@@ -5,7 +5,7 @@
         </h1>
 
 
-        <form method="POST" action="{{route('facility.update', $facility->id)}}" class="max-w-4xl">
+        <form method="POST" action="{{route('admin.facility.update', $facility->id)}}" class="max-w-4xl">
             @csrf
             @method('PUT')
             <x-hotel-input name="name" :value="$facility->name" title="Name" type="text"/>

@@ -2,7 +2,7 @@
 
     <div class="max-w-7xl  mx-auto">
         <x-form.header title="Create Room" subTitle="Here You Will Add Your Available Room!"/>
-        <form method="POST" action="{{route('rooms.store')}}" class="flex flex-col gap-4" enctype='multipart/form-data'>
+        <form method="POST" action="{{route('admin.rooms.store')}}" class="flex flex-col gap-4" enctype='multipart/form-data'>
             @csrf
             <label for="hotel_id" class="block mb-2 text-sm font-medium text-gray-500 ">Select the Hotel
                 <select id="hotel_id" name="hotel_id"

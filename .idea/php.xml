@@ -142,6 +142,7 @@
       <path value="$PROJECT_DIR$/hotel/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/hotel/vendor/laravel/breeze" />
       <path value="$PROJECT_DIR$/hotel/vendor/laravel/prompts" />
+      <path value="$PROJECT_DIR$/hotel/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

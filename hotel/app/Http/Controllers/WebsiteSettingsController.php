@@ -50,6 +50,6 @@ class WebsiteSettingsController extends Controller
         }
         $settings->update($attributes);
 
-        return redirect()->route('website-settings.index')->with('success', 'Saved');
+        return redirect()->route('admin.website-settings.index')->with('success', 'Saved');
     }
 }

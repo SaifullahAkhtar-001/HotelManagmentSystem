@@ -9,7 +9,7 @@
     </button>
     <div class="max-w-7xl mx-auto">
         <x-form.header title="Add Interior Images" subTitle="Here You Will Add The Interior Images !" />
-        <form method="POST" action="{{route('hotels.interior.save')}}" enctype="multipart/form-data"
+        <form method="POST" action="{{route('admin.hotels.interior.save')}}" enctype="multipart/form-data"
               class="max-w-7xl flex flex-col gap-6">
             @csrf
             <input type="hidden" name="hotel_id" value="{{$hotels->id}}">

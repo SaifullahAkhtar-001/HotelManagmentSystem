@@ -2,7 +2,7 @@
     <div class="h-40 w-fit flex gap-3">
             <div class="flex gap-3 w-32 h-32 relative">
                 <img src="{{ asset($image->url) }}" alt="" class="w-full object-cover rounded-xl">
-                    <a href="{{route('image.delete', $image->id)}}" onclick="return confirm('Are you sure you want to delete image from image gallery?')" type="button"
+                    <a href="{{route('admin.image.delete', $image->id)}}" onclick="return confirm('Are you sure you want to delete image from image gallery?')" type="button"
                         class="absolute text-xs right-1 top-1 p-1 bg-gray-500 rounded-2xl bg-opacity-70">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

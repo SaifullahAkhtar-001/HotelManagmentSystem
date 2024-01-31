@@ -1,13 +1,7 @@
 <x-app-layout>
-    @if($errors)
-        @foreach($errors as $error)
-            <p>{{$error}}</p>
-        @endforeach
-    @endif
-
     <div class="max-w-7xl  mx-auto">
         <x-form.header title="Edit Hotel" subTitle="Here You Will Edit The Hotel Information !"/>
-        <form method="POST" action="{{route('hotels.update', $hotel->id)}}" class="max-w-6xl flex flex-col gap-6" enctype="multipart/form-data">
+        <form method="POST" action="{{route('admin.hotels.update', $hotel->id)}}" class="max-w-6xl flex flex-col gap-6" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="flex max-md:flex-col gap-3">
@@ -16,6 +10,8 @@
                 <x-form.input class="lg:flex-1" :value="$hotel->email" name="email" type="email" label="Email"/>
                 <x-form.input class="flex-1" :value="$hotel->phone" name="phone" type="text" label="Phone"/>
             </div>
+            <x-form.input name="about" :value="$hotel->about" type="text" label="About"/>
+            <x-form.input name="description" :value="$hotel->description" type="text" label="Description"/>
             <x-form.input name="address" :value="$hotel->address" type="text" label="Address"/>
             <div class="flex gap-3">
                 <x-form.input class="flex-1" :value="$hotel->city" name="city" type="text" label="City"/>

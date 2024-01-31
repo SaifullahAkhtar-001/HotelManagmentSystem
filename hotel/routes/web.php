@@ -38,11 +38,9 @@ Route::get('/{id}/aboutUs', [HomeController::class, 'aboutUs'])->name('aboutUs')
 Route::get('facility/create',[FacilityController::class,'facilityCreate'])->name('facility.create');
 
 
-Route::get('/dashboard', [DashboardController::class, 'showDashboard'])
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
 
-Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('hotels', HotelController::class);
     Route::resource('rooms', RoomController::class);
     Route::resource('roomtype', RoomtypeController::class);

@@ -36,10 +36,10 @@ class FacilityController extends Controller
         Facility::create($attributes);
 
         if($request->isHotel) {
-            return redirect()->route('hotels.create')->with ('success','Created Successfully');
+            return redirect()->route('admin.hotels.create')->with ('success','Created Successfully');
         }
 
-        return redirect()->route('facility.index')->with('success', 'Facility Created');
+        return redirect()->route('admin.facility.index')->with('success', 'Facility Created');
     }
 
     /**
@@ -69,7 +69,7 @@ class FacilityController extends Controller
         $attributes = $this->getAttribute();
         $facility->update($attributes);
 
-        return redirect()->route('facility.index')->with('success','Facility Updated');
+        return redirect()->route('admin.facility.index')->with('success','Facility Updated');
     }
 
     /**

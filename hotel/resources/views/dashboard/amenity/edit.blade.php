@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl  mx-auto">
         <x-form.header title="Edit Amenity" subTitle="Here You Will Edit The Amenity Information !"/>
-        <form method="POST" action="{{route('hotels.amenity.update', $amenity->id)}}" class="max-w-6xl flex flex-col gap-6" enctype="multipart/form-data">
+        <form method="POST" action="{{route('admin.hotels.amenity.update', $amenity->id)}}" class="max-w-6xl flex flex-col gap-6" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <x-form.input name="name" type="name" label="Name" :value="$amenity->name"/>

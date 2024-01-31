@@ -57,6 +57,6 @@ class InteriorController extends Controller
 
         $this->storeHotelImage($request, $interior);
 
-        return redirect()->route('hotels.interior', $hotel->id)->with('success', 'Interior created successfully');
+        return redirect()->route('admin.hotels.interior', $hotel->id)->with('success', 'Interior created successfully');
     }
 }

@@ -8,7 +8,7 @@
     <td class="max-md:hidden px-6 py-4">{{$room->status}}</td>
     <td class="px-6 py-4">
         <div class="flex justify-center gap-4">
-            <a x-data="{ tooltip: 'Edite' }" href="{{ route('rooms.edit', $room->id) }}">
+            <a x-data="{ tooltip: 'Edite' }" href="{{ route('admin.rooms.edit', $room->id) }}">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -25,7 +25,7 @@
                     />
                 </svg>
             </a>
-            <form method="POST" action="{{ route('rooms.destroy', $room->id) }}">
+            <form method="POST" action="{{ route('admin.rooms.destroy', $room->id) }}">
                 @csrf
                 @method('DELETE')
 

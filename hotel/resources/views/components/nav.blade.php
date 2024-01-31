@@ -8,9 +8,21 @@
         <div class="flex items-center justify-center gap-6">
             @if (Route::has('login'))
                 @auth
-                    <a href="{{ url('/dashboard') }}" class="hover:font-bold transition-all">
+                    @role('admin')
+                    <a href="{{ route('admin.dashboard') }}" class="hover:font-bold transition-all">
                         Dashboard
                     </a>
+                    @endrole
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a
+                            href="{{route('logout')}}"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();"
+                            class="hover:font-semibold transition-all">
+                            Logout
+                        </a>
+                    </form>
                 @else
                     <a href="{{ route('login') }}" class="hover:font-bold transition-all">
                         Sign In

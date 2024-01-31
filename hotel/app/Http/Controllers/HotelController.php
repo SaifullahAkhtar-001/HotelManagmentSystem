@@ -89,7 +89,7 @@ class HotelController extends Controller
 
         // Store hotel images
 
-        return redirect()->route('hotels.index')->with('success', 'Hotel Created');
+        return redirect()->route('admin.hotels.index')->with('success', 'Hotel Created');
     }
 
     public function edit(string $id)
@@ -109,7 +109,7 @@ class HotelController extends Controller
         $attributes = $this->getAttributes();
 
         $request->validate([
-            'hotel_images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'hotel_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $hotel->update($attributes);
@@ -122,7 +122,7 @@ class HotelController extends Controller
         $this->deleteHotelImages($hotel->imggallery);
 
 
-        return redirect()->route('hotels.index')->with('success', 'Hotel updated successfully.');
+        return redirect()->route('admin.hotels.index')->with('success', 'Hotel updated successfully.');
     }
 
     public function destroy(string $id)
@@ -194,6 +194,6 @@ class HotelController extends Controller
             ],
         ]);
 
-        return redirect()->route('hotels.settings', ['id' => $hotel->id])->with('success', 'Hotel Settings is successfully Updated 🚀 ');
+        return redirect()->route('admin.hotels.settings', ['id' => $hotel->id])->with('success', 'Hotel Settings is successfully Updated 🚀 ');
     }
 }

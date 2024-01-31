@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl  mx-auto">
         <x-form.header title="Edit Room" subTitle="Here You Will Edit Your Room!"/>
-        <form method="POST" action="{{route('rooms.update', $room->id)}}" class="flex flex-col gap-4" enctype='multipart/form-data'>
+        <form method="POST" action="{{route('admin.rooms.update', $room->id)}}" class="flex flex-col gap-4" enctype='multipart/form-data'>
             @csrf
             @method('PUT')
             <div class="flex gap-3">

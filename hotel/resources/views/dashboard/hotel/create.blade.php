@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto">
         <x-form.header title="Create Hotel" subTitle="Here You Will Add The Hotel Information !" />
-        <form method="POST" action="{{route('hotels.store')}}" enctype="multipart/form-data"
+        <form method="POST" action="{{route('admin.hotels.store')}}" enctype="multipart/form-data"
               class="max-w-7xl flex flex-col gap-6">
             @csrf
             <div class="flex max-md:flex-col gap-3">
@@ -29,7 +29,7 @@
                         </label>
                     @endforeach
                 </div>
-                <x-add_button link="{{ route('facility.create') . '?hotel=true' }}" tooltip="Add Facility"/>
+                <x-add_button link="{{ route('admin.facility.create') . '?hotel=true' }}" tooltip="Add Facility"/>
 
 
             </div>

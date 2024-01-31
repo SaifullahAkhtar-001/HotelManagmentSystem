@@ -1,17 +1,9 @@
 <nav class="md:fixed relative md:top-0 md:left-0 p-2 md:bottom-0 flex flex-col md:flex-row md:min-h-screen">
-    <button type="button" onclick="window.history.back()"
-            class="max-md:hidden absolute top-4  right-[-8rem] flex items-center justify-center w-24 z-50 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border border-gray-200 rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100" {{ request()->is('dashboard') ? 'style=display:none;' : '' }}>
-        <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-             stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"/>
-        </svg>
-        <span>Go back</span>
-    </button>
     <div @click.away="open = false"
          class="flex flex-col md:w-56 p-2 rounded-2xl shadow-xl text-gray-700 bg-white flex-shrink-0"
          x-data="{ open: false }">
         <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
-            <a href="{{route('dashboard')}}"
+            <a href="{{route('admin.dashboard')}}"
                class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">Dashboard</a>
             <button class="rounded-lg md:hidden  focus:outline-none focus:shadow-outline"
                     @click="open = !open">
@@ -27,8 +19,8 @@
         </div>
         <nav :class="{'block': open, 'hidden': !open}"
              class="relative flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
-            <a href="{{route('dashboard')}}"
-               class="font-semibold {{ request()->routeIs('dashboard') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm text-gray-900 rounded-lg   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+            <a href="{{route('admin.dashboard')}}"
+               class="font-semibold {{ request()->routeIs('admin.dashboard') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm text-gray-900 rounded-lg   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M2.25 11.9999L11.204 3.04495C11.644 2.60595 12.356 2.60595 12.795 3.04495L21.75 11.9999M4.5 9.74995V19.8749C4.5 20.4959 5.004 20.9999 5.625 20.9999H9.75V16.1249C9.75 15.5039 10.254 14.9999 10.875 14.9999H13.125C13.746 14.9999 14.25 15.5039 14.25 16.1249V20.9999H18.375C18.996 20.9999 19.5 20.4959 19.5 19.8749V9.74995M8.25 20.9999H16.5"
@@ -57,8 +49,8 @@
 
                 <span class="">Guest</span>
             </a>
-            <a href="{{route('rooms.index')}}"
-               class="{{ request()->is('rooms*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+            <a href="{{route('admin.rooms.index')}}"
+               class="{{ request()->is('admin/rooms*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_226_8888)">
                         <path
@@ -74,8 +66,8 @@
 
                 <span>Rooms</span>
             </a>
-            <a href="{{route('roomtype.index')}}"
-               class="{{ request()->is('roomtype*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+            <a href="{{route('admin.roomtype.index')}}"
+               class="{{ request()->is('admin/roomtype*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_226_8888)">
                         <path
@@ -91,8 +83,8 @@
 
                 <span>Room Type</span>
             </a>
-            <a href="{{route('facility.index')}}"
-               class="{{ request()->is('facility*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+            <a href="{{route('admin.facility.index')}}"
+               class="{{ request()->is('admin/facility*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M9.568 3H5.25C4.65326 3 4.08097 3.23705 3.65901 3.65901C3.23705 4.08097 3 4.65326 3 5.25V9.568C3 10.165 3.237 10.738 3.659 11.159L13.24 20.74C13.939 21.439 15.02 21.612 15.847 21.07C17.9286 19.7066 19.7066 17.9286 21.07 15.847C21.612 15.02 21.439 13.939 20.74 13.24L11.16 3.66C10.951 3.45077 10.7029 3.28478 10.4297 3.17154C10.1565 3.05829 9.86371 3 9.568 3Z"
@@ -102,8 +94,8 @@
                 </svg>
                 <span class="">Facilities</span>
             </a>
-            <a href="{{route('hotels.index')}}"
-               class="{{ request()->is('hotels*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+            <a href="{{route('admin.hotels.index')}}"
+               class="{{ request()->is('admin/hotels*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M3.75 21H20.25M4.5 3H19.5M5.25 3V21M18.75 3V21M9 6.75H10.5M9 9.75H10.5M9 12.75H10.5M13.5 6.75H15M13.5 9.75H15M13.5 12.75H15M9 21V17.625C9 17.004 9.504 16.5 10.125 16.5H13.875C14.496 16.5 15 17.004 15 17.625V21"
@@ -111,8 +103,8 @@
                 </svg>
                 <span>Hotels</span>
             </a>
-            <a href="{{route('item.index')}}"
-               class="{{ request()->is('item*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+            <a href="{{route('admin.item.index')}}"
+               class="{{ request()->is('admin/item*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg version="1.1" id="Capa_1" width="24" height="24" class="fill-gray-500"
                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                      viewBox="0 0 473.8 473.8" xml:space="preserve">
@@ -159,8 +151,8 @@
                      x-transition:leave-end="transform opacity-0 scale-95"
                      class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow ">
-                        <a class="font-semibold {{ request()->is('website-settings*') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                           href="{{route('website-settings.index')}}">Website Settings</a>
+                        <a class="font-semibold {{ request()->is('admin.website-settings*') ? 'bg-gray-200 font-bold' : '' }} block px-4 py-2 mt-2 text-sm rounded-lg   md:mt-0   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                           href="{{route('admin.website-settings.index')}}">Website Settings</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            href="#">Link #2</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
@@ -172,7 +164,7 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <a
-                    href="route('logout')"
+                    href="route('admin.logout')"
                     onclick="event.preventDefault();
                                         this.closest('form').submit();"
                     class="md:absolute flex gap-2 items-center cursor-pointer bottom-4 left-2 px-4 py-2 m-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">

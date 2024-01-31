@@ -1,7 +1,7 @@
 <div
-    class="hover:bg-gray-200 transition-all duration-200 lg:p-4 p-3 rounded-xl border border-gray-300 w-full flex lg:flex-col gap-3">
+    class="lg:p-4 p-3 rounded-xl border border-gray-300 w-full flex lg:flex-col gap-3">
     <div class="max-lg:hidden flex justify-end w-full gap-2">
-        <a x-data="{ tooltip: 'Edite' }" href="{{route('item.edit', $item->id)}}"
+        <a x-data="{ tooltip: 'Edite' }" href="{{route('admin.item.edit', $item->id)}}"
            class="w-6 h-6 flex justify-center items-center rounded-md bg-gray-300">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@
                 />
             </svg>
         </a>
-        <form method="POST" action="{{route('item.destroy', $item->id)}}">
+        <form method="POST" action="{{route('admin.item.destroy', $item->id)}}">
             @csrf
             @method('DELETE')
 
@@ -43,11 +43,11 @@
             </button>
         </form>
     </div>
-    <img src="{{asset($item->imggallery->first()->url)}}" alt="empty"
-         class="h-24 w-24 lg:h-36 lg:w-36 mx-auto my-auto object-cover object-center rounded-full">
+    <a href="{{route('admin.item.show', $item->id)}}"><img src="{{asset($item->imggallery->first()->url)}}" alt="empty"
+         class="h-24 w-24 lg:h-36 lg:w-36 mx-auto my-auto object-cover object-center rounded-full cursor-pointer hover:shadow-2xl"></a>
     <div class="flex flex-col gap-3 max-lg:flex-1">
         <div class="lg:hidden flex justify-end w-full gap-4">
-            <a x-data="{ tooltip: 'Edite' }" href="{{route('item.edit', $item->id)}}" class="w-6 h-6 flex justify-center items-center rounded-md bg-gray-300">
+            <a x-data="{ tooltip: 'Edite' }" href="{{route('admin.item.edit', $item->id)}}" class="w-6 h-6 flex justify-center items-center rounded-md bg-gray-300">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -64,7 +64,7 @@
                     />
                 </svg>
             </a>
-            <form method="POST" action="{{route('item.destroy', $item->id)}}" >
+            <form method="POST" action="{{route('admin.item.destroy', $item->id)}}" >
                 @csrf
                 @method('DELETE')
 
@@ -89,7 +89,7 @@
         </div>
         <div class="flex justify-between h-fit w-full">
             <h1 class="font-bold">{{$item->name}}</h1>
-            <p class="text-white text-sm {{ $item->status > $item->min_stock_level? 'bg-green-500/60' : '' }}  {{ $item->quantity < $item->min_stock_level ? 'bg-yellow-500/60' : '' }}  {{ $item->status == 0 ? 'bg-red-500/60' : '' }}  backdrop-blur-md px-2 py-auto rounded-xl items-center">{{$item->status}}</p>
+            <p class="text-white text-sm {{ $item->status > $item->min_stock_level? 'bg-green-500/60' : '' }}  {{ $item->quantity < $item->min_stock_level && $item->quantity > 0 ? 'bg-yellow-500/60' : '' }}  {{ $item->quantity == 0 ? 'bg-red-500/60' : '' }}  backdrop-blur-md px-2 py-auto rounded-xl items-center">{{$item->status}}</p>
         </div>
         <p class="text-blue-500 whitespace-nowrap">${{$item->cost_per_unit}} <span class="text-xs">/each</span></p>
 
@@ -108,7 +108,7 @@
 
             </div>
         </div>
-        <a href="{{route('item.show', $item->id)}}"
+        <a href="{{route('admin.item.show', $item->id)}}"
             class="max-sm:hidden bg-gray-300 hover:bg-gray-400 transition-all duration-200 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center me-2 cursor-pointer">
             see details
         </a>

@@ -9,7 +9,7 @@
     </th>
     <td class="px-6 py-4">
         <div class="flex justify-end md:mr-12 gap-4">
-            <a x-data="{ tooltip: 'Edite' }" href="{{ route('hotels.amenity.update', $amenity->id) }}">
+            <a x-data="{ tooltip: 'Edite' }" href="{{ route('admin.hotels.amenity.update', $amenity->id) }}">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -26,7 +26,7 @@
                     />
                 </svg>
             </a>
-            <form method="POST" action="{{ route('hotels.amenity.destroy', $amenity->id) }}">
+            <form method="POST" action="{{ route('admin.hotels.amenity.destroy', $amenity->id) }}">
                 @csrf
                 @method('DELETE')
 

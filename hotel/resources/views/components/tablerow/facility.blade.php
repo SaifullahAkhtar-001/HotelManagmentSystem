@@ -6,7 +6,7 @@
     </th>
     <td class="px-6 py-4">
         <div class="flex justify-end md:mr-12 gap-4">
-            <a x-data="{ tooltip: 'Edite' }" href="{{ route('facility.edit', $facility->id) }}">
+            <a x-data="{ tooltip: 'Edite' }" href="{{ route('admin.facility.edit', $facility->id) }}">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -23,7 +23,7 @@
                     />
                 </svg>
             </a>
-            <form method="POST" action="{{ route('facility.destroy', $facility->id) }}">
+            <form method="POST" action="{{ route('admin.facility.destroy', $facility->id) }}">
                 @csrf
                 @method('DELETE')
 

@@ -38,7 +38,7 @@ class TermController extends Controller
         $term = Term::with('hotel')->findOrFail($id);
         $term->update($attributes);
 
-        return redirect()->route('hotels.terms', $term->hotel->id )->with('success','Term updated successfully');
+        return redirect()->route('admin.hotels.terms', $term->hotel->id )->with('success','Term updated successfully');
     }
     public function destroy(int $id)
     {

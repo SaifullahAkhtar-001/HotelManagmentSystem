@@ -81,7 +81,7 @@ class RoomController extends Controller
             'imagable_type' => Room::class
         ]);
 
-        return redirect()->route('rooms.index')->with('success', 'Room created successfully.');
+        return redirect()->route('admin.rooms.index')->with('success', 'Room created successfully.');
     }
 
     public function edit(Request $request, $id)
@@ -118,7 +118,7 @@ class RoomController extends Controller
             $this->deleteRoomImage($oldImagePath);
         }
 
-        return redirect()->route('rooms.index')->with('success', 'Room updated successfully.');
+        return redirect()->route('admin.rooms.index')->with('success', 'Room updated successfully.');
     }
 
     public function destroy(string $id)
@@ -131,6 +131,6 @@ class RoomController extends Controller
         ImgGallery::where('imagable_id', $room->id)->where('imagable_type', Room::class)->delete();
         $room->delete();
 
-        return redirect()->route('rooms.index')->with('success', 'Room deleted successfully.');
+        return redirect()->route('admin.rooms.index')->with('success', 'Room deleted successfully.');
     }
 }

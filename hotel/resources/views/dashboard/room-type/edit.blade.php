@@ -6,7 +6,7 @@
     @endif
     <div class="max-w-7xl  mx-auto">
         <x-form.header title="Edit Room Type" subTitle="Here You Will Edit Your Available Room Type!"/>
-        <form method="POST" action="{{route('roomtype.update', $roomtype->id)}}"
+        <form method="POST" action="{{route('admin.roomtype.update', $roomtype->id)}}"
               enctype="multipart/form-data">
             @csrf
             @method('PUT')

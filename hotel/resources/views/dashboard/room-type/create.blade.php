@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl  mx-auto">
         <x-form.header title="Create Room Type" subTitle="Here You Will Add Your Available Room Type!" />
-        <form method="POST" action="{{route('roomtype.store')}}" class="max-w-4xl" enctype="multipart/form-data">
+        <form method="POST" action="{{route('admin.roomtype.store')}}" class="max-w-4xl" enctype="multipart/form-data">
             @csrf
             <x-form.input class="mb-8" name="name" type="name" label="Name" />
             <x-form.input class="mb-8" name="description" type="description" label="Description" />

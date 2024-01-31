@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto">
         <x-form.header title="Create Amenity" subTitle="Here You Will Add The Amenity Information !" />
-        <form method="POST" action="{{route('hotels.amenity.store')}}" enctype="multipart/form-data"
+        <form method="POST" action="{{route('admin.hotels.amenity.store')}}" enctype="multipart/form-data"
               class="max-w-7xl flex flex-col gap-6">
             @csrf
             <input type="hidden" value="{{$hotel->id}}" name="hotel_id">

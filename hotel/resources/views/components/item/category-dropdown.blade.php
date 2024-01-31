@@ -39,7 +39,7 @@
             class="absolute left-0 mt-2 w-56 h-60 overflow-y-scroll rounded-md bg-white shadow-md"
         >
             <a
-                x-on:click="open = false; window.location.href = '{{ route('item.index') }}';"
+                x-on:click="open = false; window.location.href = '{{ route('admin.item.index') }}';"
                 class="cursor-pointer {{ $category == null ? 'bg-blue-100' : '' }} flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"
             >
                 All Items
@@ -62,7 +62,7 @@
             @endphp
 
             @foreach ($categories as $category)
-                <a x-on:click="open = false; window.location.href = '{{ route('item.index', ['category' => $category]) }}';"
+                <a x-on:click="open = false; window.location.href = '{{ route('admin.item.index', ['category' => $category]) }}';"
                    class="cursor-pointer flex items-center gap-2 w-full px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
                     {{ $category}}
                 </a>

@@ -36,13 +36,13 @@
         </div>
     </td>
     <td class="max-md:hidden px-6 py-4 text-blue-500 underline flex gap-6 justify-center items-center">
-        <a href="{{route('hotels.interior', $hotel->id)}}">interior</a>
-        <a href="{{route('hotels.amenity', $hotel->id)}}">amenities</a>
-        <a href="{{route('hotels.terms', $hotel->id)}}">terms & conditions</a>
+        <a href="{{route('admin.hotels.interior', $hotel->id)}}">interior</a>
+        <a href="{{route('admin.hotels.amenity', $hotel->id)}}">amenities</a>
+        <a href="{{route('admin.hotels.terms', $hotel->id)}}">terms & conditions</a>
     </td>
     <td class="px-6 py-4">
         <div class="flex justify-center gap-4">
-            <a x-data="{ tooltip: 'Edite' }" href="{{ route('hotels.edit', $hotel->id) }}">
+            <a x-data="{ tooltip: 'Edite' }" href="{{ route('admin.hotels.edit', $hotel->id) }}">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -59,7 +59,7 @@
                     />
                 </svg>
             </a>
-            <a x-data="{ tooltip: 'Edite' }" href="{{ route('hotels.settings', $hotel->id) }}">
+            <a x-data="{ tooltip: 'Edite' }" href="{{ route('admin.hotels.settings', $hotel->id) }}">
                 <svg fill="" class="h-6 w-6 fill-current hover:fill-green-500 transition-all" version="1.1" id="Capa_1"
                      stroke="currentColor"
                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -93,7 +93,7 @@
                     </g>
                 </svg>
             </a>
-            <form method="POST" action="{{ route('hotels.destroy', $hotel->id) }}">
+            <form method="POST" action="{{ route('admin.hotels.destroy', $hotel->id) }}">
                 @csrf
                 @method('DELETE')
 

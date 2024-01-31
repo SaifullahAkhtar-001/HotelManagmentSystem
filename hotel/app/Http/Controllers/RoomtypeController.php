@@ -80,7 +80,7 @@ class RoomtypeController extends Controller
         $roomtype = Roomtype::create($attributes);
         $this->storeHotelImage($request, $roomtype);
 
-        return redirect()->route('roomtype.index')->with('success', 'Room type created successfully.');
+        return redirect()->route('admin.roomtype.index')->with('success', 'Room type created successfully.');
     }
 
     /**
@@ -116,7 +116,7 @@ class RoomtypeController extends Controller
 
         $this->storeHotelImage($request, $roomtype);
 
-        return redirect()->route('roomtype.index')->with('success', 'Room type updated successfully.');
+        return redirect()->route('admin.roomtype.index')->with('success', 'Room type updated successfully.');
     }
 
     /**
@@ -130,6 +130,6 @@ class RoomtypeController extends Controller
         ImgGallery::where('imagable_id', $roomtype->id)->where('imagable_type', Roomtype::class)->delete();
         $roomtype->delete();
 
-        return redirect()->route('roomtype.index')->with('success', 'Room type deleted successfully.');
+        return redirect()->route('admin.roomtype.index')->with('success', 'Room type deleted successfully.');
     }
 }

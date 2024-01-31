@@ -15,7 +15,7 @@ class ItemController extends Controller
      */
     private function getAttributes(Request $request)
     {
-        return $request->validate([
+        $attributes = $request->validate([
             'name' => 'required',
             'category' => 'required',
             'quantity' => 'required',
@@ -28,6 +28,18 @@ class ItemController extends Controller
             'notes' => 'required',
             'hotel_id' => 'required',
         ]);
+
+        if ($request->quantity < $request->min_stock_level && $request->quantity > 0) {
+            $status = 'Low Stock';
+        } elseif ($request->quantity == 0) {
+            $status = 'Out of Stock';
+        } else {
+            $status = 'Available';
+        }
+
+        $attributes['status'] = $status;
+
+        return $attributes;
     }
 
     private function storeImage(Request $request)
@@ -95,15 +107,7 @@ class ItemController extends Controller
     {
         $attributes = $this->getAttributes($request);
 
-        if ($request->quantity < $request->min_stock_level || $request->quantity > 0 ){
-            $status = 'Low Stock';
-        }elseif ($request->quantity == 0){
-            $status = 'Out of Stock';}
-        else{
-            $status = 'Available';
-        }
 
-        $attributes['status'] = $status;
 
         $request->validate([
             'item_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -118,7 +122,7 @@ class ItemController extends Controller
             'imagable_id' => $item->id,
             'imagable_type' => Item::class
         ]);
-        return redirect()->route('item.index')->with('success', 'Item created successfully.');
+        return redirect()->route('admin.item.index')->with('success', 'Item created successfully.');
     }
 
     /**
@@ -149,9 +153,8 @@ class ItemController extends Controller
         $request->validate([
             'item_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        $item = Item::findOrFail($id)->update($attributes);
-
+        $item = Item::findOrFail($id);
+        $item->update($attributes);
         $oldImagePath = $item->imggallery->first()->url ?? null;
 
         if ($request->hasFile('item_img')) {
@@ -163,7 +166,7 @@ class ItemController extends Controller
             $this->deleteImage($oldImagePath);
         }
 
-        return redirect()->route('item.index')->with('success', 'Item updated successfully.');
+        return redirect()->route('admin.item.index')->with('success', 'Item updated successfully.');
     }
 
     /**
@@ -179,6 +182,6 @@ class ItemController extends Controller
         ImgGallery::where('imagable_id', $item->id)->where('imagable_type', Item::class)->delete();
 
         $item->delete();
-        return redirect()->route('item.index')->with('success', 'Item deleted successfully.');
+        return redirect()->route('admin.item.index')->with('success', 'Item deleted successfully.');
     }
 }
