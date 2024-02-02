@@ -15,7 +15,10 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomtypeController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\WebsiteSettingsController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Models\Hotel;
+use App\Models\User;
 use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 
@@ -83,6 +86,9 @@ Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('a
 
     Route::get('/hotel-settings/{id}', [HotelController::class, 'settings'])->name('hotels.settings');
     Route::post('/hotel-settings', [HotelController::class, 'save_settings'])->name('hotels.save');
+
+    Route::resource('/roles', RoleController::class);
+    Route::resource('/users', UserController::class);
 });
 
 

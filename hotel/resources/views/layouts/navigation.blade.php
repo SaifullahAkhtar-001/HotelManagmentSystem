@@ -189,7 +189,7 @@
                      class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                     <div class="px-2 py-2 bg-white rounded-md shadow ">
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                           href="#">Link #1</a>
+                           href="{{route('admin.users.index')}}">Users</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            href="#">Link #2</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
@@ -201,7 +201,7 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <a
-                    href="route('admin.logout')"
+                    href="{{route('admin.logout')"
                     onclick="event.preventDefault();
                                         this.closest('form').submit();"
                     class="md:absolute flex gap-2 items-center cursor-pointer bottom-4 left-2 px-4 py-2 m-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">

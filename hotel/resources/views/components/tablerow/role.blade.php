@@ -2,11 +2,11 @@
 
 <tr class="hover:bg-gray-50">
     <th class="px-6 py-4 font-bold text-gray-900">
-        <div class="font-medium text-gray-700">name</div>
+        <div class="font-medium text-gray-700">{{$role->name}}</div>
     </th>
     <td class="px-6 py-4">
         <div class="flex justify-end md:mr-12 gap-4">
-            <a x-data="{ tooltip: 'Edite' }" href="#">
+            <a x-data="{ tooltip: 'Edite' }" href="{{route('admin.roles.edit',$role->id)}}">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -23,7 +23,7 @@
                     />
                 </svg>
             </a>
-            <form method="POST" action="#">
+            <form method="POST" action="{{route('admin.roles.destroy',$role->id)}}">
                 @csrf
                 @method('DELETE')
 
