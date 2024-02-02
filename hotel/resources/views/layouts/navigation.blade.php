@@ -168,6 +168,7 @@
 
                 <span class="whitespace-nowrap">Website Settings</span>
             </a>
+
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
                         class="flex items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block   focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
