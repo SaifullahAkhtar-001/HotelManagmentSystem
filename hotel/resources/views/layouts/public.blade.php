@@ -23,7 +23,7 @@
 
 <style>
     .button-color {
-        background-color: {{$website_settings->button_color}}
+        background-color: {{$website_settings->button_color ?? '#000000'}}
 
 
     }
@@ -32,20 +32,20 @@
     }
 
     .hr-color {
-        border-color: {{$website_settings->hr_color}}
+        border-color: {{$website_settings->hr_color ?? '#000000'}}
     }
 
     .text-color {
-        color: {{$website_settings->text_color}}
+        color: {{$website_settings->text_color ?? '#000000'}}
     }
     .h1_color {
-        color: {{$website_settings->h1_color}}
+        color: {{$website_settings->h1_color ?? '#000000'}}
     }
     .h2_color {
-        color: {{$website_settings->h2_color}}
+        color: {{$website_settings->h2_color ?? '#000000'}}
     }
     .h3_color {
-        color: {{$website_settings->h3_color}}
+        color: {{$website_settings->h3_color ?? '#000000'}}
     }
 
 </style>
@@ -53,8 +53,14 @@
 
 
 <div>
-    <x-nav :nav_layout="$website_settings->nav_layout"/>
+    <x-nav :nav_layout="$website_settings->nav_layout ?? 1"/>
+    @if($hotel)
     <div {{ $attributes->merge(['class' => '']) }}>{{$slot}}</div>
+    @else
+        <div class="flex justify-center items-center h-screen">
+            <h1 class="text-4xl text-center">Not Available Right Now</h1>
+        </div>
+    @endif
     @include('public.sections.footer-section')
 </div>
 </body>

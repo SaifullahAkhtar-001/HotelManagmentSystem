@@ -58,7 +58,7 @@
                 </h6>
 
                 <p class="line-clamp-5">
-                    {{$hotel->about}}
+                    {{$hotel->about ?? ''}}
                 </p>
             </div>
 
@@ -119,8 +119,8 @@
                 <hr class="w-16 max-sm:mx-auto border-b-2 border-blue-400"/>
 
                 <div class="mb-4 mt-2 text-lg flex flex-col">
-                    <a href="{{route('terms', $hotel->id)}}" class="hover:underline hover:text-blue-500">Terms And Conditions</a>
-                    <a href="{{route('aboutUs', $hotel->id)}}" class="hover:underline hover:text-blue-500">About Us</a>
+                    <a href="{{$hotel ? route('terms', $hotel->id) : '#'}}" class="hover:underline hover:text-blue-500">Terms And Conditions</a>
+                    <a href="{{$hotel ? route('aboutUs', $hotel->id) : '#'}}" class="hover:underline hover:text-blue-500">About Us</a>
                 </div>
 
             </div>
