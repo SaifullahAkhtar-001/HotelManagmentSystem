@@ -201,7 +201,7 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <a
-                    href="{{route('admin.logout')"
+                    href="{{route('logout')}}"
                     onclick="event.preventDefault();
                                         this.closest('form').submit();"
                     class="md:absolute flex gap-2 items-center cursor-pointer bottom-4 left-2 px-4 py-2 m-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
