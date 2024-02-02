@@ -147,6 +147,7 @@
             <!-- Room Section Settings -->
             <x-website_settings.block-wrapper title="Room Section Settings">
                 <!-- show room section -->
+                @if($roomtypes->count() > 0)
                 <div class="flex flex-col gap-2 py-3 border-b-2 mb-4">
                     <div class="font-bold">Show Room Section</div>
                     <label for="show_room">
@@ -174,6 +175,10 @@
                         @endif
                     </div>
                 @endforeach
+                @else
+                    <div class="flex items-center justify-center w-full h-36 bg-gray-100">
+                        <div class="text-gray-500">No Room Types Found</div>
+                @endif
             </x-website_settings.block-wrapper>
 
 
@@ -184,7 +189,7 @@
     @else
         <div class="flex gap-4 items-center ">
             <p class="text-red-500">No Hotel Found!</p>
-            <a href="{{route('hotels.create')}}" class="bg-blue-500 text-white px-3 py-2 rounded-lg">Create Hotel</a>
+            <a href="{{route('admin.hotels.create')}}" class="bg-blue-500 text-white px-3 py-2 rounded-lg">Create Hotel</a>
         </div>
     @endif
 

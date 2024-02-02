@@ -7,17 +7,25 @@ use App\Models\Hotel;
 use App\Models\Interior;
 use App\Models\Roomtype;
 use App\Models\WebsiteSettings;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $hotel = Hotel::first();
-        $website_settings = WebsiteSettings::first();
-        $room_types = Roomtype::all();
-        $interior = Interior::where('hotel_id', $hotel->id)->get()->first();
-        $amenities = Amenity::where('hotel_id', $hotel->id)->get();
+        if (Hotel::count() > 0) {
+            $hotel = Hotel::first();
+            $website_settings = WebsiteSettings::first();
+            $room_types = Roomtype::all();
+            $interior = Interior::where('hotel_id', $hotel->id)->get()->first();
+            $amenities = Amenity::where('hotel_id', $hotel->id)->get();
+        }else{
+            $hotel = null;
+            $website_settings = null;
+            $room_types = null;
+            $interior = null;
+            $amenities = null;
+        }
+
         return view('public.welcome',compact('hotel', 'website_settings', 'room_types', 'interior', 'amenities'));
     }
     public function room($id)
