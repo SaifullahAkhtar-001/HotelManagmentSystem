@@ -16,10 +16,10 @@ class RoleController extends Controller
         return view('dashboard.role.create');
     }
     public function store(Request $request){
-        
+
         $validated=$request->validate(['name'=>['required','min:3']]);
         Role::create($validated);
-        return to_route('admin.roles.index');
+        return redirect()->route('admin.roles.index')->with('success','Role created successfully');
     }
         public function edit(int $id){
             $role = Role::find($id);
@@ -29,17 +29,17 @@ class RoleController extends Controller
         $role = Role::find($id);
         $validated=$request->validate(['name'=>['required']]);
         $role->update($validated);
-        
-        
-        return to_route('admin.roles.index');
+
+
+        return redirect()->route('admin.roles.index')->with('success','Role Updated successfully');
 
     }
     public function destroy($id){
         $role=Role::find($id);
         $role->delete();
-        
-        
-        return back();
+
+
+        return redirect()->back()->with('success','Role deleted successfully');
 
 }
 }

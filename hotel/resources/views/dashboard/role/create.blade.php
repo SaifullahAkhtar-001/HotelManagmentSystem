@@ -1,15 +1,13 @@
 <x-app-layout>
-    <div class="container mt-5">
-        
-        <form method="Post" action="{{route('admin.roles.store')}}">
+    <div class="max-w-7xl mx-auto">
+        <x-form.header title="Create Role" subTitle="Here You Will Add The Role Information !" />
+        <form method="POST" action="{{route('admin.roles.store')}}" enctype="multipart/form-data"
+              class="max-w-7xl flex flex-col gap-6">
             @csrf
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <x-form.input name="name" type="name" label="Name" />
+            <x-form.submit-button value="Create Role"/>
         </form>
-    </div>
 
+    </div>
 
 </x-app-layout>
