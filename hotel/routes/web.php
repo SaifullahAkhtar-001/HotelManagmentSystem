@@ -4,6 +4,7 @@ use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\FrontDeskController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ImgGalleryController;
@@ -49,6 +50,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('a
     Route::resource('roomtype', RoomtypeController::class);
     Route::resource('facility',FacilityController::class);
     Route::resource('item',ItemController::class);
+    Route::resource('frontDesk', FrontDeskController::class);
 
     Route::post('/updateQuantity/{id}', [ItemController::class, 'updateQuantity'])->name('updateQuantity');
     Route::get('/search-items', [ItemController::class, 'search'])->name('item.search');
