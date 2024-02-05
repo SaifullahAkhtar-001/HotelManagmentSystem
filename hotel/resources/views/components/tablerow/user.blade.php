@@ -9,7 +9,7 @@
     </th>
     <td class="px-6 py-4">
         <div class="flex justify-end md:mr-12 gap-4">
-            <a x-data="{ tooltip: 'Edite' }" href="{{route('admin.roles.index',)}}">
+            <a x-data="{ tooltip: 'Edite' }" href="{{route('admin.users.show',$user->id)}}">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

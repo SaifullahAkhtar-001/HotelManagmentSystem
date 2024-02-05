@@ -89,6 +89,8 @@ Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('a
 
     Route::resource('/roles', RoleController::class);
     Route::resource('/users', UserController::class);
+    Route::post('/users/{user}/roles',[UserController::class,'assignRole'])->name('users.roles');
+    Route::delete('/users/{user}/roles/{role}',[UserController::class,'removeRole'])->name('users.roles.remove');
 });
 
 
