@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-app-layout>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>Role Edit Form</title>
-</head>
-
-<body>
-
-    <p>{{ session('message') }}</p>
-
+    <x-form.header :title="$user->name" :subTitle="$user->email"/>
     <div class="container mt-5">
-        <div class="form-group">
-            <div>{{ $user->name }}</div>
-            <div>{{ $user->email }}</div>
-        </div>
-        
-        <div class="mt-4 p-2">
-
+        <h2 class="text-xl font-semibold">Assigned role Roles</h2>
+        <div class="mt-4 p-2 flex gap-4">
              @if ($user->roles)
                 @foreach ($user->roles as $user_role)
                     <span>
@@ -29,42 +12,42 @@
 
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">{{ $user_role->name }}</button>
+                            <button type="submit"
+                                    class="flex space-x-4 items-center px-3 py-2 bg-indigo-500 hover:bg-indigo-800 rounded-full drop-shadow-md">
+                                <span class="text-white text-md ">{{ $user_role->name }}</span>
+                                <svg class="svg-icon h-[20px] w-[20px] overflow-hidden fill-white"
+                                     viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M810.65984 170.65984q18.3296 0 30.49472 12.16512t12.16512 30.49472q0 18.00192-12.32896 30.33088l-268.67712 268.32896 268.67712 268.32896q12.32896 12.32896 12.32896 30.33088 0 18.3296-12.16512 30.49472t-30.49472 12.16512q-18.00192 0-30.33088-12.32896l-268.32896-268.67712-268.32896 268.67712q-12.32896 12.32896-30.33088 12.32896-18.3296 0-30.49472-12.16512t-12.16512-30.49472q0-18.00192 12.32896-30.33088l268.67712-268.32896-268.67712-268.32896q-12.32896-12.32896-12.32896-30.33088 0-18.3296 12.16512-30.49472t30.49472-12.16512q18.00192 0 30.33088 12.32896l268.32896 268.67712 268.32896-268.67712q12.32896-12.32896 30.33088-12.32896z"/></svg>
+                            </button>
                         </form>
                     </span>
                 @endforeach
 
             @endif
-        </div>  
+        </div>
 
-         
+
         <div class='mt-6 p-2'>
-            <h2 class="text-2xl font-semibold">Roles</h2>
-            
+            <h2 class="text-2xl font-semibold">Assign Roles</h2>
 
         </div>
         <div>
             <form method="POST" action="{{ route('admin.users.roles',  $user->id) }}">
                 @csrf
-        
-                <label for="role">Roles:</label>
-                <select class="form-control" id="role" name="role">
+                <div class="flex gap-4 my-4 p-4">
                     @foreach ($roles as $role)
-                        <option value="{{ $role->name }}">{{ $role->name }}</option>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="{{ $role->id }}" name="roles[]" value="{{ $role->name }}" class="sr-only peer">
+                            <div
+                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
+                            <span class="ms-3 text-sm font-medium text-gray-500">{{ $role->name }}</span>
+                        </label>
                     @endforeach
-                </select>
-                <button type="submit" class="btn btn-primary">Assign Role</button>
+                </div>
+                <x-form.submit-button value="Assign" />
             </form>
         </div>
-        
-        
+
+
     </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-</body>
-
-</html> 
+</x-app-layout>
