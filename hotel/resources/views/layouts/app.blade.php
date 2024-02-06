@@ -30,6 +30,7 @@
         <x-flash/>
         {{ $slot }}
     </main>
+    
 </div>
 </body>
 </html>

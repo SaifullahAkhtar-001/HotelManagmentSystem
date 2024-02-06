@@ -18,9 +18,12 @@ use App\Http\Controllers\TermController;
 use App\Http\Controllers\WebsiteSettingsController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PermissionController;
 use App\Models\Hotel;
 use App\Models\User;
 use App\Models\Room;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -91,8 +94,12 @@ Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('a
 
     Route::resource('/roles', RoleController::class);
     Route::resource('/users', UserController::class);
+    Route::resource('/permissions', PermissionController::class);
     Route::post('/users/{user}/roles',[UserController::class,'assignRole'])->name('users.roles');
     Route::delete('/users/{user}/roles/{role}',[UserController::class,'removeRole'])->name('users.roles.remove');
+    Route::Post('/roles/{role}/permissions',[RoleController::class ,'givepermission'])->name('roles.permission');
+    Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])
+    ->name('roles.permissions.revoke');
 });
 
 
