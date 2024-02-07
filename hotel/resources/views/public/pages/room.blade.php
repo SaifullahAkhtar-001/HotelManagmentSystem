@@ -9,7 +9,7 @@
             <span>Go back</span>
         </button>
         <section class="flex flex-col h-fit gap-2">
-            <div style="background-image: url('{{ asset($room->imggallery->where('is_hero', true)->first()->url) }}');"
+            <div style="background-image: url('{{ asset($room->imggallery->where('is_hero', true)->first()->url ?? $room->imggallery->first()->url) }}');"
                  class="bg-opacity-50 bg-cover bg-center h-[70vh] bg-stone-300 text-white">
                 <div class="h-full pt-3 bg-black/30 backdrop-blur-sm">
                     <div class="h-[90vh] max-w-3xl mx-8 pt-[12vh] md:pt-[25vh] flex flex-col justify-start gap-4">

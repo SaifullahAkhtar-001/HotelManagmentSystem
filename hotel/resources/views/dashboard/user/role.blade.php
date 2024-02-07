@@ -47,7 +47,5 @@
                 <x-form.submit-button value="Assign" />
             </form>
         </div>
-
-
     </div>
 </x-app-layout>
