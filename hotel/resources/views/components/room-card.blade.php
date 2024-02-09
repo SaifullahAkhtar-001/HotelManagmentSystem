@@ -11,7 +11,7 @@
     <div class="mx-4">
         <div class="flex justify-between my-5 ">
             <div class="text-blue-500 text-2xl font-bold">{{ $room->name }} Room</div>
-            <div class="text-base text-right"><span class="font-bold">{{ $room->price }}</span>/Day</div>
+            <div class="text-base text-right">Starting form <span class="font-bold">${{ $room->price }}</span></div>
         </div>
         <h2 class="font-light line-clamp-3 md:h-28 h-auto overflow-hidden">{{ $room->description }}
         </h2>

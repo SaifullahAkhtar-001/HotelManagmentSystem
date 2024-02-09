@@ -11,8 +11,6 @@
             <tr>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Name</th>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Price</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Capacity</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Size</th>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
             </tr>
             </thead>

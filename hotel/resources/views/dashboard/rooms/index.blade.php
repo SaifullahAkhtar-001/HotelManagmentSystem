@@ -8,11 +8,13 @@
             <table class="w-full border-collapse text-left text-sm text-gray-500">
                 <thead class="bg-gray-50">
                 <tr>
-
-                    <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Room Number</th>
+                    <th scope="col" class=" px-6 py-4 font-medium text-gray-900">Room Number</th>
                     <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Description</th>
-                    <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Room Type</th>
-                    <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Status</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Room Type</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Status</th>
+                    <th scope="col" class="max-md:hidden px-6 py-4 font-medium text-gray-900">Size</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Category</th>
+                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Price</th>
                     <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
                 </tr>
                 </thead>

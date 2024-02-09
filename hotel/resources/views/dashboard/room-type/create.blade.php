@@ -6,8 +6,6 @@
             <x-form.input class="mb-8" name="name" type="name" label="Name" />
             <x-form.input class="mb-8" name="description" type="description" label="Description" />
             <x-form.input class="mb-8" name="price" type="number" label="Price" />
-            <x-form.input class="mb-8" name="capacity" type="number" label="Capacity" />
-            <x-form.input class="mb-8" name="size" type="number" label="Size" />
             <x-form.input class="mb-8" name="cancellation_policy" type="text" label="Cancellation Policy" />
             <div class="my-3 max-w-xs">
                 <label for="example1" class="mb-1 block text-sm font-medium text-gray-700">Upload image</label>

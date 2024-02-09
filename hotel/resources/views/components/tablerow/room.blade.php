@@ -4,8 +4,11 @@
         <div class="font-medium text-gray-700">{{$room->room_number}}</div>
     </th>
     <td class="max-md:hidden px-6 py-4">{{$room->description}}</td>
-    <td class="max-md:hidden px-6 py-4">{{$room->roomType->name}}</td>
-    <td class="max-md:hidden px-6 py-4">{{$room->status}}</td>
+    <td class="px-6 py-4">{{$room->roomType->name}}</td>
+    <td class="px-6 py-4">{{$room->status}}</td>
+    <td class="max-md:hidden px-6 py-4">{{$room->size}}</td>
+    <td class="px-6 py-4">{{$room->category}}</td>
+    <td class="px-6 py-4">${{$room->price}}</td>
     <td class="px-6 py-4">
         <div class="flex justify-center gap-4">
             <a x-data="{ tooltip: 'Edite' }" href="{{ route('admin.rooms.edit', $room->id) }}">

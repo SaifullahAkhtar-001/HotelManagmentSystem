@@ -8,6 +8,20 @@
                 <x-form.input :value="$room->room_number" name="room_number" type="text" label="Room Number"/>
                 <x-form.input :value="$room->description" name="description" type="text" label="Description"/>
             </div>
+            <div class="flex max-md:flex-col gap-3">
+                <x-form.input name="size" type="number" label="Room Size Per Sqr-ft" :value="$room->size" class="flex-1"/>
+                <x-form.input name="capacity" type="number" label="Capacity" :value="$room->capacity" class="flex-1"/>
+                <x-form.input name="price" type="number" label="Price" :value="$room->price" class="flex-1"/>
+            </div>
+
+            <label for="category" class="block mb-2 text-sm font-medium text-gray-500 ">Select Category
+                <select name="category" id="category"
+                        class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5">
+                    <option value="single" {{ $room->category == 'single' ? 'selected' : '' }}>Single</option>
+                    <option value="double" {{ $room->category == 'double' ? 'selected' : '' }}>Double</option>
+                    <option value="family" {{ $room->category == 'family' ? 'selected' : '' }}>Family</option>
+                </select>
+            </label>
             <label for="status" class="block mb-2 text-sm font-medium text-gray-900 ">Select Status
                 <select name="status" id="status"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5">

@@ -45,8 +45,6 @@ class RoomtypeController extends Controller
             'description' => 'required|string|max:555',
             'cancellation_policy' => 'required|string|max:555',
             'price' => 'required|numeric',
-            'capacity' => 'required|numeric',
-            'size' => 'required|numeric',
         ]);
         return $attributes;
     }

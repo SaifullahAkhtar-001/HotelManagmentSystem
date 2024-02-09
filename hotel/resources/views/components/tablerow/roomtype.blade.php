@@ -7,12 +7,6 @@
     <th class="px-6 py-4 font-bold text-gray-900">
         <div class="font-medium text-gray-700">$ {{$roomtype->price}}</div>
     </th>
-    <th class="px-6 py-4 font-bold text-gray-900">
-        <div class="font-medium text-gray-700">{{$roomtype->capacity}}</div>
-    </th>
-    <th class="px-6 py-4 font-bold text-gray-900">
-        <div class="font-medium text-gray-700">{{$roomtype->size}} sq feet</div>
-    </th>
     <td class="px-6 py-4">
         <div class="flex justify-end md:mr-12 gap-4">
             <a x-data="{ tooltip: 'Edite' }" href="{{ route('admin.roomtype.edit', $roomtype->id) }}">

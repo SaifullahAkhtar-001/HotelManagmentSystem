@@ -61,9 +61,13 @@ class RoomController extends Controller
         $attributes = $request->validate([
             'hotel_id' => 'required|exists:hotels,id,user_id,' . auth()->id(),
             'room_type_id' => 'required|exists:roomtypes,id',
-            'room_number' => 'required',
+            'room_number' => 'required|numeric|unique:rooms,room_number',
             'description' => 'nullable|string',
             'status' => 'required|string',
+            'price' => 'required|numeric',
+            'capacity' => 'required|numeric',
+            'size' => 'required|numeric',
+            'category' => 'required|string'
         ]);
 
         $request->validate([
@@ -98,7 +102,11 @@ class RoomController extends Controller
         $attributes = $request->validate([
             'room_number' => 'required|string',
             'description' => 'required|string',
-            'status' => 'required'
+            'status' => 'required',
+            'price' => 'required|numeric',
+            'capacity' => 'required|numeric',
+            'size' => 'required|numeric',
+            'category' => 'required|string'
         ]);
 
         $request->validate([

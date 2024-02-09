@@ -12,7 +12,7 @@
                     @endforeach
                 </select>
             </label>
-            <label for="room_type_id" class="block mb-2 text-sm font-medium text-gray-500 ">Select the Hotel
+            <label for="room_type_id" class="block mb-2 text-sm font-medium text-gray-500 ">Select the Room Type
                 <select name="room_type_id" id="room_type_id"
                         class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5">
                     @foreach($roomTypes as $roomType)
@@ -22,10 +22,23 @@
             </label>
 
             <div class="flex gap-3">
-                <x-form.input name="room_number" type="text" label="Room Number" class="w-32"/>
+                <x-form.input name="room_number" type="number" label="Room Number" class="w-32"/>
                 <x-form.input name="description" type="text" label="Description" class="flex-1"/>
             </div>
+            <div class="flex max-md:flex-col gap-3">
+                <x-form.input name="size" type="number" label="Room Size Per Sqr-ft" class="flex-1"/>
+                <x-form.input name="capacity" type="number" label="Capacity" class="flex-1" min="1" max="8"/>
+                <x-form.input name="price" type="number" label="Price" class="flex-1"/>
+            </div>
 
+            <label for="category" class="block mb-2 text-sm font-medium text-gray-500 ">Select Category
+                <select name="category" id="category"
+                        class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5">
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="family">Family</option>
+                </select>
+            </label>
             <label for="status" class="block mb-2 text-sm font-medium text-gray-500 ">Select Status
                 <select name="status" id="status"
                         class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5">

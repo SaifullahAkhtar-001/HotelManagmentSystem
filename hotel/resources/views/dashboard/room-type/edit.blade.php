@@ -15,8 +15,6 @@
                           :value="$roomtype->description"/>
             <div class="flex gap-3">
                 <x-form.input class="mb-8 flex-1" name="price" type="number" label="Price" :value="$roomtype->price"/>
-                <x-form.input class="mb-8 flex-1" name="capacity" type="number" label="Capacity" :value="$roomtype->capacity"/>
-                <x-form.input class="mb-8 flex-1" name="size" type="number" label="Size" :value="$roomtype->size"/>
             </div>
             <x-form.input class="mb-8" name="cancellation_policy" type="text" label="Cancellation Policy"
                           :value="$roomtype->cancellation_policy"/>
