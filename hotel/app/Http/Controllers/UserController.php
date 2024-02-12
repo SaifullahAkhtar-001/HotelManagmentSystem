@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use spatie\permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -60,4 +61,48 @@ class UserController extends Controller
         }
         return redirect()->back()->with('success', 'Role not exist');
     }
+    public function givePermission(Request $request ,User $user){
+    
+@dd($request->permission);
+        if($user->hasPermissionTo($request->permission)){
+            
+            return back()->with('message','permission exist');
+        }
+        
+        $user->givePermissionTo($request->permission);  
+        
+        return redirect()->back()->with('message','Permission Grarnted');
+    }
+
+        
+    
+     public function revokePermission(user $user ,permission $permission) {
+    // $permission = Permission::findOrFail($permission);
+    // $role = User::findOrFail($user);
+
+    
+
+    if ($user->hasPermissionTo($permission)) {
+        $user->revokePermissionTo($permission);
+        return redirect()->back()->with('message', 'Permission Revoked');
+    }
+
+    return redirect()->back()->with('message', 'Permission Not exists');
+}
+public function showPermissions(User $user)
+{
+    // Get all roles
+    
+    $allpermissions=Permission::all();
+
+    // Get roles of the user
+    
+    $userPermissions= $user->permissions;
+
+    // Exclude user's roles from all roles
+    $permissions = $allpermissions->diff($userPermissions);
+
+    return view('dashboard.user.permission', compact('user', 'permissions'));
+}
+
 }
