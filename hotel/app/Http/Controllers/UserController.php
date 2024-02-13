@@ -61,18 +61,16 @@ class UserController extends Controller
         }
         return redirect()->back()->with('success', 'Role not exist');
     }
-    public function givePermission(Request $request ,User $user){
-    
-@dd($request->permission);
-        if($user->hasPermissionTo($request->permission)){
-            
-            return back()->with('message','permission exist');
+    public function givePermission(Request $request, User $user){
+        foreach ($request->permissions as $permission) {
+            if ($user->hasPermissionTo($permission)) {
+                return back()->with('message', 'Permission exists');
+            }
+            $user->givePermissionTo($permission);
         }
-        
-        $user->givePermissionTo($request->permission);  
-        
-        return redirect()->back()->with('message','Permission Grarnted');
+        return redirect()->back()->with('message', 'Permissions granted');
     }
+    
 
         
     

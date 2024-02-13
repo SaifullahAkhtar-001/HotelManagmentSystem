@@ -2,12 +2,12 @@
 
     <x-form.header :title="$user->name" :subTitle="$user->email"/>
     <div class="container mt-5">
-        <h2 class="text-xl font-semibold">Assigned Permissions</h2>
+        <h2 class="text-xl font-semibold">Given Permissions</h2>
         <div class="mt-4 p-2 flex gap-4">
              @if ($user->permissions)
                 @foreach ($user->permissions as $user_permission)
                     <span>
-                        <form method="post" action="{{ route('admin.users.permissions.revoke', ['user' => $user->id, 'role' => $user_permission->id]) }}"
+                        <form method="post" action="{{ route('admin.users.permissions.revoke', ['user' => $user->id, 'permission' => $user_permission->id]) }}"
                             onsubmit="return confirm ('Are You Sure');">
 
                             @csrf
@@ -28,26 +28,24 @@
 
 
         <div class='mt-6 p-2'>
-            <h2 class="text-2xl font-semibold">Given Permissions</h2>
+            <h2 class="text-2xl font-semibold">Give Permission</h2>
 
         </div>
         <div>
-            <form method="POST" action="{{ route('admin.users.Permissions',  $user->id) }}">
+            <form method="POST" action="{{ route('admin.users.permissions', $user->id) }}">
                 @csrf
                 <div class="flex gap-4 my-4 p-4">
                     @foreach ($permissions as $permission)
-                    
                         <label class="relative inline-flex items-center cursor-pointer">
-                        
                             <input type="checkbox" id="{{ $permission->id }}" name="permissions[]" value="{{ $permission->name }}" class="sr-only peer">
-                            <div
-                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
                             <span class="ms-3 text-sm font-medium text-gray-500">{{ $permission->name }}</span>
                         </label>
                     @endforeach
                 </div>
                 <x-form.submit-button value="GivePermission" />
             </form>
+            
         </div>
     </div>
 </x-app-layout>
