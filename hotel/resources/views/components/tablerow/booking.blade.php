@@ -1,21 +1,20 @@
 @props(['booking'])
-
 <tr class="hover:bg-gray-50">
     <th class="px-6 py-4 font-bold text-gray-900">
-        <a href="{{route('admin.guest.show' , $booking->id)}}"><div class="font-medium text-gray-700">{{$booking->id}}</div></a>
+        <a href="#" ><div class="font-medium text-gray-700">{{$booking->id}}</div></a>
     </th>
     <th class="px-6 py-4 font-bold text-gray-900">
-        <a href="{{route('admin.booking.show' , $booking->id)}}"><div class="font-medium text-gray-700">{{$booking->name}}</div></a>
+        <a href="#" ><div class="font-medium text-gray-700">{{$booking->guest->name}}</div></a>
     </th>
     <th class="px-6 py-4 font-bold text-gray-900">
-        <a href="{{route('admin.booking.show' , $booking->id)}}"><div class="font-medium text-gray-700">{{$booking->phone}}</div></a>
+        <a href="#" ><div class="font-medium text-gray-700">{{$booking->room->room_number}}</div></a>
     </th>
     <th class="px-6 py-4 font-bold text-gray-900">
-        <a href="{{route('admin.booking.show' , $booking->id)}}"><div class="font-medium text-gray-700">{{$booking->email}}</div></a>
+        <a href="#" ><div class="font-medium text-gray-700">{{$booking->guest->email}}</div></a>
     </th>
     <td class="px-6 py-4">
         <div class="flex justify-end md:mr-12 gap-4">
-            <a x-data="{ tooltip: 'Edite' }" href="{{ route('admin.booking.edit', $booking->id) }}">
+            <a x-data="{ tooltip: 'Edite' }" href="">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -32,7 +31,7 @@
                     />
                 </svg>
             </a>
-            <form method="POST" action="{{ route('admin.booking.destroy', $booking->id) }}">
+            <form method="POST" action="">
                 @csrf
                 @method('DELETE')
 

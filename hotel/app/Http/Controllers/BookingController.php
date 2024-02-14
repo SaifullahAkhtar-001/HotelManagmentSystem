@@ -36,7 +36,6 @@ class BookingController extends Controller
             'payment_status' => 'required',
             'payment_method' => 'required',
             'payment_payload' => 'required',
-            'payment_response' => 'required',
             'payment_amount' => 'required',
             'payment_currency' => 'required',
         ]));

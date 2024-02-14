@@ -21,4 +21,9 @@ class Room extends Model
     public function imggallery(){
         return $this->morphMany(ImgGallery::class,'imagable');
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
