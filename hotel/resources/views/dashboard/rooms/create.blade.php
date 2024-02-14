@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="max-w-7xl  mx-auto">
+    <div class="max-w-7xl mx-auto">
         <x-form.header title="Create Room" subTitle="Here You Will Add Your Available Room!"/>
         <form method="POST" action="{{route('admin.rooms.store')}}" class="flex flex-col gap-4" enctype='multipart/form-data'>
             @csrf

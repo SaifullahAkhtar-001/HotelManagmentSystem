@@ -1,16 +1,17 @@
 <?php
 
 use App\Http\Controllers\AmenityController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\FrontDeskController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ImgGalleryController;
 use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\ItemController;
-use App\Http\Controllers\NotInteriorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomtypeController;
@@ -45,7 +46,7 @@ Route::get('/{id}/aboutUs', [HomeController::class, 'aboutUs'])->name('aboutUs')
 Route::get('facility/create',[FacilityController::class,'facilityCreate'])->name('facility.create');
 
 
-Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(function () {
+Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('admin')->group(callback: function () {
     Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
 
     Route::resource('hotels', HotelController::class);
@@ -54,6 +55,11 @@ Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('a
     Route::resource('facility',FacilityController::class);
     Route::resource('item',ItemController::class);
     Route::resource('frontDesk', FrontDeskController::class);
+    Route::resource('guest', GuestController::class);
+
+    Route::get('bookings', [BookingController::class, 'index'])->name('booking.index');
+    Route::get('bookings/create/{id}', [BookingController::class, 'create'])->name('booking.create');
+    Route::post('bookings/store', [BookingController::class, 'store'])->name('booking.store');
 
     Route::post('/updateQuantity/{id}', [ItemController::class, 'updateQuantity'])->name('updateQuantity');
     Route::get('/search-items', [ItemController::class, 'search'])->name('item.search');
