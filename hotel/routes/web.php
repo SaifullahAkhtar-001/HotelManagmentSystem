@@ -106,6 +106,10 @@ Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('a
     Route::Post('/roles/{role}/permissions',[RoleController::class ,'givepermission'])->name('roles.permission');
     Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])
     ->name('roles.permissions.revoke');
+    Route::post('/users/{user}/permissions',[UserController::class,'givePermission'])->name('users.Permissions');
+    Route::delete('/users/{user}/permissions/{permission}',[UserController::class,'revokePermission' ])->name('users.permissions.revoke');
+     Route::get('/users/{user}/permissions',[UserController::class,'showPermissions'])->name('users.permissions');
+
 });
 
 

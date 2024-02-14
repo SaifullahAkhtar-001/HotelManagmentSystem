@@ -14,8 +14,8 @@ class RoleController extends Controller
         return view('dashboard.role.index',compact('roles'));
     }
     public function create(){
-       
-        return view('dashboard.role.create');
+       $permissions=Permission::all();
+        return view('dashboard.role.create',compact('permissions'));
     }
     public function store(Request $request){
 

@@ -30,7 +30,7 @@
         @endif
     </div> 
     <div>
-        <form method="POST" action="{{route('admin.roles.permission', $role->id)}}">
+        <form method="POST" action="{{route('admin.roles.permission',$role->id)}}">
             @csrf
             
             <label for="permissionSelect">Select Permission:</label>
