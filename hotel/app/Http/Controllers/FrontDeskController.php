@@ -46,9 +46,10 @@ class FrontDeskController extends Controller
 
         $roomtypes = Roomtype::all();
 
+        $totalRoom = Room::all();
 
 
-        return view('dashboard.frontDesk.index', compact('rooms', 'roomtypes', 'category', 'roomType', 'capacity', 'price'));
+        return view('dashboard.frontDesk.index', compact('totalRoom' ,'rooms', 'roomtypes', 'category', 'roomType', 'capacity', 'price'));
     }
 
     /**

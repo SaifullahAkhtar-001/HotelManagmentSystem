@@ -31,7 +31,7 @@
             </a>
             <a href="{{route('admin.frontDesk.index')}}"
                class="{{ request()->is('admin/frontDesk*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="24" height="24"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M16.862 4.487L18.549 2.799C18.9007 2.44733 19.3777 2.24976 19.875 2.24976C20.3723 2.24976 20.8493 2.44733 21.201 2.799C21.5527 3.15068 21.7502 3.62766 21.7502 4.125C21.7502 4.62235 21.5527 5.09933 21.201 5.451L10.582 16.07C10.0533 16.5984 9.40137 16.9867 8.685 17.2L6 18L6.8 15.315C7.01328 14.5986 7.40163 13.9467 7.93 13.418L16.862 4.487ZM16.862 4.487L19.5 7.125M18 14V18.75C18 19.3467 17.7629 19.919 17.341 20.341C16.919 20.763 16.3467 21 15.75 21H5.25C4.65326 21 4.08097 20.763 3.65901 20.341C3.23705 19.919 3 19.3467 3 18.75V8.25C3 7.65327 3.23705 7.08097 3.65901 6.65901C4.08097 6.23706 4.65326 6 5.25 6H10"
                         stroke="#5D6679" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -39,8 +39,17 @@
 
                 <span class="">Front Desk</span>
             </a>
-            <a href="#"
-               class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+            <a href="{{route('admin.booking.index')}}"
+               class="{{ request()->is('admin/booking*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                <svg width="24" height="24" class="fill-gray-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="m13.817 5.669 4.504 4.501-8.15 8.15-4.501-4.504zm-3.006 13.944 8.8-8.8c.166-.163.27-.389.27-.64s-.103-.477-.269-.64l-5.156-5.156c-.166-.158-.392-.255-.64-.255s-.474.097-.64.256l-8.8 8.8c-.166.163-.27.389-.27.64s.103.477.269.64l5.156 5.156c.166.158.392.255.64.255s.474-.097.64-.256zm12.663-9.073-12.918 12.933c-.332.326-.787.527-1.289.527s-.957-.201-1.289-.527l-1.794-1.793c.477-.492.77-1.164.77-1.905 0-1.513-1.227-2.74-2.74-2.74-.74 0-1.412.294-1.905.771l.001-.001-1.781-1.794c-.326-.332-.527-.787-.527-1.289s.201-.957.527-1.289l12.919-12.906c.332-.326.787-.527 1.289-.527s.957.201 1.289.527l1.781 1.781c-.515.499-.835 1.197-.835 1.969 0 1.513 1.227 2.74 2.74 2.74.773 0 1.471-.32 1.969-.835l.001-.001 1.794 1.781c.326.332.527.787.527 1.289s-.201.957-.527 1.289z"/>
+                </svg>
+
+                <span class="">Booking</span>
+            </a>
+            <a href="{{route('admin.guest.index')}}"
+               class="{{ request()->is('admin/guest*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M11.35 3.836C11.285 4.046 11.25 4.269 11.25 4.5C11.25 4.914 11.586 5.25 12 5.25H16.5C16.6989 5.25 16.8897 5.17098 17.0303 5.03033C17.171 4.88968 17.25 4.69891 17.25 4.5C17.2501 4.27491 17.2164 4.05109 17.15 3.836M11.35 3.836C11.492 3.3767 11.7774 2.97493 12.1643 2.68954C12.5511 2.40414 13.0192 2.25011 13.5 2.25H15C16.012 2.25 16.867 2.918 17.15 3.836M11.35 3.836C10.974 3.859 10.6 3.886 10.226 3.916C9.095 4.01 8.25 4.973 8.25 6.108V8.25M17.15 3.836C17.526 3.859 17.9 3.886 18.274 3.916C19.405 4.01 20.25 4.973 20.25 6.108V16.5C20.25 17.0967 20.0129 17.669 19.591 18.091C19.169 18.5129 18.5967 18.75 18 18.75H15.75M8.25 8.25H4.875C4.254 8.25 3.75 8.754 3.75 9.375V20.625C3.75 21.246 4.254 21.75 4.875 21.75H14.625C15.246 21.75 15.75 21.246 15.75 20.625V18.75M8.25 8.25H14.625C15.246 8.25 15.75 8.754 15.75 9.375V18.75M7.5 15.75L9 17.25L12 13.5"
@@ -106,7 +115,7 @@
             <a href="{{route('admin.item.index')}}"
                class="{{ request()->is('admin/item*') ? 'bg-gray-200 font-bold' : '' }} flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                 <svg version="1.1" id="Capa_1" width="24" height="24" class="fill-gray-500"
-                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 473.8 473.8" xml:space="preserve">
                 <g>
                     <path d="M454.8,111.7c0-1.8-0.4-3.6-1.2-5.3c-1.6-3.4-4.7-5.7-8.1-6.4L241.8,1.2c-3.3-1.6-7.2-1.6-10.5,0L25.6,100.9
@@ -133,9 +142,10 @@
             </a>
             <a href="{{route('admin.website-settings.index')}}"
                class="flex items-end gap-2 px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg  focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                <svg fill="" width="24" height="24" class=" fill-gray-600 hover:fill-green-500 transition-all" version="1.1" id="Capa_1"
+                <svg fill="" width="24" height="24" class=" fill-gray-600 hover:fill-green-500 transition-all"
+                     version="1.1" id="Capa_1"
                      stroke="currentColor"
-                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 478.703 478.703" xml:space="preserve">
                     <g>
                         <g>
