@@ -2,9 +2,9 @@
 
     <x-form.header :title="$user->name" :subTitle="$user->email"/>
     <div class="container mt-5">
-        <h2 class="text-xl font-semibold">Assigned Roles</h2>
+        <h2 class="text-2xl font-semibold">Assigned Roles</h2>
         <div class="mt-4 p-2 flex gap-4">
-             @if ($user->roles)
+             @if ($user->roles->isNotEmpty())
                 @foreach ($user->roles as $user_role)
                     <span>
                         <form method="post" action="{{ route('admin.users.roles.remove', ['user' => $user->id, 'role' => $user_role->id]) }}"
@@ -22,6 +22,8 @@
                         </form>
                     </span>
                 @endforeach
+                @else
+                <p>No Role Assigned to this User</p>
 
             @endif
         </div>
