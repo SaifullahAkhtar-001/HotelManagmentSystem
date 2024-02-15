@@ -60,6 +60,10 @@ Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('a
     Route::get('bookings', [BookingController::class, 'index'])->name('booking.index');
     Route::get('bookings/create/{id}', [BookingController::class, 'create'])->name('booking.create');
     Route::post('bookings/store', [BookingController::class, 'store'])->name('booking.store');
+    Route::get('bookings/show/{id}', [BookingController::class, 'show'])->name('booking.show');
+    Route::get('bookings/edit/{id}', [BookingController::class, 'edit'])->name('booking.edit');
+    Route::put('bookings/update/{id}', [BookingController::class, 'update'])->name('booking.update');
+    Route::delete('bookings/destroy/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
 
     Route::post('/updateQuantity/{id}', [ItemController::class, 'updateQuantity'])->name('updateQuantity');
     Route::get('/search-items', [ItemController::class, 'search'])->name('item.search');

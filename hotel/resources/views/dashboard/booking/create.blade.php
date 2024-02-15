@@ -1,9 +1,6 @@
 <x-app-layout>
-    @if($errors->any())
-        @dd($errors->all())
-    @endif
-    <x-form.header title="Create Booking"  subTitle="fjhfkhka"/>
-    <form method="POST" action="{{route('admin.booking.store')}}" class="flex flex-col gap-4" enctype='multipart/form-data'>
+    <x-form.header title="Create Booking"  subTitle="Book the room for customer"/>
+    <form method="POST" action="{{route('admin.booking.store')}}" class="flex flex-col gap-4">
         @csrf
         <input type="hidden" name="room_id" value="{{$room->id}}">
         <div class="flex gap-4">
