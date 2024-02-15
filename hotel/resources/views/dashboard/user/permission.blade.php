@@ -2,9 +2,9 @@
 
     <x-form.header :title="$user->name" :subTitle="$user->email"/>
     <div class="container mt-5">
-        <h2 class="text-xl font-semibold">Given Permissions</h2>
+        <h2 class="text-2xl font-semibold">Given Permissions</h2>
         <div class="mt-4 p-2 flex gap-4">
-             @if ($user->permissions)
+             @if ($user->permissions->isNotEmpty())
                 @foreach ($user->permissions as $user_permission)
                     <span>
                         <form method="post" action="{{ route('admin.users.permissions.revoke', ['user' => $user->id, 'permission' => $user_permission->id]) }}"
@@ -22,6 +22,8 @@
                         </form>
                     </span>
                 @endforeach
+                @else
+                <p>No permission is Giver to this User</p>
 
             @endif
         </div>
