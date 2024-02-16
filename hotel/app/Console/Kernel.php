@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Models\Booking;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -12,7 +13,21 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function () {
+            // Update room statuses
+            $bookingsToUpdate = Booking::where('check_in', '<=', now())->where('check_out', '>=', now())->get();
+            $bookingsToUpdate->each(function ($booking) {
+                $booking->room->status = 'occupied';
+                $booking->room->save();
+            });
+
+            $bookingsToRelease = Booking::where('check_out', '<', now())->get();
+            foreach ($bookingsToRelease as $booking) {
+                $room = $booking->room;
+                $room->status = 'available';
+                $room->save();
+            }
+        })->everyMinute();
     }
 
     /**
@@ -24,4 +39,5 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
 }

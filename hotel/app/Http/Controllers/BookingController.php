@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
-    public function index()
+public function index()
     {
         $bookings = Booking::all();
         return view('dashboard.booking.index', compact('bookings'));
