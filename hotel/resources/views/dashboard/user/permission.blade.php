@@ -30,7 +30,7 @@
 
 
         <div class='mt-6 p-2'>
-            <h2 class="text-2xl font-semibold">Give Permission</h2>
+            <h2 class="text-2xl font-semibold">Give Permissions</h2>
 
         </div>
         <div>
