@@ -11,8 +11,6 @@ class BookingController extends Controller
 {
 public function index()
     {
-        $bookingsToUpdate = Booking::where('check_in', '<=', now())->where('check_out', '>=', now())->get();
-        dd($bookingsToUpdate);
         $bookings = Booking::all();
         return view('dashboard.booking.index', compact('bookings'));
     }
