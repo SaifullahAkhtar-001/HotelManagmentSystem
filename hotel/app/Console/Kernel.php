@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Models\Booking;
+use App\Models\Room;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -17,15 +18,12 @@ class Kernel extends ConsoleKernel
             // Update room statuses
             $bookingsToUpdate = Booking::where('check_in', '<=', now())->where('check_out', '>=', now())->get();
             $bookingsToUpdate->each(function ($booking) {
-                $booking->room->status = 'occupied';
-                $booking->room->save();
+                Room::where('id', $booking->room_id)->first()->update(['status' => 'reserved']);
             });
 
             $bookingsToRelease = Booking::where('check_out', '<', now())->get();
             foreach ($bookingsToRelease as $booking) {
-                $room = $booking->room;
-                $room->status = 'available';
-                $room->save();
+                Room::where('id', $booking->room_id)->first()->update(['status' => 'available']);
             }
         })->everyMinute();
     }

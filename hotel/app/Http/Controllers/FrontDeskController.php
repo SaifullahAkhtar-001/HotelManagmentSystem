@@ -43,7 +43,6 @@ class FrontDeskController extends Controller
 
         $rooms = $rooms->where('status', 'available');
 
-
         $roomtypes = Roomtype::all();
 
         $totalRoom = Room::all();
