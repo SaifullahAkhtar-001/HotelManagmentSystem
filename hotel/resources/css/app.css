@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .hover_im{
     position: absolute;
     right: 12px;

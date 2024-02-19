@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\Roomtype;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class FrontDeskController extends Controller
 {
@@ -17,11 +18,20 @@ class FrontDeskController extends Controller
         $roomType = $request->input('roomtype');
         $capacity = $request->input('capacity');
         $price = $request->input('price');
+        $dateTimeRange = $request->input('dateTimeRange');
+        $dateTimeParts = explode(' - ', $dateTimeRange);
 
-        // Initialize the query with all rooms
+        if ($request->filled('dateTimeRange')) {
+            $startDateTime = Carbon::parse($dateTimeParts[0])->format('Y-m-d\TH:i');
+            $endDateTime = Carbon::parse($dateTimeParts[1])->format('Y-m-d\TH:i');
+        }else{
+            $startDateTime = null;
+            $endDateTime = null;
+        }
+
+
         $roomsQuery = Room::query();
 
-        // Apply all filters simultaneously
         if ($category) {
             $roomsQuery->where('category', $category);
         }
@@ -38,8 +48,14 @@ class FrontDeskController extends Controller
             $roomsQuery->where('price', '<=', $price);
         }
 
-        // Retrieve filtered rooms
         $rooms = $roomsQuery->get();
+
+        if ($startDateTime && $endDateTime) {
+            $rooms = Room::whereDoesntHave('bookings', function ($query) use ($startDateTime, $endDateTime) {
+                $query->where('check_in', '<', $endDateTime)
+                    ->where('check_out', '>', $startDateTime);
+            })->get();
+        }
 
         $rooms = $rooms->where('status', 'available');
 
@@ -48,7 +64,7 @@ class FrontDeskController extends Controller
         $totalRoom = Room::all();
 
 
-        return view('dashboard.frontDesk.index', compact('totalRoom' ,'rooms', 'roomtypes', 'category', 'roomType', 'capacity', 'price'));
+        return view('dashboard.frontDesk.index', compact('totalRoom' ,'rooms', 'roomtypes', 'category', 'roomType', 'capacity', 'price', 'startDateTime', 'endDateTime'));
     }
 
     /**

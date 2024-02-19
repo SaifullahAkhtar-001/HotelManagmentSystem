@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Guest;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class BookingController extends Controller
 {
@@ -24,11 +25,9 @@ public function index()
 
     public function store(Request $request)
     {
-        Booking::create($request->validate([
+        $attributes = $request->validate([
             'room_id' => 'required',
             'guest_id' => 'required',
-            'check_in' => 'required',
-            'check_out' => 'required',
             'adults' => 'required',
             'children' => 'required',
             'nights' => 'required',
@@ -38,7 +37,20 @@ public function index()
             'payment_payload' => 'required',
             'payment_amount' => 'required',
             'payment_currency' => 'required',
-        ]));
+        ]);
+        $dateTimeRange = $request->input('dateTimeRange');
+        $dateTimeParts = explode(' - ', $dateTimeRange);
+
+        if ($request->filled('dateTimeRange')) {
+            $checkIn = Carbon::parse($dateTimeParts[0])->format('Y-m-d\TH:i');
+            $checkOut = Carbon::parse($dateTimeParts[1])->format('Y-m-d\TH:i');
+        }else{
+            $checkIn = null;
+            $checkOut = null;
+        }
+        $attributes['check_in'] = $checkIn;
+        $attributes['check_out'] = $checkOut;
+        Booking::create($attributes);
         return redirect()->route('admin.booking.index')->with('success', 'Booking created successfully');
     }
 

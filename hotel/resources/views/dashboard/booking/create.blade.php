@@ -47,10 +47,22 @@
             <x-form.input type="number" min="0" max="4" name="adults" label="adults" class="w-16"/>
             <x-form.input type="number" min="0" max="4" name="children" label="children" class="w-16"/>
         </div>
-        <div class="flex gap-3">
-            <x-form.input type="datetime-local" name="check_in" label="Check In" class="w-56"/>
-            <x-form.input type="datetime-local" name="check_out" label="Check Out" class="w-56"/>
+        <div>
+            <label class="mt-4 text-sm font-medium text-gray-500">Check In and Check Out</label>
+            <input type="text" class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5" name="dateTimeRange" />
         </div>
         <x-form.submit-button value="Book"/>
     </form>
 </x-app-layout>
+<script>
+    $(function() {
+        $('input[name="dateTimeRange"]').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'M/DD hh:mm A'
+            }
+        });
+    });
+</script>

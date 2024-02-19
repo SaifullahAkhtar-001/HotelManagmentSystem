@@ -36,7 +36,7 @@ class UpdateRoomStatus extends Command
         // Update room statuses for bookings to release
         $bookingsToRelease = Booking::where('check_out', '<', now())->get();
         foreach ($bookingsToRelease as $booking) {
-            Room::where('id', $booking->room_id)->update(['status' => 'available']);
+            Room::where('id', $booking->room_id)->update(['status' => 'maintenance']);
             $booking->delete();
         }
     }

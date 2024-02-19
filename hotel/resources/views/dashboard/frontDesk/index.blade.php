@@ -5,7 +5,7 @@
             <p class="mt-1 text-sm">Use filters to further refine search</p>
             <form action="{{route('admin.frontDesk.index')}}" method="GET">
                 @csrf
-                <div class="md:flex md:flex-col gap-8">
+                <div class="md:flex md:flex-col gap-4">
                     <div class="md:flex gap-8 mt-6">
                         <div>
                             <h1 class="mb-4 text-sm font-medium text-gray-500">Room Categories</h1>
@@ -37,6 +37,10 @@
                     </div>
                     <x-form.input name="capacity" type="number" label="Capacity" value="{{ $capacity ?? '' }}"/>
                     <x-form.input name="price" type="number" label="Price" value="{{ $price ?? '' }}" class="max-md:mt-4" />
+                    <div>
+                        <label class="mt-4 text-sm font-medium text-gray-500">Check In and Check Out</label>
+                        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5" name="dateTimeRange" />
+                    </div>
                 </div>
                 <div class="md:absolute max-md:mt-10 flex gap-5 bottom-8 right-10">
                     <a href="{{route('admin.frontDesk.index')}}" class="active:scale-95 rounded-lg bg-gray-200 px-6 py-3 font-medium text-gray-600 outline-none focus:ring hover:opacity-90">Reset</a>
@@ -125,3 +129,15 @@
 
     </div>
 </x-app-layout>
+<script>
+    $(function() {
+        $('input[name="dateTimeRange"]').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'M/DD hh:mm A'
+            }
+        });
+    });
+</script>
