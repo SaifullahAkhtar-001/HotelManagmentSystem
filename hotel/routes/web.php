@@ -113,6 +113,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('a
     Route::post('/users/{user}/permissions',[UserController::class,'givePermission'])->name('users.Permissions');
     Route::delete('/users/{user}/permissions/{permission}',[UserController::class,'revokePermission' ])->name('users.permissions.revoke');
      Route::get('/users/{user}/permissions',[UserController::class,'showPermissions'])->name('users.permissions');
+     Route::get('/send-ending-booking-notifications', [BookingController::class, 'sendEndingBookingNotifications']);
 
 });
 

@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Notifications\BookingsEndingSoon;
+
 use App\Models\Guest;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 
 class BookingController extends Controller
 {
 public function index()
     {
+        
         $bookings = Booking::all();
         return view('dashboard.booking.index', compact('bookings'));
     }
@@ -27,6 +32,7 @@ public function index()
     {
         $attributes = $request->validate([
             'room_id' => 'required',
+             'user_id' => 'required',
             'guest_id' => 'required',
             'adults' => 'required',
             'children' => 'required',
@@ -50,6 +56,8 @@ public function index()
         }
         $attributes['check_in'] = $checkIn;
         $attributes['check_out'] = $checkOut;
+         $attributes['user_id'] = Auth::id();
+        
         Booking::create($attributes);
         return redirect()->route('admin.booking.index')->with('success', 'Booking created successfully');
     }
@@ -94,6 +102,19 @@ public function index()
         $booking = Booking::findOrFail($id);
         $booking->delete();
         return redirect()->route('admin.booking.index')->with('success', 'Booking deleted successfully');
+    }
+    public function sendEndingBookingNotifications()
+    {
+        $endingBookings = Booking::where('check_out', '>', now())
+            ->where('check_out', '<', now()->addHour())
+            ->get();
+            
+
+        foreach ($endingBookings as $booking) {
+            $booking->user->notify(new BookingsEndingSoon($booking));
+        }
+
+        
     }
 
 
