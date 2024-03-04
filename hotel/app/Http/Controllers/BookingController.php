@@ -30,9 +30,10 @@ public function index()
 
     public function store(Request $request)
     {
+        
         $attributes = $request->validate([
             'room_id' => 'required',
-             'user_id' => 'required',
+             
             'guest_id' => 'required',
             'adults' => 'required',
             'children' => 'required',
@@ -56,7 +57,8 @@ public function index()
         }
         $attributes['check_in'] = $checkIn;
         $attributes['check_out'] = $checkOut;
-         $attributes['user_id'] = Auth::id();
+        
+         
         
         Booking::create($attributes);
         return redirect()->route('admin.booking.index')->with('success', 'Booking created successfully');
@@ -81,6 +83,7 @@ public function index()
         $booking = Booking::findOrFail($id);
         $booking->update($request->validate([
             'room_id' => 'required',
+            
             'guest_id' => 'required',
             'check_in' => 'required',
             'check_out' => 'required',
@@ -111,7 +114,7 @@ public function index()
             
 
         foreach ($endingBookings as $booking) {
-            $booking->user->notify(new BookingsEndingSoon($booking));
+            $booking->guest->notify(new BookingsEndingSoon($booking));
         }
 
         

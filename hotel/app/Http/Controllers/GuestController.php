@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guest;
+use App\Models\user;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -43,6 +44,12 @@ class GuestController extends Controller
     {
         $attributes = $this->getAttributes();
         Guest::create($attributes);
+        $userAttributes=[
+            'name'=>$attributes['name'],
+            'email'=>$attributes['email'],
+            'password'=>'password',
+        ];
+        $user = User::create($userAttributes);
         return redirect()->route('admin.guest.index')->with('success', 'Guest created successfully');
     }
 
