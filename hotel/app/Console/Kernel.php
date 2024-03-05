@@ -2,17 +2,12 @@
 
 namespace App\Console;
 
-use App\Models\Booking;
-use App\Models\Room;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
-    protected $commands = [
-        Commands\UpdateRoomStatus::class,
-    ];
+    protected $commands = [Commands\UpdateRoomStatus::class,Commands\BookingEndingSoonNotification::class];
 
     /**
      * Define the application's command schedule.
@@ -20,12 +15,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('update-room-status')->everyMinute();
-        
-    
-}
+        $schedule->command('booking-ending-soon-notification')->hourly();
 
-
-    
+    }
 
 
     /**
@@ -33,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands(): void
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
