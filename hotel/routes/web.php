@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\categoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilityController;
@@ -114,6 +115,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->name('admin.')->prefix('a
     Route::delete('/users/{user}/permissions/{permission}',[UserController::class,'revokePermission' ])->name('users.permissions.revoke');
      Route::get('/users/{user}/permissions',[UserController::class,'showPermissions'])->name('users.permissions');
      Route::get('/send-ending-booking-notifications', [BookingController::class, 'sendEndingBookingNotifications']);
+     Route::resource('/categories', categoryController::class);
 
 });
 

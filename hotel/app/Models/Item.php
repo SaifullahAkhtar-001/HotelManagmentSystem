@@ -14,4 +14,7 @@ class Item extends Model
     public function imggallery(){
         return $this->morphMany(ImgGallery::class,'imagable');
     }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

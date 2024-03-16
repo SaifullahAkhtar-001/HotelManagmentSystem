@@ -13,11 +13,6 @@ class Hotel extends Model
         'id'
     ];
 
-    protected $casts = [
-        'interior' => 'json',
-        'amenities' => 'json',
-    ];
-
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);

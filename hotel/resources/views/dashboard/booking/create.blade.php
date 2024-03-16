@@ -36,6 +36,14 @@
                     <option value="paypal">Paypal</option>
                 </select>
             </label>
+            <label for="item_id" class="block mb-2 text-sm font-medium text-gray-500 ">Select the Item
+                <select id="item_id" name="item_id"
+                        class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5">
+                    @foreach($items as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </label>
         </div>
         <div class="flex gap-4">
             <x-form.input type="number" label="nights" name="nights" class="w-36"/>

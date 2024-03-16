@@ -205,6 +205,8 @@
                            href="{{route('admin.roles.index')}}">Roles</a>
                         <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            href="{{route('admin.permissions.index')}}">Permissins</a>
+                           <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                           href="{{route('admin.categories.index')}}">Categories</a>
                     </div>
                 </div>
             </div>
