@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ImgGallery;
 use App\Models\Item;
+use App\Models\category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -80,6 +81,7 @@ class ItemController extends Controller
     }
     public function index(Request $request)
     {
+        $categories=Category::all();
         $items = Item::query();
 
         $category = null;
@@ -89,7 +91,7 @@ class ItemController extends Controller
         }
 
         $filteredItems = $items->paginate(30);
-        return view('dashboard.items.index', compact('filteredItems', 'category'));
+        return view('dashboard.items.index', compact('filteredItems', 'category','categories'));
     }
 
     /**
@@ -97,7 +99,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('dashboard.items.create');
+        $categories=Category::all();
+        return view('dashboard.items.create',compact('categories'));
     }
 
     /**

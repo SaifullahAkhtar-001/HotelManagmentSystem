@@ -6,7 +6,7 @@
             item</a>
     </div>
    
-    <x-item.category-dropdown :category="$category" />
+    <x-item.category-dropdown :categories="$categories" />
     
     @if($filteredItems->isEmpty())
         <section>
